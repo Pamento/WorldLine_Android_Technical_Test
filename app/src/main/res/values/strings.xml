@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">The movie</string>
+    <string name="concerned_public_adult">Uniquement pour les adultes</string>
+    <string name="concerned_public_all">Tout public</string>
 </resources>
