@@ -20,7 +20,7 @@ class MoviesViewModel(private val moviesRepository: MoviesRepository) : ViewMode
 
     private fun fetchMovies() {
         viewModelScope.launch {
-            moviesList.value = moviesRepository.getMovies().results
+            moviesList.value = moviesRepository.getMovies()
         }
     }
 }
