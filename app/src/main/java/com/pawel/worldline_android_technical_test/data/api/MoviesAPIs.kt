@@ -9,12 +9,12 @@ import retrofit2.http.Path
 interface MoviesAPIs {
 
     @GET("/movie/popular?api_key=" + BuildConfig.API_KEY + "&language=fr=&page=1")
-    suspend fun getMovies() : Movie
+    suspend fun getMovies() : MovieApiResponse
 
     @GET("/movie/{movie_id}?api_key=" + BuildConfig.API_KEY + "&language=fr=&page=1")
     suspend fun getMovieDetail(
         @Path("movie_id") movieID: String,
-    ) : MovieApiResponse
+    ) : Movie
 
 
 }
