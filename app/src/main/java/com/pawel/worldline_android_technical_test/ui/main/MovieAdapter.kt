@@ -3,6 +3,7 @@ package com.pawel.worldline_android_technical_test.ui.main
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -11,23 +12,19 @@ import com.pawel.worldline_android_technical_test.data.model.movies.Result
 import com.pawel.worldline_android_technical_test.databinding.ItemMovieBinding
 import com.pawel.worldline_android_technical_test.util.Consts.POSTER_URL
 
-class MovieAdapter(private val context: Context): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(private val context: Context, private val onClickItem: OnMovieItemClickListener) : RecyclerView.Adapter<MovieViewHolder>() {
 
     var movies = mutableListOf<Result>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MovieViewHolder(context, binding)
+        return MovieViewHolder(context, binding, onClickItem)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(movies[position])
-//        with(holder) {
-//            with(movies[position]) {
-//
-//            }
-//        }
     }
+
     override fun getItemCount(): Int = movies.size
 
     fun setItems(data: List<Result>) {
@@ -35,23 +32,27 @@ class MovieAdapter(private val context: Context): RecyclerView.Adapter<MovieView
         notifyItemInserted(movies.size)
     }
 }
-class MovieViewHolder(context: Context, private val view: ItemMovieBinding) : RecyclerView.ViewHolder(view.root) {
+
+
+class MovieViewHolder(
+    context: Context,
+    private val view: ItemMovieBinding,
+    private val onMovieItemClickListener: OnMovieItemClickListener
+) :
+    RecyclerView.ViewHolder(view.root), View.OnClickListener {
 
     private val adultStr: String = context.getString(R.string.concerned_public_adult)
     private val allPublic: String = context.getString(R.string.concerned_public_all)
 
+    init {
+        view.root.setOnClickListener(this)
+    }
+
     private fun publicFor(bool: Boolean) = if (bool) adultStr else allPublic
 
     // url example: https://image.tmdb.org/t/p/w200//rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg
-    private fun setUrl(endpoint: String?): String {
-//        val urlBuilder = Uri.Builder()
-//        urlBuilder.scheme("https")
-//            .authority(POSTER_URL)
-//            .appendPath("w200/")
-//            .appendPath(endpoint)
-//        urlStr = urlBuilder.toString()
-        return "${POSTER_URL}w200/$endpoint"
-    }
+    private fun setUrl(endpoint: String?) = "${POSTER_URL}w200/$endpoint"
+
     fun bind(movie: Result) {
         val url = setUrl(movie.posterPath)
         Log.i("TAG", "bind: endpoint?:: ${movie.posterPath}")
@@ -66,4 +67,15 @@ class MovieViewHolder(context: Context, private val view: ItemMovieBinding) : Re
             .placeholder(R.drawable.img_not_found_square)
             .into(view.itemMoviePoster)
     }
+
+    override fun onClick(v: View?) {
+        val position = absoluteAdapterPosition
+        if (position != RecyclerView.NO_POSITION) {
+            onMovieItemClickListener.onMovieItemClick(position)
+        }
+    }
+}
+
+interface OnMovieItemClickListener {
+    fun onMovieItemClick(position: Int)
 }

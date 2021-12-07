@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +16,7 @@ import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.databinding.MainFragmentBinding
 import com.pawel.worldline_android_technical_test.di.ViewModelFactory
 
-class MoviesListFrg : Fragment() {
+class MoviesListFrg : Fragment(), OnMovieItemClickListener {
 
     companion object {
         fun newInstance() = MoviesListFrg()
@@ -34,7 +35,7 @@ class MoviesListFrg : Fragment() {
         viewModel = ViewModelProviders.of(this,
             ViewModelFactory(ApiHelperImpl(createNetworkService()))
         )[MoviesViewModel::class.java]
-        adapter = MovieAdapter(requireContext())
+        adapter = MovieAdapter(requireContext(),this)
         setRecyclerView()
         return binding.root
     }
@@ -61,9 +62,13 @@ class MoviesListFrg : Fragment() {
     private fun setMovieObserver() {
         viewModel.movies.observe(viewLifecycleOwner,{
             it?.let {
-                Log.i("TAG", "setMovieObserver: it.size:: ${it.size}")
                 adapter.setItems(it)
             }
         })
+    }
+
+    override fun onMovieItemClick(position: Int) {
+        Toast.makeText(requireContext(),"Clicked on item at position: $position", Toast.LENGTH_SHORT).show()
+        Log.i("TAG", "onMovieItemClick: $position")
     }
 }
