@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 
 class Result {
     @Json(name = "adult")
-    var adult: Boolean? = null
+    var isAdult = false
 
     @Json(name = "backdrop_path")
     var backdropPath: String? = null
@@ -13,7 +13,7 @@ class Result {
     var genreIds: List<Int>? = null
 
     @Json(name = "id")
-    var id: Int? = null
+    var id = 0
 
     @Json(name = "original_language")
     var originalLanguage: String? = null
@@ -25,7 +25,7 @@ class Result {
     var overview: String? = null
 
     @Json(name = "popularity")
-    var popularity: Double? = null
+    var popularity = 0.0
 
     @Json(name = "poster_path")
     var posterPath: String? = null
@@ -37,11 +37,11 @@ class Result {
     var title: String? = null
 
     @Json(name = "video")
-    var video: Boolean? = null
+    var isVideo = false
 
     @Json(name = "vote_average")
-    var voteAverage: Double? = null
+    var voteAverage = 0.0
 
     @Json(name = "vote_count")
-    var voteCount: Int? = null
+    var voteCount = 0
 }

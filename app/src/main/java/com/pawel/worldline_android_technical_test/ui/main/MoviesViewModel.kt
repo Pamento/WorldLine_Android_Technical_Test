@@ -1,5 +1,6 @@
 package com.pawel.worldline_android_technical_test.ui.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,7 +21,9 @@ class MoviesViewModel(private val moviesRepository: MoviesRepository) : ViewMode
 
     private fun fetchMovies() {
         viewModelScope.launch {
+            Log.i("TAG", "MViewM_fetchMovies: RUN")
             moviesList.value = moviesRepository.getMovies()
+            Log.i("TAG", "MViewM_fetchMovies: movies.size:: ${moviesList.value?.size}")
         }
     }
 }

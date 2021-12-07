@@ -22,19 +22,33 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_title"
         style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/space_normal"
+        android:maxLines="2"
+        android:minLines="1"
+        app:layout_constraintEnd_toStartOf="@+id/item_moviePoster"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Movie Title" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_concernedPublic"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_title"
+        tools:text="Only for the adults" />
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/space_normal"
+        android:layout_marginBottom="@dimen/space_small"
         android:maxLines="3"
         android:minLines="1"
         android:singleLine="false"
@@ -45,14 +59,6 @@
         app:layout_constraintWidth_default="spread"
         tools:text="Very long text, briefly... Lorem ipsum postume agate blisti dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/item_concernedPublic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_title"
-        tools:text="Only for the adults"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_dateProduction"

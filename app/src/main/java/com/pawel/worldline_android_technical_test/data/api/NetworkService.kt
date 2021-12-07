@@ -14,8 +14,9 @@ private fun basicOkHttpClient() = OkHttpClient.Builder().addInterceptor(httpInte
 
 fun createNetworkService(): MoviesAPIs {
     val retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create()).client(basicOkHttpClient())
         .baseUrl(BASE_URL)
+        .client(basicOkHttpClient())
+        .addConverterFactory(MoshiConverterFactory.create())
         .build()
     return retrofit.create(MoviesAPIs::class.java)
 }
