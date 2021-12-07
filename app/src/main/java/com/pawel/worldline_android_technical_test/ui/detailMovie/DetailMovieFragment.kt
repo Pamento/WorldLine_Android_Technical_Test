@@ -1,12 +1,13 @@
 package com.pawel.worldline_android_technical_test.ui.detailMovie
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pawel.worldline_android_technical_test.R
+import com.pawel.worldline_android_technical_test.data.model.movie.Movie
 import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
 
 class DetailMovieFragment : Fragment() {
@@ -15,24 +16,55 @@ class DetailMovieFragment : Fragment() {
         private const val MOVIE_ID = "movie_id"
         fun newInstance(movieID: Int) = DetailMovieFragment().apply {
             arguments = Bundle().apply {
-                putInt(MOVIE_ID,movieID)
+                putInt(MOVIE_ID, movieID)
             }
         }
     }
 
     private lateinit var viewModel: DetailMovieViewModel
     private var binding: DetailMovieFragmentBinding? = null
+    private var idOfMovie = -1
+    private lateinit var movie: Movie
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        arguments?.getInt(MOVIE_ID)?.let {
+            idOfMovie = it
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.detail_movie_fragment, container, false)
+    ): View {
+        binding = DetailMovieFragmentBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[DetailMovieViewModel::class.java]
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[DetailMovieViewModel::class.java]
+        if (idOfMovie > -1) {
+            viewModel.getMovie(idOfMovie.toString())
+            setOnMovieResponseObserver()
+        }
     }
 
+    private fun setOnMovieResponseObserver() {
+        viewModel.movie.observe(viewLifecycleOwner, {
+            if (it != null) {
+                movie = it
+                updateUI()
+            }
+        })
+    }
+
+    private fun updateUI() {
+        // TODO make xml file and bind it with movie.
+    }
+
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
+    }
 }
