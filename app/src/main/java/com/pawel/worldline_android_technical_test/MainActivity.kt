@@ -1,7 +1,8 @@
 package com.pawel.worldline_android_technical_test
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.pawel.worldline_android_technical_test.ui.main.MoviesListFragment
 
 class MainActivity : AppCompatActivity() {
@@ -10,9 +11,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MoviesListFragment.newInstance())
-                .commitNow()
+            replaceFragment(MoviesListFragment.newInstance())
         }
+    }
+
+    fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment).commitNow()
     }
 }

@@ -11,10 +11,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.pawel.worldline_android_technical_test.MainActivity
 import com.pawel.worldline_android_technical_test.data.api.ApiHelperImpl
 import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.databinding.MainFragmentBinding
 import com.pawel.worldline_android_technical_test.di.ViewModelFactory
+import com.pawel.worldline_android_technical_test.ui.detailMovie.DetailMovieFragment
 
 class MoviesListFragment : Fragment(), OnMovieItemClickListener {
 
@@ -68,8 +70,12 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     override fun onMovieItemClick(position: Int) {
-        Toast.makeText(requireContext(),"Clicked on item at position: $position", Toast.LENGTH_SHORT).show()
         Log.i("TAG", "onMovieItemClick: $position")
+        val movieID = viewModel.movieId(position)
+        movieID?.let {
+            val mainActivity = requireActivity() as MainActivity
+            mainActivity.replaceFragment(DetailMovieFragment.newInstance(it))
+        }
     }
 
     override fun onDestroyView() {

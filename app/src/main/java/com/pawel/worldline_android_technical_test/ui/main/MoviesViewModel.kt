@@ -25,4 +25,6 @@ class MoviesViewModel(private val moviesRepository: MoviesRepository) : ViewMode
             moviesList.value = moviesRepository.getMovies()
         }
     }
+
+    fun movieId(position: Int) = moviesList.value?.get(position)?.id
 }

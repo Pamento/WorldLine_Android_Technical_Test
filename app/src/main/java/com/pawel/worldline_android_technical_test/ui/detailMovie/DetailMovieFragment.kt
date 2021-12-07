@@ -1,14 +1,17 @@
 package com.pawel.worldline_android_technical_test.ui.detailMovie
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.pawel.worldline_android_technical_test.data.api.ApiHelperImpl
+import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.data.model.movie.Movie
 import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
+import com.pawel.worldline_android_technical_test.di.ViewModelFactory
 
 class DetailMovieFragment : Fragment() {
 
@@ -38,7 +41,9 @@ class DetailMovieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DetailMovieFragmentBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[DetailMovieViewModel::class.java]
+        viewModel = ViewModelProviders.of(this,
+            ViewModelFactory(ApiHelperImpl(createNetworkService()))
+        )[DetailMovieViewModel::class.java]
         return binding!!.root
     }
 

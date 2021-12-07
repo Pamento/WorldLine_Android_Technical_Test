@@ -55,8 +55,6 @@ class MovieViewHolder(
 
     fun bind(movie: Result) {
         val url = setUrl(movie.posterPath)
-        Log.i("TAG", "bind: endpoint?:: ${movie.posterPath}")
-        Log.i("TAG", "bind: URL?:: $url")
         view.itemTitle.text = movie.title
         view.itemConcernedPublic.text = publicFor(movie.isAdult)
         view.itemDescription.text = movie.overview
