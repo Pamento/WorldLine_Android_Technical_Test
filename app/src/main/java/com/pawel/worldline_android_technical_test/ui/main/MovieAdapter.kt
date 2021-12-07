@@ -1,7 +1,6 @@
 package com.pawel.worldline_android_technical_test.ui.main
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,10 @@ import com.pawel.worldline_android_technical_test.data.model.movies.Result
 import com.pawel.worldline_android_technical_test.databinding.ItemMovieBinding
 import com.pawel.worldline_android_technical_test.util.Consts.POSTER_URL
 
-class MovieAdapter(private val context: Context, private val onClickItem: OnMovieItemClickListener) : RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(
+    private val context: Context,
+    private val onClickItem: OnMovieItemClickListener
+) : RecyclerView.Adapter<MovieViewHolder>() {
 
     var movies = mutableListOf<Result>()
 
@@ -58,7 +60,6 @@ class MovieViewHolder(
         view.itemTitle.text = movie.title
         view.itemConcernedPublic.text = publicFor(movie.isAdult)
         view.itemDescription.text = movie.overview
-        view.itemDateProduction.text = movie.releaseDate
         Glide.with(view.itemMoviePoster.context)
             .load(url)
             .error(R.drawable.img_not_found_square)

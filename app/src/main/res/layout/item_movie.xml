@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/space_small">
+    android:paddingVertical="@dimen/space_small"
+    android:paddingBottom="@dimen/space_normal">
 
     <ImageView
         android:id="@+id/item_moviePoster"
@@ -49,7 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/space_normal"
-        android:layout_marginBottom="@dimen/space_small"
+        android:layout_marginBottom="@dimen/space_normal"
         android:maxLines="3"
         android:minLines="1"
         android:singleLine="false"
@@ -60,14 +61,4 @@
         app:layout_constraintWidth_default="spread"
         tools:text="Very long text, briefly... Lorem ipsum postume agate blisti dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/item_dateProduction"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_small"
-        app:layout_constraintEnd_toEndOf="@id/item_moviePoster"
-        app:layout_constraintStart_toStartOf="@+id/item_moviePoster"
-        app:layout_constraintTop_toBottomOf="@id/item_moviePoster"
-        tools:text="2021/12/06" />
 </androidx.constraintlayout.widget.ConstraintLayout>

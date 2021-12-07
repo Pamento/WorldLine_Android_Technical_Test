@@ -19,16 +19,29 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.05" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/detailMovie_guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/detailMovie_guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/detailMovie_backdrop"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="2:1"
             android:contentDescription="@string/app_name"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/detailMovie_guideline3"
+            app:layout_constraintStart_toStartOf="@+id/detailMovie_guideline2"
             app:layout_constraintTop_toTopOf="@+id/detailMovie_guideline1"
-            app:layout_constraintWidth_percent="0.8"
             tools:src="@drawable/img_not_found_square" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -56,10 +69,12 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/detailMovie_poster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_normal"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_overview"
             tools:src="@drawable/img_not_found_square" />

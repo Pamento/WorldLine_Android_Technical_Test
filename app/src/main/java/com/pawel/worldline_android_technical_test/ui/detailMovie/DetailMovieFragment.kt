@@ -5,14 +5,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
+import com.pawel.worldline_android_technical_test.R
 import com.pawel.worldline_android_technical_test.data.api.ApiHelperImpl
 import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.data.model.movie.Movie
-import com.pawel.worldline_android_technical_test.data.model.movie.ProductionCompany
 import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
 import com.pawel.worldline_android_technical_test.di.ViewModelFactory
+import com.pawel.worldline_android_technical_test.util.Consts.POSTER_URL
+import com.pawel.worldline_android_technical_test.util.helpers.addComaInPrice
+import com.pawel.worldline_android_technical_test.util.helpers.buildStringForCompanies
+import com.pawel.worldline_android_technical_test.util.helpers.frenchFormatOfDate
+import com.pawel.worldline_android_technical_test.util.helpers.getListSize
 
 class DetailMovieFragment : Fragment() {
 
@@ -62,21 +69,42 @@ class DetailMovieFragment : Fragment() {
         viewModel.movie.observe(viewLifecycleOwner, {
             if (it != null) {
                 movie = it
-                updateUI()
+                updateUITexts()
+                updateUIImageView(
+                    binding.detailMovieBackdrop.context,
+                    "${POSTER_URL}w500/${movie.backdropPath}",
+                    binding.detailMovieBackdrop
+                )
+                updateUIImageView(
+                    binding.detailMoviePoster.context,
+                    "${POSTER_URL}w300/${movie.posterPath}",
+                    binding.detailMoviePoster
+                )
             }
         })
     }
 
-    private fun updateUI() {
+    private fun updateUIImageView(context: Context, url: String, into: AppCompatImageView) {
+        Glide.with(context)
+            .load(url)
+            .error(R.drawable.img_not_found_square)
+            .into(into)
+    }
+
+    private fun updateUITexts() {
         val companiesNumber: Int = movie.productionCompanies?.let {
             getListSize(it)
         } ?: 0
         binding.detailMovieTitle.text = movie.title
         binding.detailMovieOverview.text = movie.overview
-        // TODO convert format to franche format
-        binding.detailMovieReleaseDateBody.text = movie.releaseDate
+        movie.releaseDate?.let {
+            binding.detailMovieReleaseDateBody.text = frenchFormatOfDate(it)
+        } ?: run {
+            binding.detailMovieReleaseDateBody.visibility = View.GONE
+            binding.detailMovieReleaseDateTitle.visibility = View.GONE
+        }
         binding.detailMovieRatingBody.text = movie.voteAverage.toString()
-        binding.detailMovieBudgetBody.text = movie.budget.toString()
+        binding.detailMovieBudgetBody.text = addComaInPrice(movie.budget.toString())
         binding.detailMovieOriginalLanguageBody.text = movie.originalLanguage
         binding.detailMovieOriginalTitleBody.text = movie.originalTitle
         if (companiesNumber > 0) {
@@ -90,16 +118,6 @@ class DetailMovieFragment : Fragment() {
             binding.detailMovieCompanyBody.visibility = View.GONE
         }
     }
-
-    private fun buildStringForCompanies(dataList: List<ProductionCompany>): CharSequence {
-        val sBuilder = StringBuilder()
-        for (company in dataList) {
-            sBuilder.append(company.name).append("\n")
-        }
-        return sBuilder
-    }
-
-    private fun getListSize(dataList: List<Any>): Int = dataList.size
 
     override fun onDestroyView() {
         super.onDestroyView()
