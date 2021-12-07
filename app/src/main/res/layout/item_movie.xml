@@ -10,7 +10,8 @@
         android:id="@+id/item_moviePoster"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/space_small"
+        android:layout_marginTop="@dimen/space_small"
+        android:layout_marginEnd="@dimen/space_small"
         android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
         app:layout_constraintDimensionRatio="1:1"
@@ -59,12 +60,12 @@
         app:layout_constraintWidth_default="spread"
         tools:text="Very long text, briefly... Lorem ipsum postume agate blisti dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_dateProduction"
-        style="@style/TextAppearance.AppCompat.Body2"
+        style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="@id/item_moviePoster"
         app:layout_constraintStart_toStartOf="@+id/item_moviePoster"
         app:layout_constraintTop_toBottomOf="@id/item_moviePoster"

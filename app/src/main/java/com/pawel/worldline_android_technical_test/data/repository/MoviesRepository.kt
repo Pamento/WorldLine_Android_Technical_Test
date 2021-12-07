@@ -20,8 +20,6 @@ class MoviesRepository(private val apiHelper: ApiHelper) {
         if (existing.isNullOrEmpty()) {
             listResult = apiHelper.getMovies().results
             cache.saveInCacheMemory(MOVIES_IN_MEMORY_KEY, listResult)
-            Log.i("TAG", "REPOSI_getMovies: saveInCache::${listResult?.get(0)?.posterPath}")
-            Log.i("TAG", "REPOSI_getMovies: saveInCache::${listResult?.get(0)?.id}")
         } else {
             listResult = existing as List<Result>
         }

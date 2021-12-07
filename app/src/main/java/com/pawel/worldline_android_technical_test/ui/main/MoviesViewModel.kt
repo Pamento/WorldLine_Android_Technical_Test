@@ -21,9 +21,8 @@ class MoviesViewModel(private val moviesRepository: MoviesRepository) : ViewMode
 
     private fun fetchMovies() {
         viewModelScope.launch {
-            Log.i("TAG", "MViewM_fetchMovies: RUN")
-            moviesList.value = moviesRepository.getMovies()
             Log.i("TAG", "MViewM_fetchMovies: movies.size:: ${moviesList.value?.size}")
+            moviesList.value = moviesRepository.getMovies()
         }
     }
 }

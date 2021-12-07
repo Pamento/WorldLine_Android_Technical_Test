@@ -4,4 +4,7 @@
     <dimen name="space_normal">16dp</dimen>
     <!-- item of RecyclerView of movies list dimensions -->
     <dimen name="image_size">80dp</dimen>
+
+    <!-- test sizes -->
+    <dimen name="text_small">12sp</dimen>
 </resources>
