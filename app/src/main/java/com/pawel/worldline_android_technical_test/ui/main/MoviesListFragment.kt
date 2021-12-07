@@ -16,14 +16,14 @@ import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.databinding.MainFragmentBinding
 import com.pawel.worldline_android_technical_test.di.ViewModelFactory
 
-class MoviesListFrg : Fragment(), OnMovieItemClickListener {
+class MoviesListFragment : Fragment(), OnMovieItemClickListener {
 
     companion object {
-        fun newInstance() = MoviesListFrg()
+        fun newInstance() = MoviesListFragment()
     }
 
     private lateinit var viewModel: MoviesViewModel
-    private lateinit var binding : MainFragmentBinding
+    private var binding : MainFragmentBinding? = null
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter : MovieAdapter
 
@@ -37,7 +37,7 @@ class MoviesListFrg : Fragment(), OnMovieItemClickListener {
         )[MoviesViewModel::class.java]
         adapter = MovieAdapter(requireContext(),this)
         setRecyclerView()
-        return binding.root
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,12 +46,12 @@ class MoviesListFrg : Fragment(), OnMovieItemClickListener {
     }
 
     private fun setRecyclerView() {
-        recyclerView = binding.listMoviesRV
+        recyclerView = (binding?.listMoviesRV) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.apply {
             addItemDecoration(
                 DividerItemDecoration(
-                    binding.listMoviesRV.context,
+                    binding?.listMoviesRV?.context,
                     DividerItemDecoration.VERTICAL
                 )
             )
@@ -70,5 +70,10 @@ class MoviesListFrg : Fragment(), OnMovieItemClickListener {
     override fun onMovieItemClick(position: Int) {
         Toast.makeText(requireContext(),"Clicked on item at position: $position", Toast.LENGTH_SHORT).show()
         Log.i("TAG", "onMovieItemClick: $position")
+    }
+
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
     }
 }

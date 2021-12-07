@@ -2,7 +2,7 @@ package com.pawel.worldline_android_technical_test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.pawel.worldline_android_technical_test.ui.main.MoviesListFrg
+import com.pawel.worldline_android_technical_test.ui.main.MoviesListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MoviesListFrg.newInstance())
+                .replace(R.id.container, MoviesListFragment.newInstance())
                 .commitNow()
         }
     }

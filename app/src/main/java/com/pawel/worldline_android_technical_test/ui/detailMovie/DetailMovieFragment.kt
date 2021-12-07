@@ -7,14 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pawel.worldline_android_technical_test.R
+import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
 
 class DetailMovieFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DetailMovieFragment()
+        private const val MOVIE_ID = "movie_id"
+        fun newInstance(movieID: Int) = DetailMovieFragment().apply {
+            arguments = Bundle().apply {
+                putInt(MOVIE_ID,movieID)
+            }
+        }
     }
 
     private lateinit var viewModel: DetailMovieViewModel
+    private var binding: DetailMovieFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
