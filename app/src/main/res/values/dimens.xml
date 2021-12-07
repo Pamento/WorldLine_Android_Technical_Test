@@ -2,6 +2,7 @@
 <resources>
     <dimen name="space_small">8dp</dimen>
     <dimen name="space_normal">16dp</dimen>
+    <dimen name="space_normal_x2">32dp</dimen>
     <!-- item of RecyclerView of movies list dimensions -->
     <dimen name="image_size">80dp</dimen>
 

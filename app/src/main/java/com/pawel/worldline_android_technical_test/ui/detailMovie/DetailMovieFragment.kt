@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.pawel.worldline_android_technical_test.data.api.ApiHelperImpl
 import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.data.model.movie.Movie
+import com.pawel.worldline_android_technical_test.data.model.movie.ProductionCompany
 import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
 import com.pawel.worldline_android_technical_test.di.ViewModelFactory
 
@@ -25,7 +26,8 @@ class DetailMovieFragment : Fragment() {
     }
 
     private lateinit var viewModel: DetailMovieViewModel
-    private var binding: DetailMovieFragmentBinding? = null
+    private var _binding: DetailMovieFragmentBinding? = null
+    private val binding get() = _binding!!
     private var idOfMovie = -1
     private lateinit var movie: Movie
 
@@ -40,11 +42,12 @@ class DetailMovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DetailMovieFragmentBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProviders.of(this,
+        _binding = DetailMovieFragmentBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProviders.of(
+            this,
             ViewModelFactory(ApiHelperImpl(createNetworkService()))
         )[DetailMovieViewModel::class.java]
-        return binding!!.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,11 +68,41 @@ class DetailMovieFragment : Fragment() {
     }
 
     private fun updateUI() {
-        // TODO make xml file and bind it with movie.
+        val companiesNumber: Int = movie.productionCompanies?.let {
+            getListSize(it)
+        } ?: 0
+        binding.detailMovieTitle.text = movie.title
+        binding.detailMovieOverview.text = movie.overview
+        // TODO convert format to franche format
+        binding.detailMovieReleaseDateBody.text = movie.releaseDate
+        binding.detailMovieRatingBody.text = movie.voteAverage.toString()
+        binding.detailMovieBudgetBody.text = movie.budget.toString()
+        binding.detailMovieOriginalLanguageBody.text = movie.originalLanguage
+        binding.detailMovieOriginalTitleBody.text = movie.originalTitle
+        if (companiesNumber > 0) {
+            val companies =
+                if (companiesNumber == 1) movie.productionCompanies?.get(0)?.name
+                else movie.productionCompanies?.let { buildStringForCompanies(it) }
+
+            binding.detailMovieCompanyBody.text = companies.toString()
+        } else {
+            binding.detailMovieCompanyTitle.visibility = View.GONE
+            binding.detailMovieCompanyBody.visibility = View.GONE
+        }
     }
 
+    private fun buildStringForCompanies(dataList: List<ProductionCompany>): CharSequence {
+        val sBuilder = StringBuilder()
+        for (company in dataList) {
+            sBuilder.append(company.name).append("\n")
+        }
+        return sBuilder
+    }
+
+    private fun getListSize(dataList: List<Any>): Int = dataList.size
+
     override fun onDestroyView() {
-        binding = null
         super.onDestroyView()
+        _binding = null
     }
 }

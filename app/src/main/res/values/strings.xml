@@ -2,4 +2,10 @@
     <string name="app_name">The movie</string>
     <string name="concerned_public_adult">Uniquement pour les adultes</string>
     <string name="concerned_public_all">Tout public</string>
+    <string name="release_date">Date de sortie</string>
+    <string name="original_title">Le titre originel</string>
+    <string name="company">Company</string>
+    <string name="original_language">La langue originel</string>
+    <string name="rating">Note</string>
+    <string name="budget">Budget</string>
 </resources>

@@ -25,7 +25,8 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private lateinit var viewModel: MoviesViewModel
-    private var binding : MainFragmentBinding? = null
+    private var _binding : MainFragmentBinding? = null
+    private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter : MovieAdapter
 
@@ -33,13 +34,13 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = MainFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProviders.of(this,
             ViewModelFactory(ApiHelperImpl(createNetworkService()))
         )[MoviesViewModel::class.java]
         adapter = MovieAdapter(requireContext(),this)
         setRecyclerView()
-        return binding!!.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,12 +49,12 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private fun setRecyclerView() {
-        recyclerView = (binding?.listMoviesRV) as RecyclerView
+        recyclerView = binding.listMoviesRV
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.apply {
             addItemDecoration(
                 DividerItemDecoration(
-                    binding?.listMoviesRV?.context,
+                    binding.listMoviesRV.context,
                     DividerItemDecoration.VERTICAL
                 )
             )
@@ -79,7 +80,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     override fun onDestroyView() {
-        binding = null
         super.onDestroyView()
+        _binding = null
     }
 }
