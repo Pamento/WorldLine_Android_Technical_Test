@@ -7,9 +7,12 @@
     <dimen name="image_size">80dp</dimen>
 
     <!-- test sizes -->
-    <dimen name="text_small">12sp</dimen>
     <dimen name="text_title">42sp</dimen>
+    <dimen name="text_title_small">24sp</dimen>
     <dimen name="text_subtitle">24sp</dimen>
+    <dimen name="text_subtitle_small">16sp</dimen>
     <dimen name="text_body1">24sp</dimen>
+    <dimen name="text_body1_small">16sp</dimen>
     <dimen name="text_body2">24sp</dimen>
+    <dimen name="text_body2_small">16sp</dimen>
 </resources>
