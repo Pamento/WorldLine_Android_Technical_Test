@@ -15,8 +15,6 @@ import com.pawel.worldline_android_technical_test.data.api.ApiHelperImpl
 import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.databinding.MainFragmentBinding
 import com.pawel.worldline_android_technical_test.di.ViewModelFactory
-import com.pawel.worldline_android_technical_test.ui.main.MovieAdapter
-import com.pawel.worldline_android_technical_test.ui.main.OnMovieItemClickListener
 import com.pawel.worldline_android_technical_test.ui.movieDetail.DetailMovieFragment
 
 class MoviesListFragment : Fragment(), OnMovieItemClickListener {
