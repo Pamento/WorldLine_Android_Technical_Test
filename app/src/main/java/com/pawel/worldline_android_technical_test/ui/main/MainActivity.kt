@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
                 // Show Back Button to enable back to list of movies
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 supportActionBar?.setDisplayShowCustomEnabled(true)
+                // Change icon of back button
+                supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24)
             }
         }
     }
