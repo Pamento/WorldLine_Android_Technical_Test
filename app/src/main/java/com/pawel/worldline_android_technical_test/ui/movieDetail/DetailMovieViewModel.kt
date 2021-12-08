@@ -1,4 +1,4 @@
-package com.pawel.worldline_android_technical_test.ui.detailMovie
+package com.pawel.worldline_android_technical_test.ui.movieDetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

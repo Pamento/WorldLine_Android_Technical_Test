@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">The movie</string>
     <string name="concerned_public_adult">Uniquement pour les adultes</string>
-    <string name="concerned_public_all">Tout public</string>
-    <string name="release_date">Date de sortie</string>
-    <string name="original_title">Le titre originel</string>
-    <string name="company">Company</string>
-    <string name="original_language">La langue originel</string>
-    <string name="rating">Note</string>
+    <string name="concerned_public_all">Tous publics</string>
+    <string name="release_date">La date de la sortie</string>
+    <string name="original_title">Le titre original</string>
+    <string name="company">Société de production</string>
+    <string name="original_language">La langue d\'origine</string>
+    <string name="rating">Notes</string>
     <string name="budget">Budget</string>
+    <string name="budget_in_dolar">%s $</string>
+<!--    <string name="budget_in_dolar">%1$s%2$s.</string>-->
 </resources>

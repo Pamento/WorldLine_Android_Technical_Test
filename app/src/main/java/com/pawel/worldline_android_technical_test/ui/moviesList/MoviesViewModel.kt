@@ -1,4 +1,4 @@
-package com.pawel.worldline_android_technical_test.ui.main
+package com.pawel.worldline_android_technical_test.ui.moviesList
 
 import android.util.Log
 import androidx.lifecycle.LiveData

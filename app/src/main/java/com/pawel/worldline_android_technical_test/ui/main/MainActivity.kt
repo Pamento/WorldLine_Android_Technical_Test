@@ -1,10 +1,11 @@
-package com.pawel.worldline_android_technical_test
+package com.pawel.worldline_android_technical_test.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.pawel.worldline_android_technical_test.ui.detailMovie.DetailMovieFragment
-import com.pawel.worldline_android_technical_test.ui.main.MoviesListFragment
+import com.pawel.worldline_android_technical_test.R
+import com.pawel.worldline_android_technical_test.ui.movieDetail.DetailMovieFragment
+import com.pawel.worldline_android_technical_test.ui.moviesList.MoviesListFragment
 
 class MainActivity : AppCompatActivity() {
 

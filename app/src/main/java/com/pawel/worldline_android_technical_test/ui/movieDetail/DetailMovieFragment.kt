@@ -1,4 +1,4 @@
-package com.pawel.worldline_android_technical_test.ui.detailMovie
+package com.pawel.worldline_android_technical_test.ui.movieDetail
 
 import android.content.Context
 import android.os.Bundle
@@ -104,8 +104,15 @@ class DetailMovieFragment : Fragment() {
             binding.detailMovieReleaseDateTitle.visibility = View.GONE
         }
         binding.detailMovieRatingBody.text = movie.voteAverage.toString()
-        binding.detailMovieBudgetBody.text = addComaInPrice(movie.budget.toString())
-        binding.detailMovieOriginalLanguageBody.text = movie.originalLanguage
+        if (movie.budget!! > 0) {
+            val budget = movie.budget.toString()
+            binding.detailMovieBudgetBody.text =
+                String.format(getString(R.string.budget_in_dolar), addComaInPrice(budget))
+        } else {
+            binding.detailMovieBudgetTitle.visibility = View.GONE
+            binding.detailMovieBudgetBody.visibility = View.GONE
+        }
+
         binding.detailMovieOriginalTitleBody.text = movie.originalTitle
         if (companiesNumber > 0) {
             val companies =

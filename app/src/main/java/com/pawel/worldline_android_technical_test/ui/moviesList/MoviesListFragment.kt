@@ -1,4 +1,4 @@
-package com.pawel.worldline_android_technical_test.ui.main
+package com.pawel.worldline_android_technical_test.ui.moviesList
 
 import android.os.Bundle
 import android.util.Log
@@ -6,17 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.pawel.worldline_android_technical_test.MainActivity
+import com.pawel.worldline_android_technical_test.ui.main.MainActivity
 import com.pawel.worldline_android_technical_test.data.api.ApiHelperImpl
 import com.pawel.worldline_android_technical_test.data.api.createNetworkService
 import com.pawel.worldline_android_technical_test.databinding.MainFragmentBinding
 import com.pawel.worldline_android_technical_test.di.ViewModelFactory
-import com.pawel.worldline_android_technical_test.ui.detailMovie.DetailMovieFragment
+import com.pawel.worldline_android_technical_test.ui.main.MovieAdapter
+import com.pawel.worldline_android_technical_test.ui.main.OnMovieItemClickListener
+import com.pawel.worldline_android_technical_test.ui.movieDetail.DetailMovieFragment
 
 class MoviesListFragment : Fragment(), OnMovieItemClickListener {
 

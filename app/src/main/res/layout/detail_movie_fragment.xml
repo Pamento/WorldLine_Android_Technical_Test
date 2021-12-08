@@ -4,27 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detailMovie.DetailMovieFragment">
+    tools:context=".ui.movieDetail.DetailMovieFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/space_normal"
         android:paddingBottom="@dimen/space_normal_x2">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/detailMovie_guideline1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/detailMovie_guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/detailMovie_guideline4"
@@ -39,9 +25,9 @@
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="2:1"
             android:contentDescription="@string/app_name"
-            app:layout_constraintEnd_toEndOf="@+id/detailMovie_guideline3"
-            app:layout_constraintStart_toStartOf="@+id/detailMovie_guideline2"
-            app:layout_constraintTop_toTopOf="@+id/detailMovie_guideline1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/img_not_found_square" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -84,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.1" />
+            app:layout_constraintGuide_begin="54dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_releaseDate_title"
@@ -146,26 +132,6 @@
             tools:text="@string/budget" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/detailMovie_original_language_title"
-            style="@style/TextAppearance.AppCompat.Body1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/space_small"
-            android:layout_marginTop="@dimen/space_small"
-            android:text="@string/original_language"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_body" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/detailMovie_original_language_body"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small"
-            app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/detailMovie_original_language_title"
-            tools:text="@string/original_language" />
-
-        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_original_title"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
@@ -174,13 +140,16 @@
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/original_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailMovie_original_language_body" />
+            app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_body" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_original_title_body"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/detailMovie_guideline4"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline2"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_original_title"
             tools:text="@string/original_title" />

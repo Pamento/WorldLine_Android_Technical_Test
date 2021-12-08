@@ -12,23 +12,27 @@ fun frenchFormatOfDate(date: String): String {
 }
 
 fun addComaInPrice(price: String): String {
-    val s = price.split("");
+    val s = price.split("").toMutableList()
+    val sT = ArrayList(s)
+    for (el in sT) {
+        if (el.isNullOrEmpty()) s.remove(el)
+    }
     val l = s.size
-    var r = l % 3;
-    val comaPrice = StringBuilder();
+    var r = l % 3
+    val comaPrice = StringBuilder()
     for (irs in s) {
         if (r == 0 && (comaPrice.isEmpty())) {
-            comaPrice.append(irs);
-            r = 2;
+            comaPrice.append(irs)
+            r = 2
         } else if (r == 0 && comaPrice.length != l) {
-            comaPrice.append(",").append(irs);
-            r = 2;
+            comaPrice.append(",").append(irs)
+            r = 2
         } else {
-            comaPrice.append(irs);
-            r--;
+            comaPrice.append(irs)
+            r--
         }
     }
-    return comaPrice.toString();
+    return comaPrice.toString()
 }
 
 fun getListSize(dataList: List<Any>): Int = dataList.size
