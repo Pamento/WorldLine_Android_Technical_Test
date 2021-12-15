@@ -1,6 +1,6 @@
 #comments:
 #  active: true
-#  excludes: ['**/test/**','**/androidTest/**','**/*.Test.kt','**/*.Spec.kt','**/*.Spek.kt']
+#  excludes: ['**/test/**','**/androidTest/**','**/*.Test.kt','**/*.Spec.kt','**/*.Spek.kt]
 #  coroutines:
 #    active: true
 #    GlobalCoroutineUsage:
