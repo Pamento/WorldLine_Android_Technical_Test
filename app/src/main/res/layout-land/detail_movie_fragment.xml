@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_normal"
             android:layout_marginTop="@dimen/space_normal"
+            android:textSize="@dimen/text_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_backdrop"
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_normal"
             android:layout_marginTop="@dimen/space_normal"
+            android:textSize="@dimen/text_body2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_title"
@@ -79,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_small"
             android:text="@string/release_date"
+            android:textSize="@dimen/text_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/detailMovie_poster" />
 
@@ -88,6 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/release_date"
+            android:textSize="@dimen/text_body2"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_releaseDate_title" />
 
@@ -99,6 +103,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/rating"
+            android:textSize="@dimen/text_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_releaseDate_body" />
 
@@ -107,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:textSize="@dimen/text_body2"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_rating_title"
             tools:text="@string/rating" />
@@ -119,6 +125,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/budget"
+            android:textSize="@dimen/text_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_rating_body" />
 
@@ -127,6 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:textSize="@dimen/text_body2"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_title"
             tools:text="@string/budget" />
@@ -139,6 +147,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/original_title"
+            android:textSize="@dimen/text_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_body" />
 
@@ -147,6 +156,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:textSize="@dimen/text_body2"
             app:layout_constraintHorizontal_bias="0.0"
             android:maxLines="2"
             app:layout_constraintEnd_toStartOf="@+id/detailMovie_guideline2"
@@ -162,6 +172,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/company"
+            android:textSize="@dimen/text_subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_original_title_body" />
 
@@ -170,6 +181,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:textSize="@dimen/text_body2"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_company_title"
             tools:text="@string/company" />

@@ -6,5 +6,19 @@
 * [Gradle plugin]() version 7.0.3
 (You can check [on this link the compatibility](https://developer.android.com/studio/releases/gradle-plugin.html#updating-gradle) between Gradle and Gradle plugin).
 
+Project feature
+---------------
 * minSdk 21
 * targetSdk 31
+* Key in local.properties : API_KEY
+* Kotlin language
+* ViewBinding
+* Coroutines
+* Retrofit2
+* Moshi - MoshiConverterFactory for handle JSON format
+* Moshi - KotlinJsonAdapterFactory for Kotlin adaptation
+* LiveData
+* MVVM architecture
+* ViewModelFactory for ViewModel
+* Cache data in memory
+* Glide for loading the images

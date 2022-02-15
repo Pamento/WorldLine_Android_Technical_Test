@@ -5,7 +5,6 @@
     <string name="release_date">La date de la sortie</string>
     <string name="original_title">Le titre original</string>
     <string name="company">Société de production</string>
-    <string name="original_language">La langue d\'origine</string>
     <string name="rating">Notes</string>
     <string name="budget">Budget</string>
     <string name="budget_in_dolar">%s $</string>

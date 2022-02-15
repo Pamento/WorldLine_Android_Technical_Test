@@ -1,6 +1,5 @@
 package com.pawel.worldline_android_technical_test.data.repository
 
-import android.util.Log
 import com.pawel.worldline_android_technical_test.cache.MoviesInMemoryCache
 import com.pawel.worldline_android_technical_test.data.api.ApiHelper
 import com.pawel.worldline_android_technical_test.data.model.movies.Result

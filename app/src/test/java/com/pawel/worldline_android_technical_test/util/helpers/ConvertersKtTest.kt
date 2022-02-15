@@ -10,7 +10,7 @@ class ConvertersKtTest {
     private val expected = "12,300"
     private val originDate = "2021-12-10"
     private val convertedDate = "10/12/2021"
-    private val dataList = mutableListOf<Int>(1,2,3,4,5)
+    private val dataList = mutableListOf(1,2,3,4,5)
     private val dataListSize = 5
     @Test
     fun frenchFormatOfDateTest() {

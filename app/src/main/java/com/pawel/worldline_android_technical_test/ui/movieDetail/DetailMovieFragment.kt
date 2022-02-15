@@ -80,6 +80,7 @@ class DetailMovieFragment : Fragment() {
                     "${POSTER_URL}w300/${movie.posterPath}",
                     binding.detailMoviePoster
                 )
+
             }
         }
     }
