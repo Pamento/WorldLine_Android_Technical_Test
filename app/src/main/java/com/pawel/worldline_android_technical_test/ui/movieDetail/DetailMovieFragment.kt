@@ -66,8 +66,8 @@ class DetailMovieFragment : Fragment() {
     }
 
     private fun setOnMovieResponseObserver() {
-        viewModel.movie.observe(viewLifecycleOwner, {
-            if (it != null) {
+        viewModel.movie.observe(viewLifecycleOwner) {
+            it?.let {
                 movie = it
                 updateUITexts()
                 updateUIImageView(
@@ -81,7 +81,7 @@ class DetailMovieFragment : Fragment() {
                     binding.detailMoviePoster
                 )
             }
-        })
+        }
     }
 
     private fun updateUIImageView(context: Context, url: String, into: AppCompatImageView) {
