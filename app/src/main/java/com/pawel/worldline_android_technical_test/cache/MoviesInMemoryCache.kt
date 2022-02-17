@@ -3,6 +3,9 @@ package com.pawel.worldline_android_technical_test.cache
 import android.util.Log
 import android.util.LruCache
 import com.pawel.worldline_android_technical_test.data.model.movies.Result
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Inject
 
 class MoviesInMemoryCache {
 

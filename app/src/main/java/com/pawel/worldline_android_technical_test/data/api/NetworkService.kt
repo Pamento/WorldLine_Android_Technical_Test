@@ -8,22 +8,22 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-private fun httpInterceptor() = HttpLoggingInterceptor().apply {
-    level = HttpLoggingInterceptor.Level.BODY
-}
-
-private fun basicOkHttpClient() = OkHttpClient.Builder().addInterceptor(httpInterceptor()).build()
-
-fun createNetworkService(): MoviesAPIs {
-    val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(basicOkHttpClient())
-        .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
-        .build()
-    return retrofit.create(MoviesAPIs::class.java)
-}
-
-fun provideMoshi(): Moshi =
-    Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .build()
+//private fun httpInterceptor() = HttpLoggingInterceptor().apply {
+//    level = HttpLoggingInterceptor.Level.BODY
+//}
+//
+//private fun basicOkHttpClient() = OkHttpClient.Builder().addInterceptor(httpInterceptor()).build()
+//
+//fun createNetworkService(): MoviesAPIs {
+//    val retrofit = Retrofit.Builder()
+//        .baseUrl(BASE_URL)
+//        .client(basicOkHttpClient())
+//        .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
+//        .build()
+//    return retrofit.create(MoviesAPIs::class.java)
+//}
+//
+//private fun provideMoshi(): Moshi =
+//    Moshi.Builder()
+//        .add(KotlinJsonAdapterFactory())
+//        .build()

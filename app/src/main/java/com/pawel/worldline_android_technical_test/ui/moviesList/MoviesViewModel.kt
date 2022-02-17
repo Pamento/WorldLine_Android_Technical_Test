@@ -7,9 +7,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pawel.worldline_android_technical_test.data.model.movies.Result
 import com.pawel.worldline_android_technical_test.data.repository.MoviesRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MoviesViewModel(private val moviesRepository: MoviesRepository) : ViewModel() {
+@HiltViewModel
+class MoviesViewModel @Inject constructor(private val moviesRepository: MoviesRepository) : ViewModel() {
 
     private val moviesList = MutableLiveData<List<Result>>()
     val movies: LiveData<List<Result>>

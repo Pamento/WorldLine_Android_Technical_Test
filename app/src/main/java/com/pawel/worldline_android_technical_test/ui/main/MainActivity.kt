@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import com.pawel.worldline_android_technical_test.R
 import com.pawel.worldline_android_technical_test.ui.movieDetail.DetailMovieFragment
 import com.pawel.worldline_android_technical_test.ui.moviesList.MoviesListFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
