@@ -1,6 +1,5 @@
 package com.pawel.worldline_android_technical_test.di
 
-import com.pawel.worldline_android_technical_test.data.api.ApiHelper
 import com.pawel.worldline_android_technical_test.data.api.MoviesAPIs
 import com.pawel.worldline_android_technical_test.util.Consts
 import com.squareup.moshi.Moshi
@@ -8,15 +7,15 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
     @Provides
@@ -30,11 +29,13 @@ object NetworkModule {
     }
 
     @Provides
+    @Singleton
     fun httpInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
     @Provides
+    @Singleton
     fun basicOkHttpClient() =
         OkHttpClient.Builder().addInterceptor(httpInterceptor()).build()
 
@@ -44,9 +45,4 @@ object NetworkModule {
         Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
-
-    @Provides
-    fun provideApiHelper(apiHelper: ApiHelper): ApiHelper {
-        return apiHelper
-    }
 }

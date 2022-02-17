@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
         fun newInstance() = MoviesListFragment()
     }
 
-    @Inject lateinit var viewModel: MoviesViewModel
+    private val viewModel: MoviesViewModel by viewModels()
     private var _binding : MainFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView

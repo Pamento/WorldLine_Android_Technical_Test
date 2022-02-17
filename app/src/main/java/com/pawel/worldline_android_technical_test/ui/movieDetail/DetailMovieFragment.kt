@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.pawel.worldline_android_technical_test.R
 import com.pawel.worldline_android_technical_test.data.model.movie.Movie
 import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
+import com.pawel.worldline_android_technical_test.ui.moviesList.MoviesViewModel
 import com.pawel.worldline_android_technical_test.util.Consts.POSTER_URL
 import com.pawel.worldline_android_technical_test.util.helpers.addComaInPrice
 import com.pawel.worldline_android_technical_test.util.helpers.buildStringForCompanies
@@ -31,7 +33,7 @@ class DetailMovieFragment : Fragment() {
         }
     }
 
-    @Inject lateinit var viewModel: DetailMovieViewModel
+    private val viewModel: DetailMovieViewModel by viewModels()
     private var _binding: DetailMovieFragmentBinding? = null
     private val binding get() = _binding!!
     private var idOfMovie = -1
@@ -49,10 +51,6 @@ class DetailMovieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = DetailMovieFragmentBinding.inflate(inflater, container, false)
-//        viewModel = ViewModelProviders.of(
-//            this,
-//            ViewModelFactory(ApiHelperImpl(createNetworkService()))
-//        )[DetailMovieViewModel::class.java]
         return binding.root
     }
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pawel.worldline_android_technical_test.data.model.movie.Movie
 import com.pawel.worldline_android_technical_test.data.repository.MoviesRepository
+import com.pawel.worldline_android_technical_test.data.repository.MoviesRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
