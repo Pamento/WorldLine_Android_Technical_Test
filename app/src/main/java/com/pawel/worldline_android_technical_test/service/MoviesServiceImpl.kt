@@ -1,5 +1,6 @@
 package com.pawel.worldline_android_technical_test.service
 
+import android.util.Log
 import com.pawel.worldline_android_technical_test.cache.MoviesInMemoryCache
 import com.pawel.worldline_android_technical_test.data.repository.MoviesRepository
 import com.pawel.worldline_android_technical_test.data.model.movies.Result
@@ -13,7 +14,7 @@ class MoviesServiceImpl @Inject constructor(private val moviesRepository: Movies
         const val MOVIES_IN_MEMORY_KEY = "movies_in_memory_key"
     }
 
-    private val cache = MoviesInMemoryCache()
+    @Inject lateinit var cache: MoviesInMemoryCache
     private var existing: List<Result>? = null
 
     override suspend fun getMovies(): List<Result>? {

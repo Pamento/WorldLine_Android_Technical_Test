@@ -6,16 +6,10 @@ import com.pawel.worldline_android_technical_test.data.model.movies.Result
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class MoviesInMemoryCache {
-
-    private object HOLDER {
-        val INSTANCE = MoviesInMemoryCache()
-    }
-
-    companion object {
-        val instance: MoviesInMemoryCache by lazy { HOLDER.INSTANCE }
-    }
+@Singleton
+class MoviesInMemoryCache @Inject constructor() {
 
     private val maxMemory = Runtime.getRuntime().maxMemory() / 2024
     private val cacheSize = maxMemory / 8
@@ -23,7 +17,7 @@ class MoviesInMemoryCache {
 
     fun saveInCacheMemory(key: String, data: List<Result>?) {
         try {
-            instance.lru.put(key, data)
+            lru.put(key, data)
         } catch (e: Exception) {
             Log.i("ERROR", "on saveInCacheMemory: ${e.localizedMessage}")
         }
@@ -31,7 +25,7 @@ class MoviesInMemoryCache {
 
     fun fetchFromCacheMemory(key: String) : List<Result>? {
         return try {
-            instance.lru.get(key)
+            lru.get(key)
         } catch (e: Exception) {
             Log.i("ERROR", "on fetchFromCacheMemory: ${e.localizedMessage}")
             null

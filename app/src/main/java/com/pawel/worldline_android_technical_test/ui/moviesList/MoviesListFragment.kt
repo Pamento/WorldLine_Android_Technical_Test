@@ -14,7 +14,6 @@ import com.pawel.worldline_android_technical_test.ui.main.MainActivity
 import com.pawel.worldline_android_technical_test.databinding.MainFragmentBinding
 import com.pawel.worldline_android_technical_test.ui.movieDetail.DetailMovieFragment
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MoviesListFragment : Fragment(), OnMovieItemClickListener {
