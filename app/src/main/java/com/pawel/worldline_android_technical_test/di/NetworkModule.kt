@@ -1,6 +1,6 @@
 package com.pawel.worldline_android_technical_test.di
 
-import com.pawel.worldline_android_technical_test.data.api.MoviesAPIs
+import com.pawel.worldline_android_technical_test.data.api.MoviesRepositoryNetwork
 import com.pawel.worldline_android_technical_test.util.Consts
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -19,25 +19,27 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Provides
-    fun createNetworkService(): MoviesAPIs {
+    fun provideRepositoryNetwork(): MoviesRepositoryNetwork {
         val retrofit = Retrofit.Builder()
             .baseUrl(Consts.BASE_URL)
-            .client(basicOkHttpClient())
+            .client(provideHttpClient())
             .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
             .build()
-        return retrofit.create(MoviesAPIs::class.java)
+        return retrofit.create(MoviesRepositoryNetwork::class.java)
     }
 
     @Provides
     @Singleton
-    fun httpInterceptor() = HttpLoggingInterceptor().apply {
+    fun provideHttpInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
     @Provides
     @Singleton
-    fun basicOkHttpClient() =
-        OkHttpClient.Builder().addInterceptor(httpInterceptor()).build()
+    fun provideHttpClient() =
+        OkHttpClient.Builder()
+            .addInterceptor(provideHttpInterceptor())
+            .build()
 
 
     @Provides

@@ -6,7 +6,7 @@ import com.pawel.worldline_android_technical_test.data.model.movies.MovieApiResp
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface MoviesAPIs {
+interface MoviesRepositoryNetwork {
 
     @GET("movie/popular?api_key=" + BuildConfig.API_KEY + "&language=fr=&page=1")
     suspend fun getMovies() : MovieApiResponse

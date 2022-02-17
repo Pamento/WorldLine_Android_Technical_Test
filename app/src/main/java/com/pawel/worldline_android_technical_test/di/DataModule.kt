@@ -1,9 +1,9 @@
 package com.pawel.worldline_android_technical_test.di
 
-import com.pawel.worldline_android_technical_test.data.api.ApiHelper
-import com.pawel.worldline_android_technical_test.data.api.ApiHelperImpl
 import com.pawel.worldline_android_technical_test.data.repository.MoviesRepository
 import com.pawel.worldline_android_technical_test.data.repository.MoviesRepositoryImpl
+import com.pawel.worldline_android_technical_test.service.MoviesService
+import com.pawel.worldline_android_technical_test.service.MoviesServiceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,9 +17,9 @@ class DataModule {
     @InstallIn(SingletonComponent::class)
     abstract class Declarations {
         @Binds
-        abstract fun provideMoviesRepository(x: MoviesRepositoryImpl): MoviesRepository
+        abstract fun provideMoviesService(x: MoviesServiceImpl): MoviesService
 
         @Binds
-        abstract fun provideApiHelper(x: ApiHelperImpl): ApiHelper
+        abstract fun provideMoviesRepository(x: MoviesRepositoryImpl): MoviesRepository
     }
 }
