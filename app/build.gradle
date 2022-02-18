@@ -26,7 +26,6 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "API_KEY", "\"" + localProperties['API_KEY'] + "\"")
-            resValue("string", "movies_key_api", localProperties['API_KEY'])
         }
         release {
             minifyEnabled false

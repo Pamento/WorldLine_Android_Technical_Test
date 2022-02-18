@@ -12,14 +12,12 @@ import com.bumptech.glide.Glide
 import com.pawel.worldline_android_technical_test.R
 import com.pawel.worldline_android_technical_test.data.model.movie.Movie
 import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
-import com.pawel.worldline_android_technical_test.ui.moviesList.MoviesViewModel
 import com.pawel.worldline_android_technical_test.util.Consts.POSTER_URL
 import com.pawel.worldline_android_technical_test.util.helpers.addComaInPrice
 import com.pawel.worldline_android_technical_test.util.helpers.buildStringForCompanies
 import com.pawel.worldline_android_technical_test.util.helpers.frenchFormatOfDate
 import com.pawel.worldline_android_technical_test.util.helpers.getListSize
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailMovieFragment : Fragment() {
