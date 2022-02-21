@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pawel.worldline_android_technical_test.R
-import com.pawel.worldline_android_technical_test.data.model.movies.Result
+import com.example.data.model.movies.Result
 import com.pawel.worldline_android_technical_test.databinding.ItemMovieBinding
 import com.pawel.worldline_android_technical_test.util.Consts.POSTER_URL
 

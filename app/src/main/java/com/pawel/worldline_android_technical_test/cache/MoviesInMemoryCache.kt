@@ -2,7 +2,7 @@ package com.pawel.worldline_android_technical_test.cache
 
 import android.util.Log
 import android.util.LruCache
-import com.pawel.worldline_android_technical_test.data.model.movies.Result
+import com.example.data.model.movies.Result
 import javax.inject.Inject
 import javax.inject.Singleton
 

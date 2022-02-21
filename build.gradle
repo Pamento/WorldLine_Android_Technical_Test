@@ -10,7 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath 'com.android.tools.build:gradle:7.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.1"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
@@ -21,19 +21,26 @@ buildscript {
     }
 }
 
+ext {
+    compileSdkVersion = 31
+    targetSdkVersion = 31
+    minSdkVersion = 21
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
 task reportMerge(type: ReportMergeTask) {
-    output = project.layout.buildDirectory.file("reports/detekt/merge.xml") // or "reports/detekt/merge.sarif"
+    output = project.layout.buildDirectory.file("reports/detekt/merge.xml")
+    // or "reports/detekt/merge.sarif"
 }
 
 subprojects {
     apply plugin: "io.gitlab.arturbosch.detekt"
-        // The directories where detekt looks for source files.
-        // Defaults to `files("src/main/java", "src/test/java", "src/main/kotlin", "src/test/kotlin")`.
-        //sources = files("${project.rootDir}/app/src/main/java", "${project.rootDir}/app/src/main/kotlin")
+    // The directories where detekt looks for source files.
+    // Defaults to `files("src/main/java", "src/test/java", "src/main/kotlin", "src/test/kotlin")`.
+    //sources = files("${project.rootDir}/app/src/main/java", "${project.rootDir}/app/src/main/kotlin")
     detekt {
         //toolVersion = "1.19.0"
         parallel = true
