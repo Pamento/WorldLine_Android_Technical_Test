@@ -10,6 +10,10 @@ object Versions {
     const val MIN_SDK = 21
     const val TARGET_SDK = 31
     const val DETEKT = "1.17.1"
+    const val CODE = 1
+    const val NAME = "1.0"
+    const val ID = "com.pawel.worldline_android_technical_test"
+    const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
     // Dependencies versions:
     const val ANDROIDX_KTX = "1.7.0"
@@ -74,20 +78,18 @@ object Dependencies {
     const val ANDROIDX_CORE = "androidx.core:core-ktx:${Versions.ANDROIDX_CORE}"
     const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.ANDROIDX_FRAGMENT}"
     const val ANDROIDX_LIFECYCLE_EXT = "androidx.lifecycle:lifecycle-extensions:${Versions.ANDROIDX_LIFECYCLE_EXT}"
-    
+
     const val ANDROID_MATERIAL = "com.google.android.material:material:${Versions.ANDROID_MATERIAL}"
     const val ANDROID_LIFECYCLE_EXT = "android.arch.lifecycle:extensions:${Versions.ANDROID_LIFECYCLE_EXT}"
     const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.KOTLIN_STDLIB}"
 
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
-    // kapt
-    const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE_COMPILER}"
+    const val GLIDE_KAPT = "com.github.bumptech.glide:compiler:${Versions.GLIDE_COMPILER}"
 
     const val RETROFIT2 = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT2}"
     const val RETROFIT2_MOSHI = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT2_MOSHI}"
     const val RETROFIT2_MOSHI_KOTLIN = "com.squareup.moshi:moshi-kotlin:${Versions.RETROFIT2_MOSHI_KOTLIN}"
     const val OKHTTP3_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor"
-//  ? implement platform ??:  implementation(platform('com.squareup.okhttp3:okhttp-bom:4.9.0'))
     const val OKHTTP3_BOM = "com.squareup.okhttp3:okhttp-bom:${Versions.OKHTTP3_BOM}"
     const val RX_KOTLIN = "io.reactivex.rxjava3:rxkotlin:${Versions.RX_KOTLIN}"
 
@@ -96,8 +98,7 @@ object Dependencies {
     const val COROUTINE_LEGACY_SUPPORT = "androidx.legacy:legacy-support-v4:${Versions.COROUTINE_LEGACY_SUPPORT}"
 
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
-    // kapt
-    const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    const val HILT_KAPT = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
 
     //    testImplementation
     const val JUNIT4 = "junit:junit:${Versions.JUNIT4}"
