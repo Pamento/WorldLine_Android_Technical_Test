@@ -3,9 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":common"))
-
     implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.ANDROID_MATERIAL)

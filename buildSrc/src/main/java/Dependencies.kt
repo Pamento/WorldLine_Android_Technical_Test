@@ -16,7 +16,7 @@ object Versions {
     const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
     // Dependencies versions:
-    const val ANDROIDX_KTX = "1.7.0"
+    const val ANDROIDX_CORE_KTX = "1.7.0"
     const val ANDROIDX_APPCOMPAT = "1.4.0"
     const val ANDROIDX_CONSTRAIN_LAYOUT = "2.1.2"
     const val ANDROIDX_LIVEDATA = "2.4.0"
@@ -68,14 +68,13 @@ object Plugins {
 }
 
 object Dependencies {
-    const val ANDROIDX_KTX = "androidx.core:core-ktx:${Versions.ANDROIDX_KTX}"
+    const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.ANDROIDX_CORE_KTX}"
     const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:${Versions.ANDROIDX_APPCOMPAT}"
     const val ANDROIDX_CONSTRAIN_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.ANDROIDX_CONSTRAIN_LAYOUT}"
     const val ANDROIDX_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ANDROIDX_LIVEDATA}"
     const val ANDROIDX_VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.ANDROIDX_VIEW_MODEL}"
     const val ANDROIDX_LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ANDROIDX_LIFECYCLE_RUNTIME}"
     const val ANDROIDX_RECYCLERVIEW = "androidx.recyclerview:recyclerview:${Versions.ANDROIDX_RECYCLERVIEW}"
-    const val ANDROIDX_CORE = "androidx.core:core-ktx:${Versions.ANDROIDX_CORE}"
     const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.ANDROIDX_FRAGMENT}"
     const val ANDROIDX_LIFECYCLE_EXT = "androidx.lifecycle:lifecycle-extensions:${Versions.ANDROIDX_LIFECYCLE_EXT}"
 

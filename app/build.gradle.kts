@@ -67,7 +67,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":presentation"))
 
-    implementation(Dependencies.ANDROIDX_KTX)
+    implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.ANDROIDX_FRAGMENT)
     implementation(Dependencies.ANDROID_MATERIAL)
