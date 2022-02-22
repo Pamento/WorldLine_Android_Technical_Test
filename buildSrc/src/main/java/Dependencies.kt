@@ -63,8 +63,9 @@ object DependencyType {
 }
 
 object Plugins {
-    const val HILT = "com.google.dagger:hilt-android-gradle-plugin:2.40"
-    const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.1"
+    const val HILT = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
+    const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.DETEKT}"
+    const val DETEKT_KTLINT = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.DETEKT}"
 }
 
 object Dependencies {

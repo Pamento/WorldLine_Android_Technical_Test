@@ -1,32 +1,18 @@
+import io.gitlab.arturbosch.detekt.CONFIGURATION_DETEKT_PLUGINS
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.report.ReportMergeTask
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    //ext.hilt_version = '2.40'
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        // don't need this (com.android.tools.build:gradle:7.1.1) here becose is cam from buildSrc.build.gradle.kts
-        //classpath 'com.android.tools.build:gradle:7.1.1'
-        //classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"
         classpath(Plugins.DETEKT)
         classpath(Plugins.HILT)
     }
 }
-
-// form here after add buildSrc rootProject build.gradle.kts the task is inreachable
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
-//
-//task reportMerge(type: ReportMergeTask) {
-//    output = project.layout.buildDirectory.file("reports/detekt/merge.xml")
-//    // or "reports/detekt/merge.sarif"
-//}
 
 subprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
@@ -53,21 +39,21 @@ subprojects {
 //        }
 //    }
 
-//    configure<DetektExtension> {
-//        toolVersion = Versions.DETEKT
-//        input = files("$projectDir/src")
-//        config = files("${project.rootDir}/detekt.yml")
-//        parallel = true
-//    }
-//
-//    tasks.withType<io.gitlab.arturbosch.detekt.Detekt> {
-//        exclude("**/test/")
-//        exclude(".*/tmp/.*")
-//    }
-//
-//    dependencies {
-//        CONFIGURATION_DETEKT_PLUGINS(Plugins.DETEKT_KTLINT)
-//    }
+    configure<io.gitlab.arturbosch.detekt.extensions.DetektExtension> {
+        toolVersion = Versions.DETEKT
+        input = files("$projectDir/src")
+        config = files("${project.rootDir}/detekt.yml")
+        parallel = true
+    }
+
+    tasks.withType<io.gitlab.arturbosch.detekt.Detekt> {
+        exclude("**/test/")
+        exclude(".*/tmp/.*")
+    }
+
+    dependencies {
+        CONFIGURATION_DETEKT_PLUGINS(Plugins.DETEKT_KTLINT)
+    }
 }
 
 //tasks.withType(Detekt).configureEach {
