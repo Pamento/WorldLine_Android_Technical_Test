@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.movies.Result
+import com.pawel.data.model.movies.Result
 import com.pawel.worldline_android_technical_test.service.MoviesService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

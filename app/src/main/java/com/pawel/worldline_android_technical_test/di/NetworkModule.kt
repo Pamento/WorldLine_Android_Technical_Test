@@ -1,6 +1,6 @@
 package com.pawel.worldline_android_technical_test.di
 
-import com.example.data.api.MoviesRepositoryNetwork
+import com.pawel.data.api.MoviesRepositoryNetwork
 import com.pawel.worldline_android_technical_test.util.Consts
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

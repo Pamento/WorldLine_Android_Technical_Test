@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.pawel.worldline_android_technical_test.R
-import com.example.data.model.movie.Movie
+import com.pawel.data.model.movie.Movie
 import com.pawel.worldline_android_technical_test.databinding.DetailMovieFragmentBinding
 import com.pawel.worldline_android_technical_test.util.Consts.POSTER_URL
 import com.pawel.worldline_android_technical_test.util.helpers.addComaInPrice

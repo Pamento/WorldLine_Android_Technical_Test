@@ -1,4 +1,6 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.File
+import java.io.FileInputStream
+import java.util.*
 
 plugins {
     id("com.android.application")
@@ -7,12 +9,11 @@ plugins {
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
 }
-//https://stackoverflow.com/questions/60474010/read-value-from-local-properties-via-kotlin-dsl
-val localProperties: String = gradleLocalProperties(rootDir).getProperty("API_KEY")
-
-
-//def localProperties = new Properties()
-//localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+//https://stackoverflow.com/questions/60474010/read-value-from-local-properties-via-kotlin-dsl not work
+//val localProperties: String = gradleLocalProperties(rootDir).getProperty("API_KEY")
+val localProperties = Properties().apply {
+    load(FileInputStream(File(rootProject.rootDir, "local.properties")))
+}
 
 android {
     compileSdkVersion(Versions.COMPILE_SDK)
@@ -40,23 +41,17 @@ android {
     buildFeatures.viewBinding = true
 
     buildTypes {
-//        debug {
-//            buildConfigField("String", "API_KEY", "\"" + localProperties['API_KEY'] + "\"")
-//        }
         getByName("release") {
             isMinifyEnabled = false
         }
         getByName("debug") {
-            buildConfigField("String", "API_KEY", localProperties)
+            buildConfigField("String", "API_KEY", "\"${localProperties["API_KEY"]}\"")
         }
     }
 
     kotlinOptions {
         jvmTarget = "1.8"
     }
-//    buildFeatures {
-//        viewBinding true
-//    }
     namespace = "com.pawel.worldline_android_technical_test"
 }
 
