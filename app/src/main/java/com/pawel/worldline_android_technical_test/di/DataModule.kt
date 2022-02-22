@@ -1,7 +1,7 @@
 package com.pawel.worldline_android_technical_test.di
 
-import com.pawel.worldline_android_technical_test.data.repository.MoviesRepository
-import com.pawel.worldline_android_technical_test.data.repository.MoviesRepositoryImpl
+import com.example.domain.repository.MoviesRepository
+import com.example.data.repository.MoviesRepositoryImpl
 import com.pawel.worldline_android_technical_test.service.MoviesService
 import com.pawel.worldline_android_technical_test.service.MoviesServiceImpl
 import dagger.Binds

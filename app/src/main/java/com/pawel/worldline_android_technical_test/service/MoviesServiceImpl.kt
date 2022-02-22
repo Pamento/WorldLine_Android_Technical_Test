@@ -1,6 +1,6 @@
 package com.pawel.worldline_android_technical_test.service
 
-import com.pawel.worldline_android_technical_test.data.repository.MoviesRepository
+import com.example.domain.repository.MoviesRepository
 import com.example.data.model.movies.Result
 import javax.inject.Inject
 

@@ -23,7 +23,6 @@ object Versions {
     const val ANDROIDX_VIEW_MODEL = "2.4.0"
     const val ANDROIDX_LIFECYCLE_RUNTIME = "2.4.0"
     const val ANDROIDX_RECYCLERVIEW = "1.2.1"
-    const val ANDROIDX_CORE = "1.7.0"
     const val ANDROIDX_FRAGMENT = "1.4.1"
     const val ANDROIDX_LIFECYCLE_EXT = "2.2.0"
 

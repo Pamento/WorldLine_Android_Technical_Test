@@ -1,4 +1,4 @@
-package com.pawel.worldline_android_technical_test.cache
+package com.example.data.cache
 
 import android.util.Log
 import android.util.LruCache

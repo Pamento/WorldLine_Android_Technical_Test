@@ -1,4 +1,4 @@
-package com.pawel.worldline_android_technical_test.data.repository
+package com.example.domain.repository
 
 import com.example.data.model.movie.Movie
 import com.example.data.model.movies.MovieApiResponse

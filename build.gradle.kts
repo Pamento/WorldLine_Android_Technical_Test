@@ -1,7 +1,5 @@
 import io.gitlab.arturbosch.detekt.CONFIGURATION_DETEKT_PLUGINS
 import io.gitlab.arturbosch.detekt.Detekt
-import io.gitlab.arturbosch.detekt.DetektPlugin
-import io.gitlab.arturbosch.detekt.report.ReportMergeTask
 
 buildscript {
     repositories {
@@ -46,7 +44,7 @@ subprojects {
         parallel = true
     }
 
-    tasks.withType<io.gitlab.arturbosch.detekt.Detekt> {
+    tasks.withType<Detekt> {
         exclude("**/test/")
         exclude(".*/tmp/.*")
     }
