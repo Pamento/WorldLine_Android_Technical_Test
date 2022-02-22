@@ -4,6 +4,7 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.JavaVersion
+import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class CommonModulesPlugin : Plugin<Project> {
@@ -67,5 +68,16 @@ class CommonModulesPlugin : Plugin<Project> {
             }
         }
 
+        project.dependencies {
+            add(DependencyType.IMPLEMENTATION, Dependencies.HILT)
+            add(DependencyType.KAPT, Dependencies.HILT_KAPT)
+            add(DependencyType.IMPLEMENTATION,Dependencies.ANDROIDX_CORE_KTX)
+            add(DependencyType.IMPLEMENTATION, Dependencies.ANDROIDX_APPCOMPAT)
+            add(DependencyType.IMPLEMENTATION, Dependencies.ANDROID_MATERIAL)
+
+            add(DependencyType.TEST_IMPLEMENTATION, Dependencies.JUNIT4)
+            add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.TEST_EXT)
+            add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.ESPRESSO)
+        }
     }
 }
