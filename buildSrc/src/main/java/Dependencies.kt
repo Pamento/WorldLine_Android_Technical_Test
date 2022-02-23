@@ -25,6 +25,7 @@ object Versions {
     const val ANDROIDX_RECYCLERVIEW = "1.2.1"
     const val ANDROIDX_FRAGMENT = "1.4.1"
     const val ANDROIDX_LIFECYCLE_EXT = "2.2.0"
+    const val LIFECYCLE = "2.4.1"
 
     const val ANDROID_MATERIAL = "1.4.0"
     const val ANDROID_LIFECYCLE_EXT = "1.1.1"
@@ -77,6 +78,7 @@ object Dependencies {
     const val ANDROIDX_RECYCLERVIEW = "androidx.recyclerview:recyclerview:${Versions.ANDROIDX_RECYCLERVIEW}"
     const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.ANDROIDX_FRAGMENT}"
     const val ANDROIDX_LIFECYCLE_EXT = "androidx.lifecycle:lifecycle-extensions:${Versions.ANDROIDX_LIFECYCLE_EXT}"
+    const val ANDROIDX_KAPT = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
 
     const val ANDROID_MATERIAL = "com.google.android.material:material:${Versions.ANDROID_MATERIAL}"
     const val ANDROID_LIFECYCLE_EXT = "android.arch.lifecycle:extensions:${Versions.ANDROID_LIFECYCLE_EXT}"

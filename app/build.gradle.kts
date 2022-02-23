@@ -55,12 +55,16 @@ android {
     namespace = "com.pawel.worldline_android_technical_test"
 }
 
+hilt {
+    enableExperimentalClasspathAggregation = true
+}
+
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":common"))
     implementation(project(":data"))
+    implementation(project(":domain"))
     implementation(project(":presentation"))
+    implementation(project(":common"))
 
     implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)

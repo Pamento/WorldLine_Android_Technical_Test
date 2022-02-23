@@ -1,5 +1,8 @@
 package com.pawel.worldline_android_technical_test.util.helpers
 
+import com.pawel.domain.util.helpers.addComaInPrice
+import com.pawel.domain.util.helpers.frenchFormatOfDate
+import com.pawel.domain.util.helpers.getListSize
 import org.junit.Assert.*
 
 import org.junit.Test

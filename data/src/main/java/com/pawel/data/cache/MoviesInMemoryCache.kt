@@ -2,7 +2,7 @@ package com.pawel.data.cache
 
 import android.util.Log
 import android.util.LruCache
-import com.pawel.data.model.movies.Result
+import com.pawel.domain.model.movies.Result
 import javax.inject.Inject
 import javax.inject.Singleton
 
