@@ -40,6 +40,11 @@ android {
 
     buildFeatures.viewBinding = true
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    namespace = "com.pawel.worldline_android_technical_test"
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -48,15 +53,6 @@ android {
             buildConfigField("String", "API_KEY", "\"${localProperties["API_KEY"]}\"")
         }
     }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    namespace = "com.pawel.worldline_android_technical_test"
-}
-
-hilt {
-    enableExperimentalClasspathAggregation = true
 }
 
 

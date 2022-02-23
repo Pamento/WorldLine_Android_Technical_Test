@@ -21,9 +21,17 @@ class MoviesRepositoryImpl @Inject constructor(private val moviesRepositoryNetwo
     override fun saveMoviesToCache(listResult: List<Result>) =
         cache.saveInCacheMemory(MOVIES_IN_MEMORY_KEY, listResult)
 
-    override suspend fun getMovies(): MovieApiResponse =
-        moviesRepositoryNetwork.getMovies()
+    override suspend fun getMovies(): List<Result>? = getMoviesFromCache() ?: cacheDataManager()
+
 
     override suspend fun getMovie(movieID: String): Movie =
         moviesRepositoryNetwork.getMovieDetail(movieID)
+
+    private suspend fun cacheDataManager(): List<Result>? {
+        val movies = moviesRepositoryNetwork.getMovies().results
+        movies?.let {
+            saveMoviesToCache(it)
+        }
+        return movies
+    }
 }
