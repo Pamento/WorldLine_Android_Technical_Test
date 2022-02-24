@@ -51,6 +51,7 @@ android {
         }
         getByName("debug") {
             buildConfigField("String", "API_KEY", "\"${localProperties["API_KEY"]}\"")
+            //resValue("string", "API_KEY", "${localProperties["API_KEY"]}")
         }
     }
 }
