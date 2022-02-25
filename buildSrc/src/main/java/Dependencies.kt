@@ -37,6 +37,7 @@ object Versions {
 
     const val GSON = "2.8.6"
     const val RETROFIT2 = "2.9.0"
+    const val OKHTTP = "4.10.0-RC1"
     const val OKHTTP3_BOM = "4.9.0"
     const val RX_KOTLIN = "3.0.1"
 
@@ -92,6 +93,8 @@ object Dependencies {
     const val OKHTTP3_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor"
     const val OKHTTP3_BOM = "com.squareup.okhttp3:okhttp-bom:${Versions.OKHTTP3_BOM}"
     const val RX_KOTLIN = "io.reactivex.rxjava3:rxkotlin:${Versions.RX_KOTLIN}"
+
+    const val MOCKWS = "com.squareup.okhttp3:mockwebserver:${Versions.OKHTTP}"
 
     const val COROUTINE_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINE_ANDROID}"
     const val COROUTINE_ANDROID_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINE_ANDROID_CORE}"
