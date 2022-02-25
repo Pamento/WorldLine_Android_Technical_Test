@@ -14,17 +14,16 @@ class MoviesRepositoryImpl @Inject constructor(private val moviesRepositoryNetwo
     @Inject
     lateinit var cache: MoviesInMemoryCache
 
-    override fun getMoviesFromCache(): List<Result>? =
-        cache.fetchFromCacheMemory(MOVIES_IN_MEMORY_KEY)
-
-    override fun saveMoviesToCache(listResult: List<Result>) =
-        cache.saveInCacheMemory(MOVIES_IN_MEMORY_KEY, listResult)
-
     override suspend fun getMovies(): List<Result> = getMoviesFromCache() ?: cacheDataManager()
-
 
     override suspend fun getMovie(movieID: String): Movie =
         moviesRepositoryNetwork.getMovieDetail(movieID)
+
+    private fun getMoviesFromCache(): List<Result>? =
+        cache.fetchFromCacheMemory(MOVIES_IN_MEMORY_KEY)
+
+    private fun saveMoviesToCache(listResult: List<Result>) =
+        cache.saveInCacheMemory(MOVIES_IN_MEMORY_KEY, listResult)
 
     private suspend fun cacheDataManager(): List<Result> {
         val movies = moviesRepositoryNetwork.getMovies().results
