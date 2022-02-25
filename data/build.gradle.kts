@@ -23,9 +23,11 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":common"))
 
+
+    implementation(Dependencies.GSON)
     implementation(Dependencies.RETROFIT2)
-    implementation(Dependencies.RETROFIT2_MOSHI)
-    implementation(Dependencies.RETROFIT2_MOSHI_KOTLIN)
+    implementation(Dependencies.RETROFIT2_GSON)
+
     // OkHttp3 bom for all dependencies of the platform
     implementation(Dependencies.OKHTTP3_BOM)
     implementation(Dependencies.OKHTTP3_INTERCEPTOR)

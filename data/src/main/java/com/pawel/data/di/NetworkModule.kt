@@ -1,9 +1,9 @@
 package com.pawel.data.di
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.pawel.data.api.MoviesRepositoryNetwork
 import com.pawel.domain.util.Consts
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +11,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -19,14 +19,25 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Provides
-    fun provideRepositoryNetwork(): MoviesRepositoryNetwork {
+    fun provideGson(): Gson = GsonBuilder().create()
+    @Provides
+    fun provideRepositoryNetwork(gson: Gson): MoviesRepositoryNetwork {
         val retrofit = Retrofit.Builder()
             .baseUrl(Consts.BASE_URL)
             .client(provideHttpClient())
-            .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
         return retrofit.create(MoviesRepositoryNetwork::class.java)
     }
+//    @Provides
+//    fun provideRepositoryNetwork(): MoviesRepositoryNetwork {
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl(Consts.BASE_URL)
+//            .client(provideHttpClient())
+//            .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
+//            .build()
+//        return retrofit.create(MoviesRepositoryNetwork::class.java)
+//    }
 
     @Provides
     @Singleton
@@ -42,9 +53,9 @@ object NetworkModule {
             .build()
 
 
-    @Provides
-    fun provideMoshi(): Moshi =
-        Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
+//    @Provides
+//    fun provideMoshi(): Moshi =
+//        Moshi.Builder()
+//            .add(KotlinJsonAdapterFactory())
+//            .build()
 }

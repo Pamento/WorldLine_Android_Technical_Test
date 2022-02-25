@@ -1,14 +1,7 @@
 package com.pawel.domain.model.movie
 
-import com.squareup.moshi.Json
-
-class SpokenLanguage {
-    @Json(name = "english_name")
-    var englishName: String? = null
-
-    @Json(name = "iso_639_1")
-    var iso6391: String? = null
-
-    @Json(name = "name")
-    var name: String? = null
-}
+data class SpokenLanguage(
+    val english_name: String,
+    val iso_639_1: String,
+    val name: String
+)

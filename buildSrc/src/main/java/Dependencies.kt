@@ -35,6 +35,7 @@ object Versions {
     // kapt
     const val GLIDE_COMPILER = "4.13.0"
 
+    const val GSON = "2.8.6"
     const val RETROFIT2 = "2.9.0"
     const val RETROFIT2_MOSHI = "2.6.2"
     const val RETROFIT2_MOSHI_KOTLIN = "1.12.0"
@@ -87,9 +88,9 @@ object Dependencies {
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     const val GLIDE_KAPT = "com.github.bumptech.glide:compiler:${Versions.GLIDE_COMPILER}"
 
+    const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
     const val RETROFIT2 = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT2}"
-    const val RETROFIT2_MOSHI = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT2_MOSHI}"
-    const val RETROFIT2_MOSHI_KOTLIN = "com.squareup.moshi:moshi-kotlin:${Versions.RETROFIT2_MOSHI_KOTLIN}"
+    const val RETROFIT2_GSON = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT2}"
     const val OKHTTP3_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor"
     const val OKHTTP3_BOM = "com.squareup.okhttp3:okhttp-bom:${Versions.OKHTTP3_BOM}"
     const val RX_KOTLIN = "io.reactivex.rxjava3:rxkotlin:${Versions.RX_KOTLIN}"

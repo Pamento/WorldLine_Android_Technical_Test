@@ -69,11 +69,17 @@ class CommonModulesPlugin : Plugin<Project> {
         }
 
         project.dependencies {
-            add(DependencyType.IMPLEMENTATION, Dependencies.HILT)
-            add(DependencyType.KAPT, Dependencies.HILT_KAPT)
             add(DependencyType.IMPLEMENTATION,Dependencies.ANDROIDX_CORE_KTX)
             add(DependencyType.IMPLEMENTATION, Dependencies.ANDROIDX_APPCOMPAT)
             add(DependencyType.IMPLEMENTATION, Dependencies.ANDROID_MATERIAL)
+
+            add(DependencyType.IMPLEMENTATION, Dependencies.HILT)
+            add(DependencyType.KAPT, Dependencies.HILT_KAPT)
+
+            add(DependencyType.IMPLEMENTATION, Dependencies.COROUTINE_ANDROID)
+            add(DependencyType.IMPLEMENTATION, Dependencies.COROUTINE_ANDROID_CORE)
+            add(DependencyType.IMPLEMENTATION, Dependencies.COROUTINE_LEGACY_SUPPORT)
+            add(DependencyType.IMPLEMENTATION, Dependencies.RX_KOTLIN)
 
             add(DependencyType.TEST_IMPLEMENTATION, Dependencies.JUNIT4)
             add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.TEST_EXT)

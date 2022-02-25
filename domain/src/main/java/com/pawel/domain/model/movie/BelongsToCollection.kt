@@ -1,17 +1,8 @@
 package com.pawel.domain.model.movie
 
-import com.squareup.moshi.Json
-
-class BelongsToCollection {
-    @Json(name = "id")
-    var id: Int? = null
-
-    @Json(name = "name")
-    var name: String? = null
-
-    @Json(name = "poster_path")
-    var posterPath: String? = null
-
-    @Json(name = "backdrop_path")
-    var backdropPath: String? = null
-}
+data class BelongsToCollection(
+    val backdrop_path: String,
+    val id: Int,
+    val name: String,
+    val poster_path: String
+)

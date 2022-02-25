@@ -5,11 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pawel.domain.model.movies.Result
 import com.pawel.domain.service.MoviesService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.pawel.domain.model.movies.Result
 
 @HiltViewModel
 class MoviesViewModel @Inject constructor(private val moviesService: MoviesService) : ViewModel() {

@@ -33,9 +33,6 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
-//        viewModel = ViewModelProviders.of(this,
-//            ViewModelFactory(ApiHelperImpl(createNetworkService()))
-//        )[MoviesViewModel::class.java]
         adapter = MovieAdapter(requireContext(),this)
         setRecyclerView()
         return binding.root

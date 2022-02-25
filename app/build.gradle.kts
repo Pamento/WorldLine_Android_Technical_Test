@@ -75,23 +75,6 @@ dependencies {
     implementation(Dependencies.ANDROIDX_RECYCLERVIEW)
     implementation(Dependencies.ANDROIDX_LIFECYCLE_EXT)
 
-    // Glide
-    implementation(Dependencies.GLIDE)
-    kapt(Dependencies.GLIDE_KAPT)
-
-    // Retrofit
-    implementation(Dependencies.RETROFIT2)
-    implementation(Dependencies.RETROFIT2_MOSHI)
-    implementation(Dependencies.RETROFIT2_MOSHI_KOTLIN)
-    implementation(platform(Dependencies.OKHTTP3_BOM))
-    implementation(Dependencies.OKHTTP3_INTERCEPTOR)
-    implementation(Dependencies.RX_KOTLIN)
-
-    // Coroutine
-    implementation(Dependencies.COROUTINE_ANDROID)
-    implementation(Dependencies.COROUTINE_ANDROID_CORE)
-    implementation(Dependencies.COROUTINE_LEGACY_SUPPORT)
-
     // DI Hilt
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_KAPT)

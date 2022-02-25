@@ -2,9 +2,9 @@ package com.pawel.data.cache
 
 import android.util.Log
 import android.util.LruCache
-import com.pawel.domain.model.movies.Result
 import javax.inject.Inject
 import javax.inject.Singleton
+import com.pawel.domain.model.movies.Result
 
 @Singleton
 class MoviesInMemoryCache @Inject constructor() {

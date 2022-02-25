@@ -68,12 +68,12 @@ class DetailMovieFragment : Fragment() {
                 updateUITexts()
                 updateUIImageView(
                     binding.detailMovieBackdrop.context,
-                    "${POSTER_URL}w500/${movie.backdropPath}",
+                    "${POSTER_URL}w500/${movie.backdrop_path}",
                     binding.detailMovieBackdrop
                 )
                 updateUIImageView(
                     binding.detailMoviePoster.context,
-                    "${POSTER_URL}w300/${movie.posterPath}",
+                    "${POSTER_URL}w300/${movie.poster_path}",
                     binding.detailMoviePoster
                 )
 
@@ -89,19 +89,14 @@ class DetailMovieFragment : Fragment() {
     }
 
     private fun updateUITexts() {
-        val companiesNumber: Int = movie.productionCompanies?.let {
-            getListSize(it)
-        } ?: 0
+        val companiesNumber: Int = getListSize(movie.production_companies)
         binding.detailMovieTitle.text = movie.title
         binding.detailMovieOverview.text = movie.overview
-        movie.releaseDate?.let {
+        movie.release_date.let {
             binding.detailMovieReleaseDateBody.text = frenchFormatOfDate(it)
-        } ?: run {
-            binding.detailMovieReleaseDateBody.visibility = View.GONE
-            binding.detailMovieReleaseDateTitle.visibility = View.GONE
         }
-        binding.detailMovieRatingBody.text = movie.voteAverage.toString()
-        if (movie.budget!! > 0) {
+        binding.detailMovieRatingBody.text = movie.vote_average.toString()
+        if (movie.budget > 0) {
             val budget = movie.budget.toString()
             binding.detailMovieBudgetBody.text =
                 String.format(getString(R.string.budget_in_dolar), addComaInPrice(budget))
@@ -110,11 +105,11 @@ class DetailMovieFragment : Fragment() {
             binding.detailMovieBudgetBody.visibility = View.GONE
         }
 
-        binding.detailMovieOriginalTitleBody.text = movie.originalTitle
+        binding.detailMovieOriginalTitleBody.text = movie.original_title
         if (companiesNumber > 0) {
             val companies =
-                if (companiesNumber == 1) movie.productionCompanies?.get(0)?.name
-                else movie.productionCompanies?.let { buildStringForCompanies(it) }
+                if (companiesNumber == 1) movie.production_companies[0].name
+                else buildStringForCompanies(movie.production_companies)
 
             binding.detailMovieCompanyBody.text = companies.toString()
         } else {

@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.pawel.domain.model.movies.Result
 import com.pawel.domain.util.Consts.POSTER_URL
 import com.pawel.worldline_android_technical_test.presentation.R
 import com.pawel.worldline_android_technical_test.presentation.databinding.ItemMovieBinding
+import com.pawel.domain.model.movies.Result
 
 class MovieAdapter(
     private val context: Context,
     private val onClickItem: OnMovieItemClickListener
 ) : RecyclerView.Adapter<MovieViewHolder>() {
 
-    var movies = mutableListOf<Result>()
+    private var movies = mutableListOf<Result>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -56,9 +56,9 @@ class MovieViewHolder(
     private fun setUrl(endpoint: String?) = "${POSTER_URL}w200/$endpoint"
 
     fun bind(movie: Result) {
-        val url = setUrl(movie.posterPath)
+        val url = setUrl(movie.poster_path)
         view.itemTitle.text = movie.title
-        view.itemConcernedPublic.text = publicFor(movie.isAdult)
+        view.itemConcernedPublic.text = publicFor(movie.adult)
         view.itemDescription.text = movie.overview
         Glide.with(view.itemMoviePoster.context)
             .load(url)
