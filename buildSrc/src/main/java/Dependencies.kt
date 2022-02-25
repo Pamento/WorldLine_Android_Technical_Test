@@ -37,8 +37,6 @@ object Versions {
 
     const val GSON = "2.8.6"
     const val RETROFIT2 = "2.9.0"
-    const val RETROFIT2_MOSHI = "2.6.2"
-    const val RETROFIT2_MOSHI_KOTLIN = "1.12.0"
     const val OKHTTP3_BOM = "4.9.0"
     const val RX_KOTLIN = "3.0.1"
 
@@ -82,7 +80,7 @@ object Dependencies {
     const val ANDROIDX_KAPT = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
 
     const val ANDROID_MATERIAL = "com.google.android.material:material:${Versions.ANDROID_MATERIAL}"
-    const val ANDROID_LIFECYCLE_EXT = "android.arch.lifecycle:extensions:${Versions.ANDROID_LIFECYCLE_EXT}"
+    //const val ANDROID_LIFECYCLE_EXT = "android.arch.lifecycle:extensions:${Versions.ANDROID_LIFECYCLE_EXT}"
     const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.KOTLIN_STDLIB}"
 
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"

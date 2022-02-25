@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.pawel.domain.model.movie.Movie
-import com.pawel.domain.util.Consts.POSTER_URL
+import com.pawel.presentation.util.Consts.POSTER_URL
 import com.pawel.domain.util.helpers.addComaInPrice
 import com.pawel.domain.util.helpers.buildStringForCompanies
 import com.pawel.domain.util.helpers.frenchFormatOfDate

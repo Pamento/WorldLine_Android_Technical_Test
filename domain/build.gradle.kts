@@ -5,7 +5,4 @@ plugins {
 dependencies {
     implementation(project(":common"))
 
-    // Glide
-    implementation(Dependencies.GLIDE)
-    kapt(Dependencies.GLIDE_KAPT)
 }

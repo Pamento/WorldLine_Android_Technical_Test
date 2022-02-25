@@ -79,6 +79,10 @@ dependencies {
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_KAPT)
 
+    // Glide dependencies for GlideEntryPoint -> FilmAppGlideModule
+    implementation(Dependencies.GLIDE)
+    kapt(Dependencies.GLIDE_KAPT)
+
     // Test
     testImplementation(Dependencies.JUNIT4)
     androidTestImplementation(Dependencies.TEST_EXT)
