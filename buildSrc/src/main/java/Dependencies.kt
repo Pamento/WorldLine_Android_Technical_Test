@@ -9,7 +9,7 @@ object Versions {
     const val COMPILE_SDK = 31
     const val MIN_SDK = 21
     const val TARGET_SDK = 31
-    const val DETEKT = "1.17.1"
+    const val DETEKT = "1.19.0"
     const val CODE = 1
     const val NAME = "1.0"
     const val ID = "com.pawel.worldline_android_technical_test"
