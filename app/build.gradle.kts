@@ -68,12 +68,14 @@ android {
     }
 }
 
+val mockImplementation by configurations
 
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":presentation"))
     implementation(project(":common"))
+    mockImplementation(project(":data-mock"))
 
     implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)
