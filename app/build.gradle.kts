@@ -54,6 +54,18 @@ android {
             //resValue("string", "API_KEY", "${localProperties["API_KEY"]}")
         }
     }
+
+    flavorDimensions.add("env")
+    productFlavors {
+        create("prod") {
+            dimension = "env"
+            applicationIdSuffix = ".prod"
+        }
+        create("mock") {
+            dimension = "env"
+            applicationIdSuffix = ".mock"
+        }
+    }
 }
 
 
