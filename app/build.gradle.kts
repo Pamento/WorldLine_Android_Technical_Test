@@ -25,7 +25,7 @@ android {
         versionCode = Versions.CODE
         versionName = Versions.NAME
 
-        testInstrumentationRunner = Versions.TEST_INSTRUMENTATION_RUNNER
+        testInstrumentationRunner = Versions.TEST_INSTRUMENTATION_RUNNER_HILT
 
         proguardFiles(
             getDefaultProguardFile("proguard-android-optimize.txt"),

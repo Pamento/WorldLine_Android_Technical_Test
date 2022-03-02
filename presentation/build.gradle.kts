@@ -31,6 +31,7 @@ dependencies {
     androidTestImplementation(Dependencies.TEST_EXT_JUNIT)
     androidTestImplementation(Dependencies.TEST_ANDROIDX_RULES)
     androidTestImplementation(Dependencies.TEST_ANDROIDX_CONTRIB)
+    androidTestImplementation(Dependencies.TEST_ANDROID_HILT)
 }
 
 kapt {
