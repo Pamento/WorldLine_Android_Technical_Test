@@ -24,6 +24,12 @@ dependencies {
     implementation(Dependencies.GLIDE_KAPT)
     implementation(Dependencies.ANDROIDX_FRAGMENT)
     implementation(Dependencies.ANDROIDX_RECYCLERVIEW)
+
+    // TEST
+    androidTestImplementation(Dependencies.TEST_ANDROIDX_RUNNER)
+    androidTestImplementation(Dependencies.TEST_EXT_TRUTH)
+    androidTestImplementation(Dependencies.TEST_EXT_JUNIT)
+    androidTestImplementation(Dependencies.TEST_ANDROIDX_RULES)
 }
 
 kapt {
