@@ -5,6 +5,7 @@
     android:id="@+id/detailMovie_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/purple_700"
     tools:context="com.pawel.presentation.ui.movieDetail.DetailMovieFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_normal"
             android:layout_marginTop="@dimen/space_normal"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_backdrop"
@@ -49,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_normal"
             android:layout_marginTop="@dimen/space_normal"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_title"
@@ -80,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_small"
             android:text="@string/release_date"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/detailMovie_poster" />
 
@@ -89,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/release_date"
+            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_releaseDate_title" />
 
@@ -100,6 +105,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/rating"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_releaseDate_body" />
 
@@ -108,6 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_rating_title"
             tools:text="@string/rating" />
@@ -120,6 +127,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/budget"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_rating_body" />
 
@@ -128,6 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_title"
             tools:text="@string/budget" />
@@ -140,6 +149,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/original_title"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_body" />
 
@@ -150,6 +160,7 @@
             android:layout_marginTop="@dimen/space_small"
             app:layout_constraintHorizontal_bias="0.0"
             android:maxLines="2"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/detailMovie_guideline2"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_original_title"
@@ -163,6 +174,7 @@
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/company"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_original_title_body" />
 
@@ -171,6 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_company_title"
             tools:text="@string/company" />

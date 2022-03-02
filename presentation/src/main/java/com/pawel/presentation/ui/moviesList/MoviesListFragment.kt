@@ -48,15 +48,14 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     private fun setRecyclerView() {
         recyclerView = binding.listMoviesRV
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.tag = MOVIES_RECYCLER_VIEW_TAG
-        recyclerView.apply {
-            addItemDecoration(
-                DividerItemDecoration(
-                    binding.listMoviesRV.context,
-                    DividerItemDecoration.VERTICAL
-                )
-            )
-        }
+//        recyclerView.apply {
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    binding.listMoviesRV.context,
+//                    DividerItemDecoration.VERTICAL
+//                )
+//            )
+//        }
         recyclerView.adapter = adapter
     }
 

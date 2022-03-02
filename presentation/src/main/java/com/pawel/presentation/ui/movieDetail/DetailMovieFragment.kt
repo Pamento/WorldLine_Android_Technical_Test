@@ -86,6 +86,7 @@ class DetailMovieFragment : Fragment() {
     private fun updateUIImageView(context: Context, url: String, into: AppCompatImageView) {
         Glide.with(context)
             .load(url)
+            .placeholder(R.drawable.img_not_found_square)
             .error(R.drawable.img_not_found_square)
             .into(into)
     }
