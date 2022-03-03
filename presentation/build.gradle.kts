@@ -33,6 +33,7 @@ dependencies {
     androidTestImplementation(Dependencies.TEST_ANDROIDX_CONTRIB)
     androidTestImplementation(Dependencies.TEST_ANDROID_HILT)
     kaptAndroidTest(Dependencies.HILT_KAPT)
+    kaptTest(Dependencies.HILT_KAPT)
 }
 
 kapt {
