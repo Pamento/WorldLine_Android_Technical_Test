@@ -25,6 +25,11 @@ dependencies {
     implementation(Dependencies.ANDROIDX_FRAGMENT)
     implementation(Dependencies.ANDROIDX_RECYCLERVIEW)
 
+
+
+    implementation(Dependencies.HILT)
+    kapt(Dependencies.HILT_KAPT)
+
     // TEST
     androidTestImplementation(Dependencies.TEST_ANDROIDX_RUNNER)
     androidTestImplementation(Dependencies.TEST_EXT_TRUTH)

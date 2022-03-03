@@ -14,6 +14,9 @@ dependencies {
     implementation(Dependencies.OKHTTP3_BOM)
     implementation(Dependencies.OKHTTP3_INTERCEPTOR)
 
+    implementation(Dependencies.HILT)
+    kapt(Dependencies.HILT_KAPT)
+
     kapt (Dependencies.ANDROIDX_KAPT)
 }
 
