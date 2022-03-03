@@ -88,6 +88,7 @@ object Dependencies {
     const val ANDROIDX_LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ANDROIDX_LIFECYCLE_RUNTIME}"
     const val ANDROIDX_RECYCLERVIEW = "androidx.recyclerview:recyclerview:${Versions.ANDROIDX_RECYCLERVIEW}"
     const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.ANDROIDX_FRAGMENT}"
+    const val ANDROIDX_FRAGMENT_TESTING = "androidx.fragment:fragment-testing:${Versions.ANDROIDX_FRAGMENT}"
     const val ANDROIDX_LIFECYCLE_EXT = "androidx.lifecycle:lifecycle-extensions:${Versions.ANDROIDX_LIFECYCLE_EXT}"
     const val ANDROIDX_KAPT = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
 

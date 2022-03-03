@@ -9,6 +9,7 @@ import com.pawel.worldline_android_technical_test.presentation.R
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.Matchers.allOf
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,6 +23,12 @@ class MainActivityTestRecyclerView {
 
     @get:Rule
     var mActivityTestRule = HiltAndroidRule(this)
+
+    @Before
+    fun init() {
+        mActivityTestRule.inject()
+    }
+
 
     @Test
     fun mainActivityTest_RecyclerView() {

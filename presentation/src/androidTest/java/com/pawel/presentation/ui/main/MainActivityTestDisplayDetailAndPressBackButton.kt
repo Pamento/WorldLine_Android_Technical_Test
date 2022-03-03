@@ -19,6 +19,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
 import org.hamcrest.core.IsInstanceOf
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -30,6 +31,12 @@ class MainActivityTestDisplayDetailAndPressBackButton {
 
     @get:Rule
     var mActivityTestRule = HiltAndroidRule(this)
+
+    @Before
+    fun init() {
+        mActivityTestRule.inject()
+    }
+
 
     @Test
     fun mainActivityTestDisplayDetailAndPressBackButton() {

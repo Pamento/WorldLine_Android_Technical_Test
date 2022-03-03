@@ -26,6 +26,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.hamcrest.Matchers.allOf
+import org.junit.Before
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -34,6 +35,12 @@ class MainActivityTestDetailDisplay {
 
     @get:Rule
     var mActivityTestRule = HiltAndroidRule(this)
+
+    @Before
+    fun init() {
+        mActivityTestRule.inject()
+    }
+
 
     @Test
     fun mainActivityTestDetailDisplay() {
