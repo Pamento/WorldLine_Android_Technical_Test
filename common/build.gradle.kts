@@ -22,6 +22,10 @@ android {
 dependencies {
 }
 
+hilt {
+    enableExperimentalClasspathAggregation = true
+}
+
 kapt {
     correctErrorTypes = true
 }

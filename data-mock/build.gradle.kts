@@ -7,6 +7,10 @@ dependencies {
     api(Dependencies.MOCKWS)
 }
 
+hilt {
+    enableExperimentalClasspathAggregation = true
+}
+
 kapt {
     correctErrorTypes = true
 }

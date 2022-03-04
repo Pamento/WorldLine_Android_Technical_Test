@@ -115,5 +115,9 @@ kapt {
 }
 
 hilt {
+    enableExperimentalClasspathAggregation = true
+}
+
+hilt {
     enableAggregatingTask = true
 }

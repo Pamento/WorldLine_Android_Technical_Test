@@ -20,6 +20,10 @@ dependencies {
     kapt (Dependencies.ANDROIDX_KAPT)
 }
 
+hilt {
+    enableExperimentalClasspathAggregation = true
+}
+
 kapt {
     correctErrorTypes = true
 }

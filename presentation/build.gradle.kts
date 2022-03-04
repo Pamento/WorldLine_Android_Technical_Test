@@ -42,6 +42,10 @@ dependencies {
     debugImplementation(Dependencies.ANDROIDX_FRAGMENT_TESTING)
 }
 
+hilt {
+    enableExperimentalClasspathAggregation = true
+}
+
 kapt {
     correctErrorTypes = true
 }
