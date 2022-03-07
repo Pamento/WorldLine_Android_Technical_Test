@@ -82,8 +82,15 @@ class CommonModulesPlugin : Plugin<Project> {
             add(DependencyType.IMPLEMENTATION, Dependencies.RX_KOTLIN)
 
             add(DependencyType.TEST_IMPLEMENTATION, Dependencies.JUNIT4)
-            add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.TEST_EXT)
+            add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.ANDROIDX_TEST_EXT)
             add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.ESPRESSO)
+            add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.ESPRESSO_CONTRIB)
+            add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.KOTLINX_TEST_COROUTINES)
+            add(DependencyType.IMPLEMENTATION, Dependencies.ANDROIDX_TEST_CORE)
+            add(DependencyType.TEST_IMPLEMENTATION, Dependencies.ANDROIDX_TEST_CORE_KTX)
+            add(DependencyType.TEST_IMPLEMENTATION, Dependencies.ANDROIDX_TESTING_CORE)
+            add(DependencyType.TEST_IMPLEMENTATION, Dependencies.HAMCREST)
+            add(DependencyType.TEST_IMPLEMENTATION, Dependencies.ROBOLECTRIC)
         }
     }
 }

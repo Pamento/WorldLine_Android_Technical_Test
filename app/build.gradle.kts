@@ -99,7 +99,7 @@ dependencies {
 
     // Test
     testImplementation(Dependencies.JUNIT4)
-    androidTestImplementation(Dependencies.TEST_EXT)
+    androidTestImplementation(Dependencies.ANDROIDX_TEST_EXT)
     androidTestImplementation(Dependencies.ESPRESSO)
 }
 

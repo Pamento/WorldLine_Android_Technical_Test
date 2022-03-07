@@ -28,7 +28,6 @@ object Versions {
     const val LIFECYCLE = "2.4.1"
 
     const val ANDROID_MATERIAL = "1.4.0"
-    const val ANDROID_LIFECYCLE_EXT = "1.1.1"
     const val KOTLIN_STDLIB = "1.5.30"
 
     const val GLIDE = "4.13.0"
@@ -53,6 +52,14 @@ object Versions {
     const val TEST_EXT = "1.1.3"
     //    androidTestImplementation
     const val ESPRESSO = "3.4.0"
+    const val ESPRESSO_CONTRIB = "3.4.0"
+    const val ANDROIDX_TEST_CORE = "1.4.0"
+    const val ANDROIDX_TEST_CORE_KTX = "1.4.0"
+    const val ANDROIDX_TESTING_CORE = "2.1.0"
+    const val ANDROIDX_TESTING_FRAGMENT = "1.4.1"
+    const val HAMCREST = "1.3"
+    const val ROBOLECTRIC = "4.5.1"
+    const val KOTLINX_TEST_COROUTINES = "1.5.1"
 }
 
 object DependencyType {
@@ -81,34 +88,41 @@ object Dependencies {
     const val ANDROIDX_KAPT = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
 
     const val ANDROID_MATERIAL = "com.google.android.material:material:${Versions.ANDROID_MATERIAL}"
-    //const val ANDROID_LIFECYCLE_EXT = "android.arch.lifecycle:extensions:${Versions.ANDROID_LIFECYCLE_EXT}"
     const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.KOTLIN_STDLIB}"
 
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     const val GLIDE_KAPT = "com.github.bumptech.glide:compiler:${Versions.GLIDE_COMPILER}"
 
+
+    // NETWORK ----------------------------------------------------------------------------------------
+    const val COROUTINE_ANDROID_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINE_ANDROID_CORE}"
     const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
     const val RETROFIT2 = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT2}"
     const val RETROFIT2_GSON = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT2}"
     const val OKHTTP3_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor"
     const val OKHTTP3_BOM = "com.squareup.okhttp3:okhttp-bom:${Versions.OKHTTP3_BOM}"
     const val RX_KOTLIN = "io.reactivex.rxjava3:rxkotlin:${Versions.RX_KOTLIN}"
-
-    const val MOCKWS = "com.squareup.okhttp3:mockwebserver:${Versions.OKHTTP}"
-
     const val COROUTINE_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINE_ANDROID}"
-    const val COROUTINE_ANDROID_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINE_ANDROID_CORE}"
+
     const val COROUTINE_LEGACY_SUPPORT = "androidx.legacy:legacy-support-v4:${Versions.COROUTINE_LEGACY_SUPPORT}"
+
+    // TESTS ----------------------------------------------------------------------------------------
+    const val MOCKWS = "com.squareup.okhttp3:mockwebserver:${Versions.OKHTTP}"
 
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     const val HILT_KAPT = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
 
-    //    testImplementation
-    const val JUNIT4 = "junit:junit:${Versions.JUNIT4}"
-    //    androidTestImplementation
-    const val TEST_EXT = "androidx.test.ext:junit:${Versions.TEST_EXT}"
-    //    androidTestImplementation
-    const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}"
+    const val JUNIT4 = "junit:junit:${Versions.JUNIT4}" // testImplementation
+    const val ANDROIDX_TEST_EXT = "androidx.test.ext:junit:${Versions.TEST_EXT}" // androidTestImplementation & testImplementation
+    const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}" // androidTestImplementation
+    const val ANDROIDX_TEST_CORE = "androidx.test:core:${Versions.ANDROIDX_TEST_CORE}" // implementation
+    const val ANDROIDX_TEST_CORE_KTX = "androidx.test:core-ktx:${Versions.ANDROIDX_TEST_CORE_KTX}" // testImplementation
+    const val ANDROIDX_TESTING_CORE = "androidx.arch.core:core-testing:${Versions.ANDROIDX_TESTING_CORE}" // testImplementation
+    const val ANDROIDX_TESTING_FRAGMENT = "androidx.fragment:fragment-testing:${Versions.ANDROIDX_TESTING_FRAGMENT}" // debugImplementation
+    const val HAMCREST = "org.hamcrest:hamcrest-all:${Versions.HAMCREST}" // testImplementation
+    const val ROBOLECTRIC  = "org.robolectric:robolectric:${Versions.ROBOLECTRIC}" // testImplementation
+    const val KOTLINX_TEST_COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.KOTLINX_TEST_COROUTINES}" // androidTestImplementation
+    const val ESPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.ESPRESSO_CONTRIB}"
 }
 
 fun String.execute(workingDir: File = File("./")): String? =
