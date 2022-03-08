@@ -75,6 +75,7 @@ class CommonModulesPlugin : Plugin<Project> {
 
             add(DependencyType.IMPLEMENTATION, Dependencies.HILT)
             add(DependencyType.KAPT, Dependencies.HILT_KAPT)
+            add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.HILT_TESTING)
 
             add(DependencyType.IMPLEMENTATION, Dependencies.COROUTINE_ANDROID)
             add(DependencyType.IMPLEMENTATION, Dependencies.COROUTINE_ANDROID_CORE)

@@ -13,7 +13,8 @@ object Versions {
     const val CODE = 1
     const val NAME = "1.0"
     const val ID = "com.pawel.worldline_android_technical_test"
-    const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
+    const val TEST_INSTRUMENTATION_RUNNER = "com.pawel.worldline_android_technical_test.CustomTestRunner"
+    //const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
     // Dependencies versions:
     const val ANDROIDX_CORE_KTX = "1.7.0"
@@ -45,6 +46,7 @@ object Versions {
     const val COROUTINE_LEGACY_SUPPORT = "1.0.0"
 
     const val HILT = "2.40"
+    const val HILT_TESTING = "2.38.1"
 
     //    testImplementation
     const val JUNIT4 = "4.13.2"
@@ -111,6 +113,7 @@ object Dependencies {
 
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     const val HILT_KAPT = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    const val HILT_TESTING = "com.google.dagger:hilt-android-testing:${Versions.HILT_TESTING}"
 
     const val JUNIT4 = "junit:junit:${Versions.JUNIT4}" // testImplementation
     const val ANDROIDX_TEST_EXT = "androidx.test.ext:junit:${Versions.TEST_EXT}" // androidTestImplementation & testImplementation

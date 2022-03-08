@@ -101,6 +101,10 @@ dependencies {
     testImplementation(Dependencies.JUNIT4)
     androidTestImplementation(Dependencies.ANDROIDX_TEST_EXT)
     androidTestImplementation(Dependencies.ESPRESSO)
+    //
+    kaptAndroidTest(Dependencies.HILT_KAPT)
+    androidTestImplementation(Dependencies.HILT_TESTING)
+    debugImplementation(Dependencies.ANDROIDX_TESTING_FRAGMENT)
 }
 
 // Allow references to generated code
