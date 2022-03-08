@@ -105,6 +105,7 @@ dependencies {
     kaptAndroidTest(Dependencies.HILT_KAPT)
     androidTestImplementation(Dependencies.HILT_TESTING)
     debugImplementation(Dependencies.ANDROIDX_TESTING_FRAGMENT)
+    androidTestImplementation(Dependencies.ESPRESSO_CONTRIB)
 }
 
 // Allow references to generated code

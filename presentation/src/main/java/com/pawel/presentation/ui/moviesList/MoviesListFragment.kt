@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.pawel.common.util.Constants.MOVIES_RECYCLER_VIEW_TAG
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
 import com.pawel.worldline_android_technical_test.presentation.databinding.MainFragmentBinding
@@ -46,6 +47,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     private fun setRecyclerView() {
         recyclerView = binding.listMoviesRV
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.tag = MOVIES_RECYCLER_VIEW_TAG
         recyclerView.apply {
             addItemDecoration(
                 DividerItemDecoration(

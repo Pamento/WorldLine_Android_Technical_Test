@@ -53,8 +53,8 @@ object Versions {
     //    androidTestImplementation
     const val TEST_EXT = "1.1.3"
     //    androidTestImplementation
-    const val ESPRESSO = "3.4.0"
-    const val ESPRESSO_CONTRIB = "3.4.0"
+    const val ESPRESSO = "3.3.0"
+    const val ESPRESSO_CONTRIB = "3.3.0"
     const val ANDROIDX_TEST_CORE = "1.4.0"
     const val ANDROIDX_TEST_CORE_KTX = "1.4.0"
     const val ANDROIDX_TESTING_CORE = "2.1.0"
