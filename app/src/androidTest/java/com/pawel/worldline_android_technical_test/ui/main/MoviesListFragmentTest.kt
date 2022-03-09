@@ -2,6 +2,7 @@ package com.pawel.worldline_android_technical_test.ui.main
 
 import android.os.Bundle
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -10,6 +11,7 @@ import androidx.test.filters.MediumTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import com.pawel.presentation.ui.moviesList.MoviesListFragment
+import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.worldline_android_technical_test.R
 import com.pawel.worldline_android_technical_test.launchFragmentInHiltContainer
 import com.pawel.worldline_android_technical_test.withIndex
@@ -17,6 +19,7 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsInstanceOf
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 
@@ -31,7 +34,13 @@ class MoviesListFragmentTest {
     @Before
     fun init() {
         movieFragmentRule.inject()
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.countingIdlingResource)
         launchFragmentInHiltContainer<MoviesListFragment>(Bundle(), R.style.ThemeOverlay_AppCompat)
+    }
+
+    @After
+    fun cleanup() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.countingIdlingResource)
     }
 
     @Test
@@ -67,14 +76,11 @@ class MoviesListFragmentTest {
 
     @Test
     fun recyclerView_display_success() {
-        Thread.sleep(500)
         onView(withIndex(withId(R.id.listMoviesRV), 1)).check(matches(isDisplayed()))
     }
 
     @Test
     fun click_recyclerViewItem_display_detailMovieFragment() {
-
-        Thread.sleep(500)
 
         onView(withIndex(withId(R.id.listMoviesRV), 1)).perform(click())
         val textView = onView(

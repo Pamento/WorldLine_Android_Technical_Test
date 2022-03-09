@@ -16,6 +16,7 @@ import com.pawel.domain.util.helpers.addComaInPrice
 import com.pawel.domain.util.helpers.buildStringForCompanies
 import com.pawel.domain.util.helpers.frenchFormatOfDate
 import com.pawel.domain.util.helpers.getListSize
+import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.worldline_android_technical_test.presentation.R
 import com.pawel.worldline_android_technical_test.presentation.databinding.DetailMovieFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -62,6 +63,7 @@ class DetailMovieFragment : Fragment() {
     }
 
     private fun setOnMovieResponseObserver() {
+        EspressoIdlingResource.increment()
         viewModel.movie.observe(viewLifecycleOwner) {
             it?.let {
                 movie = it
@@ -116,6 +118,7 @@ class DetailMovieFragment : Fragment() {
             binding.detailMovieCompanyTitle.visibility = View.GONE
             binding.detailMovieCompanyBody.visibility = View.GONE
         }
+        EspressoIdlingResource.decrement()
     }
 
     override fun onDestroyView() {

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pawel.common.util.Constants.MOVIES_RECYCLER_VIEW_TAG
+import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
 import com.pawel.worldline_android_technical_test.presentation.databinding.MainFragmentBinding
@@ -60,9 +61,11 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private fun setMovieObserver() {
+        EspressoIdlingResource.increment()
         viewModel.movies.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.setItems(it)
+                EspressoIdlingResource.decrement()
             }
         }
     }

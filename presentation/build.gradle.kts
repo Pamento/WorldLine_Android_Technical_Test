@@ -1,6 +1,20 @@
 plugins {
     id("module-plugin")
 }
+android {
+    sourceSets {
+        getByName("debug") {
+            java {
+                srcDirs("src\\debug\\java", "src\\debug\\java")
+            }
+        }
+        getByName("release") {
+            java {
+                srcDirs("src\\release\\java", "src\\release\\java")
+            }
+        }
+    }
+}
 
 dependencies {
     implementation(project(":common"))
