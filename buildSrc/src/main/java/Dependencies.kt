@@ -55,6 +55,7 @@ object Versions {
     //    androidTestImplementation
     const val ESPRESSO = "3.3.0"
     const val ESPRESSO_CONTRIB = "3.3.0"
+    const val ESPRESSO_IDLE = "3.1.1"
     const val ANDROIDX_TEST_CORE = "1.4.0"
     const val ANDROIDX_TEST_CORE_KTX = "1.4.0"
     const val ANDROIDX_TESTING_CORE = "2.1.0"
@@ -67,6 +68,7 @@ object Versions {
 object DependencyType {
     const val IMPLEMENTATION = "implementation"
     const val KAPT = "kapt"
+    const val KAPT_ANDROID_TEST = "kaptAndroidTest"
     const val TEST_IMPLEMENTATION = "testImplementation"
     const val ANDROID_TEST_IMPLEMENTATION  = "androidTestImplementation"
 }
@@ -118,6 +120,8 @@ object Dependencies {
     const val JUNIT4 = "junit:junit:${Versions.JUNIT4}" // testImplementation
     const val ANDROIDX_TEST_EXT = "androidx.test.ext:junit:${Versions.TEST_EXT}" // androidTestImplementation & testImplementation
     const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}" // androidTestImplementation
+    const val ESPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.ESPRESSO_CONTRIB}"
+    const val ESPRESSO_IDLE = "androidx.test.espresso:espresso-idling-resource:${Versions.ESPRESSO_IDLE}"
     const val ANDROIDX_TEST_CORE = "androidx.test:core:${Versions.ANDROIDX_TEST_CORE}" // implementation
     const val ANDROIDX_TEST_CORE_KTX = "androidx.test:core-ktx:${Versions.ANDROIDX_TEST_CORE_KTX}" // testImplementation
     const val ANDROIDX_TESTING_CORE = "androidx.arch.core:core-testing:${Versions.ANDROIDX_TESTING_CORE}" // testImplementation
@@ -125,7 +129,6 @@ object Dependencies {
     const val HAMCREST = "org.hamcrest:hamcrest-all:${Versions.HAMCREST}" // testImplementation
     const val ROBOLECTRIC  = "org.robolectric:robolectric:${Versions.ROBOLECTRIC}" // testImplementation
     const val KOTLINX_TEST_COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.KOTLINX_TEST_COROUTINES}" // androidTestImplementation
-    const val ESPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.ESPRESSO_CONTRIB}"
 }
 
 fun String.execute(workingDir: File = File("./")): String? =

@@ -106,9 +106,14 @@ dependencies {
     androidTestImplementation(Dependencies.HILT_TESTING)
     debugImplementation(Dependencies.ANDROIDX_TESTING_FRAGMENT)
     androidTestImplementation(Dependencies.ESPRESSO_CONTRIB)
+    implementation(Dependencies.ESPRESSO_IDLE)
 }
 
 // Allow references to generated code
 kapt {
     correctErrorTypes = true
+}
+
+hilt {
+    enableAggregatingTask = true
 }

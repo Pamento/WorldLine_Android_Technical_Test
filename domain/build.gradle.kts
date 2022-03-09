@@ -6,3 +6,11 @@ dependencies {
     implementation(project(":common"))
 
 }
+
+kapt {
+    correctErrorTypes = true
+}
+
+hilt {
+    enableAggregatingTask = true
+}

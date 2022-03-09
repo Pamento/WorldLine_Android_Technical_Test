@@ -16,3 +16,11 @@ dependencies {
 
     kapt (Dependencies.ANDROIDX_KAPT)
 }
+
+kapt {
+    correctErrorTypes = true
+}
+
+hilt {
+    enableAggregatingTask = true
+}

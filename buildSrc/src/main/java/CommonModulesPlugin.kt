@@ -36,7 +36,7 @@ class CommonModulesPlugin : Plugin<Project> {
                     versionCode = 1
                     versionName = "1.0"
 
-                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                    testInstrumentationRunner = Versions.TEST_INSTRUMENTATION_RUNNER
                 }
 
                 buildFeatures.viewBinding = true
@@ -75,6 +75,7 @@ class CommonModulesPlugin : Plugin<Project> {
 
             add(DependencyType.IMPLEMENTATION, Dependencies.HILT)
             add(DependencyType.KAPT, Dependencies.HILT_KAPT)
+            add(DependencyType.KAPT_ANDROID_TEST, Dependencies.HILT_KAPT)
             add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.HILT_TESTING)
 
             add(DependencyType.IMPLEMENTATION, Dependencies.COROUTINE_ANDROID)
@@ -86,6 +87,7 @@ class CommonModulesPlugin : Plugin<Project> {
             add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.ANDROIDX_TEST_EXT)
             add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.ESPRESSO)
             add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.ESPRESSO_CONTRIB)
+            add(DependencyType.IMPLEMENTATION, Dependencies.ESPRESSO_IDLE)
             add(DependencyType.ANDROID_TEST_IMPLEMENTATION, Dependencies.KOTLINX_TEST_COROUTINES)
             add(DependencyType.IMPLEMENTATION, Dependencies.ANDROIDX_TEST_CORE)
             add(DependencyType.TEST_IMPLEMENTATION, Dependencies.ANDROIDX_TEST_CORE_KTX)

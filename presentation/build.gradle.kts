@@ -11,3 +11,11 @@ dependencies {
     implementation(Dependencies.ANDROIDX_FRAGMENT)
     implementation(Dependencies.ANDROIDX_RECYCLERVIEW)
 }
+
+kapt {
+    correctErrorTypes = true
+}
+
+hilt {
+    enableAggregatingTask = true
+}
