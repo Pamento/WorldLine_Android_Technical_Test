@@ -4,6 +4,7 @@ import android.widget.ScrollView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
@@ -98,6 +99,15 @@ class MainActivityTest {
         )
         textView2.check(matches(withText("Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.")))
 
+    }
+
+    @Test
+    fun navigation_to_detailFragment_and_back_isSuccessful() {
+        onView(allOf(withId(R.id.listMoviesRV), hasFocus())).check(matches(isDisplayed()))
+        onView(allOf(withIndex(withId(R.id.item_movie_container), 0))).perform(click())
+        onView(withId(R.id.detailMovie_container)).check(matches(isDisplayed()))
+        pressBack()
+        onView(allOf(withId(R.id.listMoviesRV), withParent(withId(R.id.frg_listMovies_container)))).check(matches(isDisplayed()))
     }
 
 }
