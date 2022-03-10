@@ -74,9 +74,7 @@ class MainActivityTest {
     @Test
     fun launchingMainActivity() {
 
-        onView(allOf(withId(R.id.listMoviesRV), hasFocus())).check(
-            matches(isDisplayed())
-        )
+        onView(allOf(withId(R.id.listMoviesRV), hasFocus())).check(matches(isDisplayed()))
         onView(allOf(withIndex(withId(R.id.item_movie_container), 0))).perform(click())
 
         val textView = onView(
