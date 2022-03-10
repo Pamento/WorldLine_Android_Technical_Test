@@ -3,7 +3,6 @@ package com.pawel.worldline_android_technical_test.ui.main
 import android.os.Bundle
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -18,7 +17,6 @@ import com.pawel.worldline_android_technical_test.withIndex
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.core.AllOf.allOf
-import org.hamcrest.core.IsInstanceOf
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -27,6 +25,10 @@ import org.junit.Rule
 @MediumTest
 @HiltAndroidTest
 class MoviesListFragmentTest {
+
+    private val item1Title = "Spider-Man: No Way Home"
+    private val item2Title = "The King's Man"
+    private val item3Title = "Scream"
 
     @get:Rule
     val movieFragmentRule = HiltAndroidRule(this)
@@ -44,24 +46,7 @@ class MoviesListFragmentTest {
     }
 
     @Test
-    fun check_if_fragment_display() {
-        val textView = onView(
-            allOf(
-                withText("The movie"),
-                withParent(
-                    allOf(
-                        withId(androidx.appcompat.R.id.action_bar),
-                        withParent(withId(androidx.appcompat.R.id.action_bar_container))
-                    )
-                ),
-                isDisplayed()
-            )
-        )
-        textView.check(matches(withText("The movie")))
-    }
-
-    @Test
-    fun check_if_recyclerView_display() {
+    fun main_movie_fragment_displayed_successfully() {
         onView(
             allOf(
                 withId(R.id.listMoviesRV),
@@ -75,33 +60,31 @@ class MoviesListFragmentTest {
     }
 
     @Test
-    fun recyclerView_display_success() {
-        onView(withIndex(withId(R.id.listMoviesRV), 1)).check(matches(isDisplayed()))
+    fun recyclerView_has_items_displayed() {
+        onView(
+            allOf(
+                withId(R.id.listMoviesRV),
+                hasFocus()
+            )
+        ).check(
+            matches(
+                hasMinimumChildCount(3)
+            )
+        )
     }
 
     @Test
-    fun click_recyclerViewItem_display_detailMovieFragment() {
+    fun first_recyclerView_item_display_title_correctly() {
+        onView(withIndex(withId(R.id.item_title), 0)).check(matches(withText(item1Title)))
+    }
 
-        onView(withIndex(withId(R.id.listMoviesRV), 1)).perform(click())
-        val textView = onView(
-            allOf(
-                withId(R.id.detailMovie_overview),
-                withText("Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man."),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
-                isDisplayed()
-            )
-        )
-        textView.check(matches(withText("Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.")))
+    @Test
+    fun second_recyclerView_item_display_title_correctly() {
+        onView(withIndex(withId(R.id.item_title), 1)).check(matches(withText(item2Title)))
+    }
 
-        val textView2 = onView(
-            allOf(
-                withId(R.id.detailMovie_overview),
-                withText("Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man."),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
-                isDisplayed()
-            )
-        )
-        textView2.check(matches(withText("Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.")))
-
+    @Test
+    fun third_recyclerView_item_display_title_correctly() {
+        onView(withIndex(withId(R.id.item_title), 2)).check(matches(withText(item3Title)))
     }
 }
