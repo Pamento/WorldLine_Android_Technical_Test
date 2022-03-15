@@ -22,14 +22,11 @@ android {
 dependencies {
 }
 
-hilt {
-    enableExperimentalClasspathAggregation = true
-}
-
 kapt {
     correctErrorTypes = true
 }
 
 hilt {
+    enableExperimentalClasspathAggregation = true
     enableAggregatingTask = true
 }

@@ -7,14 +7,11 @@ dependencies {
     api(Dependencies.MOCKWS)
 }
 
-hilt {
-    enableExperimentalClasspathAggregation = true
-}
-
 kapt {
     correctErrorTypes = true
 }
 
 hilt {
+    enableExperimentalClasspathAggregation = true
     enableAggregatingTask = true
 }

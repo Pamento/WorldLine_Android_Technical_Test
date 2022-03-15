@@ -17,11 +17,7 @@ dependencies {
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_KAPT)
 
-    kapt (Dependencies.ANDROIDX_KAPT)
-}
-
-hilt {
-    enableExperimentalClasspathAggregation = true
+    kapt(Dependencies.ANDROIDX_KAPT)
 }
 
 kapt {
@@ -29,5 +25,6 @@ kapt {
 }
 
 hilt {
+    enableExperimentalClasspathAggregation = true
     enableAggregatingTask = true
 }

@@ -12,6 +12,7 @@ import org.junit.runner.RunWith
 import com.pawel.presentation.ui.moviesList.MoviesListFragment
 import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.worldline_android_technical_test.R
+import com.pawel.worldline_android_technical_test.childAtPosition
 import com.pawel.worldline_android_technical_test.launchFragmentInHiltContainer
 import com.pawel.worldline_android_technical_test.withIndex
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -50,7 +51,7 @@ class MoviesListFragmentTest {
         onView(
             allOf(
                 withId(R.id.listMoviesRV),
-                hasFocus()
+                isDisplayed()
             )
         ).check(
             matches(
@@ -64,7 +65,10 @@ class MoviesListFragmentTest {
         onView(
             allOf(
                 withId(R.id.listMoviesRV),
-                hasFocus()
+                childAtPosition(
+                    withId(R.id.frg_listMovies_container),
+                    0
+                )
             )
         ).check(
             matches(

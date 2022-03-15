@@ -25,7 +25,7 @@ android {
         versionCode = Versions.CODE
         versionName = Versions.NAME
 
-        testInstrumentationRunner = Versions.TEST_INSTRUMENTATION_RUNNER_HILT
+        testInstrumentationRunner = Versions.TEST_INSTRUMENTATION_RUNNER
 
         proguardFiles(
             getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -115,9 +115,6 @@ kapt {
 }
 
 hilt {
-    enableExperimentalClasspathAggregation = true
-}
-
-hilt {
     enableAggregatingTask = true
+    enableExperimentalClasspathAggregation = true
 }

@@ -74,7 +74,7 @@ class MainActivityTest {
     @Test
     fun launchingMainActivity() {
 
-        onView(allOf(withId(R.id.listMoviesRV), hasFocus())).check(matches(isDisplayed()))
+        onView(allOf(withId(R.id.listMoviesRV), isDisplayed())).check(matches(isDisplayed()))
         onView(allOf(withIndex(withId(R.id.item_movie_container), 0))).perform(click())
 
         val textView = onView(
@@ -101,7 +101,7 @@ class MainActivityTest {
 
     @Test
     fun navigation_to_detailFragment_and_back_isSuccessful() {
-        onView(allOf(withId(R.id.listMoviesRV), hasFocus())).check(matches(isDisplayed()))
+        onView(allOf(withId(R.id.listMoviesRV), isDisplayed())).check(matches(isDisplayed()))
         onView(allOf(withIndex(withId(R.id.item_movie_container), 0))).perform(click())
         onView(withId(R.id.detailMovie_container)).check(matches(isDisplayed()))
         pressBack()

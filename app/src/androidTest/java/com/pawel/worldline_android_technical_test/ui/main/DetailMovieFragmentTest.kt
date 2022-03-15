@@ -55,7 +55,7 @@ class DetailMovieFragmentTest {
     @Test
     fun detailMovieFragment_has_fill_all_fields() {
         // on MainActivity
-        onView(AllOf.allOf(withId(R.id.listMoviesRV), hasFocus())).check(matches(isDisplayed()))
+        onView(AllOf.allOf(withId(R.id.listMoviesRV), isDisplayed())).check(matches(isDisplayed()))
         // .. click on first item of recyclerView
         onView(AllOf.allOf(withIndex(withId(R.id.item_movie_container),0))).perform(ViewActions.click())
         onView(withId(R.id.detailMovie_container)).check(matches(isDisplayed()))
