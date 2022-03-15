@@ -7,7 +7,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 
 
-fun childAtPosition(
+/*fun childAtPosition(
     parentMatcher: Matcher<View>, position: Int
 ): Matcher<View> {
 
@@ -23,7 +23,7 @@ fun childAtPosition(
                     && view == parent.getChildAt(position)
         }
     }
-}
+}*/
 
 fun withIndex(matcher: Matcher<View>, index: Int): Matcher<View> {
     return object : TypeSafeMatcher<View>() {

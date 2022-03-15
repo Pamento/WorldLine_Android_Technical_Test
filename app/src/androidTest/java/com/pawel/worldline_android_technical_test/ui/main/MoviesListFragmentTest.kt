@@ -12,12 +12,10 @@ import org.junit.runner.RunWith
 import com.pawel.presentation.ui.moviesList.MoviesListFragment
 import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.worldline_android_technical_test.R
-import com.pawel.worldline_android_technical_test.childAtPosition
 import com.pawel.worldline_android_technical_test.launchFragmentInHiltContainer
 import com.pawel.worldline_android_technical_test.withIndex
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.hamcrest.core.AllOf.allOf
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -48,33 +46,12 @@ class MoviesListFragmentTest {
 
     @Test
     fun main_movie_fragment_displayed_successfully() {
-        onView(
-            allOf(
-                withId(R.id.listMoviesRV),
-                isDisplayed()
-            )
-        ).check(
-            matches(
-                isDisplayed()
-            )
-        )
+        onView(withId(R.id.listMoviesRV)).check(matches(isDisplayed()))
     }
 
     @Test
     fun recyclerView_has_items_displayed() {
-        onView(
-            allOf(
-                withId(R.id.listMoviesRV),
-                childAtPosition(
-                    withId(R.id.frg_listMovies_container),
-                    0
-                )
-            )
-        ).check(
-            matches(
-                hasMinimumChildCount(3)
-            )
-        )
+        onView(withId(R.id.listMoviesRV)).check(matches(isDisplayed()))
     }
 
     @Test

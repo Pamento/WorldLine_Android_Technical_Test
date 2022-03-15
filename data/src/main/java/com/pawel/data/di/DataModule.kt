@@ -17,6 +17,7 @@ class DataModule {
     @Module
     @InstallIn(SingletonComponent::class)
     abstract class Declarations {
+        @Suppress("unused")
         @Binds
         abstract fun provideMoviesRepository(x: MoviesRepositoryImpl): MoviesRepository
     }

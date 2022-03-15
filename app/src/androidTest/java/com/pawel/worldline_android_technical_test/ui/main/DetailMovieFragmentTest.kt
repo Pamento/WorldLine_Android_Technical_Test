@@ -2,7 +2,7 @@ package com.pawel.worldline_android_technical_test.ui.main
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -14,7 +14,7 @@ import com.pawel.worldline_android_technical_test.R
 import com.pawel.worldline_android_technical_test.withIndex
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.hamcrest.core.AllOf
+import org.hamcrest.core.AllOf.allOf
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -55,9 +55,9 @@ class DetailMovieFragmentTest {
     @Test
     fun detailMovieFragment_has_fill_all_fields() {
         // on MainActivity
-        onView(AllOf.allOf(withId(R.id.listMoviesRV), isDisplayed())).check(matches(isDisplayed()))
+        onView(withId(R.id.listMoviesRV)).check(matches(isDisplayed()))
         // .. click on first item of recyclerView
-        onView(AllOf.allOf(withIndex(withId(R.id.item_movie_container),0))).perform(ViewActions.click())
+        onView(allOf(withIndex(withId(R.id.item_movie_container),0))).perform(click())
         onView(withId(R.id.detailMovie_container)).check(matches(isDisplayed()))
         // .. check content
         onView(withId(R.id.detailMovie_title)).check(matches(withText(itemTitle)))

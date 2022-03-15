@@ -33,17 +33,18 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
-        adapter = MovieAdapter(requireContext(),this)
-        setRecyclerView()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter = MovieAdapter(requireContext(),this)
+        setRecyclerView()
         setMovieObserver()
     }
 
     private fun setRecyclerView() {
+        Log.i("rvvvv", "setRecyclerView: run")
         recyclerView = binding.listMoviesRV
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter

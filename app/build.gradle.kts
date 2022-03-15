@@ -71,6 +71,8 @@ android {
 val mockImplementation by configurations
 
 dependencies {
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("com.google.android.material:material:1.5.0")
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":presentation"))

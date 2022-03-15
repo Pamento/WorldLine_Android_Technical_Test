@@ -1,28 +1,21 @@
 package com.pawel.worldline_android_technical_test.ui.main
 
 import android.widget.ScrollView
-import androidx.test.core.app.ActivityScenario
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
-import com.pawel.common.util.Constants.MOVIES_RECYCLER_VIEW_TAG
 import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.worldline_android_technical_test.R
 import com.pawel.worldline_android_technical_test.withIndex
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.hamcrest.core.AllOf
 import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsInstanceOf
 import org.junit.After
@@ -74,7 +67,8 @@ class MainActivityTest {
     @Test
     fun launchingMainActivity() {
 
-        onView(allOf(withId(R.id.listMoviesRV), isDisplayed())).check(matches(isDisplayed()))
+        onView(withId(R.id.listMoviesRV)).check(matches(isDisplayed()))
+       // onView(allOf(withId(R.id.listMoviesRV), isDisplayed())).check(matches(isDisplayed()))
         onView(allOf(withIndex(withId(R.id.item_movie_container), 0))).perform(click())
 
         val textView = onView(
