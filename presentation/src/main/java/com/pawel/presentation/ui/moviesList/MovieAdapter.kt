@@ -53,7 +53,7 @@ class MovieViewHolder(
     private fun publicFor(bool: Boolean) = if (bool) adultStr else allPublic
 
     // url example: https://image.tmdb.org/t/p/w200//rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg
-    private fun setUrl(endpoint: String?) = "${POSTER_URL}w200/$endpoint"
+    private fun setUrl(endpoint: String?) = "${POSTER_URL}w400/$endpoint"
 
     fun bind(movie: Result) {
         val url = setUrl(movie.poster_path)
@@ -62,8 +62,8 @@ class MovieViewHolder(
         view.itemDescription.text = movie.overview
         Glide.with(view.itemMoviePoster.context)
             .load(url)
-            .error(R.drawable.img_not_found_square)
             .placeholder(R.drawable.img_not_found_square)
+            .error(R.drawable.img_not_found_square)
             .into(view.itemMoviePoster)
     }
 

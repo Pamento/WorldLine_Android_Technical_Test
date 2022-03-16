@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
+@Suppress("unused")
 @Module
 @InstallIn(SingletonComponent::class)
 class DomainModule {
@@ -14,6 +15,7 @@ class DomainModule {
     @Module
     @InstallIn(SingletonComponent::class)
     abstract class Declarations {
+        @Suppress("unused")
         @Binds
         abstract fun provideMoviesService(x: MoviesServiceImpl): MoviesService
     }

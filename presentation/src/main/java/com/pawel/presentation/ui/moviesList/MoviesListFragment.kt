@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
 import com.pawel.worldline_android_technical_test.presentation.databinding.MainFragmentBinding
@@ -33,34 +33,29 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
-        adapter = MovieAdapter(requireContext(),this)
-        setRecyclerView()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter = MovieAdapter(requireContext(),this)
+        setRecyclerView()
         setMovieObserver()
     }
 
     private fun setRecyclerView() {
+        Log.i("rvvvv", "setRecyclerView: run")
         recyclerView = binding.listMoviesRV
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.apply {
-            addItemDecoration(
-                DividerItemDecoration(
-                    binding.listMoviesRV.context,
-                    DividerItemDecoration.VERTICAL
-                )
-            )
-        }
         recyclerView.adapter = adapter
     }
 
     private fun setMovieObserver() {
+        EspressoIdlingResource.increment()
         viewModel.movies.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.setItems(it)
+                EspressoIdlingResource.decrement()
             }
         }
     }

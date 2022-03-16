@@ -14,5 +14,17 @@ dependencies {
     implementation(Dependencies.OKHTTP3_BOM)
     implementation(Dependencies.OKHTTP3_INTERCEPTOR)
 
-    kapt (Dependencies.ANDROIDX_KAPT)
+    implementation(Dependencies.HILT)
+    kapt(Dependencies.HILT_KAPT)
+
+    kapt(Dependencies.ANDROIDX_KAPT)
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+hilt {
+    enableExperimentalClasspathAggregation = true
+    enableAggregatingTask = true
 }
