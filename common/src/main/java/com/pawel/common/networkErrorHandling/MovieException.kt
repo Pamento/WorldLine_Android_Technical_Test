@@ -4,10 +4,9 @@ import java.io.IOException
 
 
 const val FUNCTIONNAL_ERROR_CODE = 400
-const val TOKEN_EXPIRED_ERROR_CODE = 401
+const val UNAUTHENTICATED_ERROR_CODE = 401
 const val UNAUTHORIZED_ERROR_CODE = 403
 const val GENERIC_ERROR_CODE = 500
-const val CBS_ERROR_CODE = 503
 
 class MovieException(
     val movieErrorCode: MovieErrorCode,
