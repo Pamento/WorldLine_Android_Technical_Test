@@ -65,7 +65,7 @@
             android:maxLines="3"
             android:minLines="1"
             android:singleLine="false"
-            android:textSize="@dimen/text_body1_small"
+            android:textSize="@dimen/text_body_small"
             app:layout_constraintEnd_toStartOf="@id/item_moviePoster"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

@@ -48,12 +48,11 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_overview"
+            style="@style/TextBodyWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_normal"
             android:layout_marginTop="@dimen/space_normal"
-            android:textSize="@dimen/text_body1"
-            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_title"
@@ -80,95 +79,83 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_releaseDate_title"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextTitleWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_small"
             android:text="@string/release_date"
-            android:textSize="@dimen/text_subtitle"
-            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/detailMovie_poster" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_releaseDate_body"
+            style="@style/TextBodyWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/release_date"
-            android:textSize="@dimen/text_body1"
-            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_releaseDate_title" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_rating_title"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextTitleWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/rating"
-            android:textSize="@dimen/text_subtitle"
-            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_releaseDate_body" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_rating_body"
+            style="@style/TextBodyWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            android:textSize="@dimen/text_body1"
-            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_rating_title"
             tools:text="@string/rating" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_budget_title"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextTitleWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/budget"
-            android:textSize="@dimen/text_subtitle"
-            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_rating_body" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_budget_body"
+            style="@style/TextBodyWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            android:textSize="@dimen/text_body1"
-            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_title"
             tools:text="@string/budget" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_original_title"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextTitleWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/original_title"
-            android:textSize="@dimen/text_subtitle"
-            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_budget_body" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_original_title_body"
+            style="@style/TextBodyWhite"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            android:textSize="@dimen/text_body1"
-            android:textColor="@color/white"
             app:layout_constraintHorizontal_bias="0.0"
             android:maxLines="2"
             app:layout_constraintEnd_toStartOf="@+id/detailMovie_guideline2"
@@ -178,24 +165,21 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_company_title"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextTitleWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_small"
             android:layout_marginTop="@dimen/space_small"
             android:text="@string/company"
-            android:textSize="@dimen/text_subtitle"
-            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_original_title_body" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/detailMovie_company_body"
+            style="@style/TextBodyWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            android:textSize="@dimen/text_body1"
-            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/detailMovie_guideline1"
             app:layout_constraintTop_toBottomOf="@+id/detailMovie_company_title"
             tools:text="@string/company" />
