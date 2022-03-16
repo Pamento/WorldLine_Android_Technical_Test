@@ -21,3 +21,12 @@ android {
 
 dependencies {
 }
+
+kapt {
+    correctErrorTypes = true
+}
+
+hilt {
+    enableExperimentalClasspathAggregation = true
+    enableAggregatingTask = true
+}

@@ -3,6 +3,7 @@ package com.pawel.presentation.ui.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
 import com.pawel.presentation.ui.moviesList.MoviesListFragment
 import com.pawel.worldline_android_technical_test.presentation.R
@@ -20,9 +21,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun replaceFragment(fragment: Fragment) {
+        EspressoIdlingResource.increment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment).commitNow()
         updateBackButton(fragment)
+        EspressoIdlingResource.decrement()
     }
 
     private fun updateBackButton(fragment: Fragment) {

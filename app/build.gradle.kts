@@ -71,6 +71,8 @@ android {
 val mockImplementation by configurations
 
 dependencies {
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("com.google.android.material:material:1.5.0")
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":presentation"))
@@ -99,11 +101,22 @@ dependencies {
 
     // Test
     testImplementation(Dependencies.JUNIT4)
-    androidTestImplementation(Dependencies.TEST_EXT)
+    androidTestImplementation(Dependencies.ANDROIDX_TEST_EXT)
     androidTestImplementation(Dependencies.ESPRESSO)
+    //
+    kaptAndroidTest(Dependencies.HILT_KAPT)
+    androidTestImplementation(Dependencies.HILT_TESTING)
+    debugImplementation(Dependencies.ANDROIDX_TESTING_FRAGMENT)
+    androidTestImplementation(Dependencies.ESPRESSO_CONTRIB)
+    implementation(Dependencies.ESPRESSO_IDLE)
 }
 
 // Allow references to generated code
 kapt {
     correctErrorTypes = true
+}
+
+hilt {
+    enableAggregatingTask = true
+    enableExperimentalClasspathAggregation = true
 }

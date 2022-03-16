@@ -1,67 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_movie_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/space_small"
-    android:paddingBottom="@dimen/space_normal">
+    app:cardCornerRadius="@dimen/space_normal"
+    android:layout_marginHorizontal="@dimen/space_normal"
+    android:layout_marginVertical="@dimen/space_small">
 
-    <ImageView
-        android:id="@+id/item_moviePoster"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_small"
-        android:layout_marginEnd="@dimen/space_small"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/app_name"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.2"
-        tools:src="@drawable/img_not_found_square" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/space_small"
+        android:paddingBottom="@dimen/space_normal">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/item_title"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_normal"
-        android:maxLines="2"
-        android:minLines="1"
-        android:textSize="@dimen/text_title_small"
-        app:layout_constraintEnd_toStartOf="@+id/item_moviePoster"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Movie Title" />
+        <ImageView
+            android:id="@+id/item_moviePoster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginEnd="@dimen/space_small"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2"
+            android:src="@drawable/img_not_found_square"
+            tools:src="@drawable/img_not_found_square" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/item_concernedPublic"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_normal"
-        android:textSize="@dimen/text_subtitle_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_title"
-        tools:text="Only for the adults" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_title"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_normal"
+            android:maxLines="2"
+            android:minLines="1"
+            android:textSize="@dimen/text_title_small"
+            app:layout_constraintEnd_toStartOf="@+id/item_moviePoster"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Movie Title" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/item_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_normal"
-        android:layout_marginBottom="@dimen/space_normal"
-        android:maxLines="3"
-        android:minLines="1"
-        android:singleLine="false"
-        android:textSize="@dimen/text_body1_small"
-        app:layout_constraintEnd_toStartOf="@id/item_moviePoster"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_concernedPublic"
-        app:layout_constraintWidth_default="spread"
-        tools:text="Very long text, briefly... Lorem ipsum postume agate blisti dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_concernedPublic"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_normal"
+            android:textSize="@dimen/text_subtitle_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_title"
+            tools:text="Only for the adults" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_normal"
+            android:layout_marginBottom="@dimen/space_normal"
+            android:maxLines="3"
+            android:minLines="1"
+            android:singleLine="false"
+            android:textSize="@dimen/text_body_small"
+            app:layout_constraintEnd_toStartOf="@id/item_moviePoster"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_concernedPublic"
+            app:layout_constraintWidth_default="spread"
+            tools:text="Very long text, briefly... Lorem ipsum postume agate blisti dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
