@@ -54,14 +54,28 @@ android {
             //resValue("string", "API_KEY", "${localProperties["API_KEY"]}")
         }
     }
+
+    flavorDimensions.add("env")
+    productFlavors {
+        create("prod") {
+            dimension = "env"
+            applicationIdSuffix = ".prod"
+        }
+        create("mock") {
+            dimension = "env"
+            applicationIdSuffix = ".mock"
+        }
+    }
 }
 
+val mockImplementation by configurations
 
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":presentation"))
     implementation(project(":common"))
+    mockImplementation(project(":data-mock"))
 
     implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)

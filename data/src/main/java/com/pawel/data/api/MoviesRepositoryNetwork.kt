@@ -2,7 +2,7 @@ package com.pawel.data.api
 
 import com.pawel.domain.model.movie.Movie
 import com.pawel.domain.model.movies.MovieApiResponse
-import com.pawel.worldline_android_technical_test.data.BuildConfig
+import com.pawel.worldline_android_technical_test.common.BuildConfig
 import retrofit2.http.GET
 import retrofit2.http.Path
 
