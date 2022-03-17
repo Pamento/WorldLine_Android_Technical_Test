@@ -2,6 +2,7 @@ package com.pawel.data.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.pawel.common.HILT_APP_VERSION_NAME
 import com.pawel.data.interceptors.MovieInterceptor
 import dagger.Module
 import dagger.Provides
@@ -41,9 +42,9 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(): OkHttpClient =
+    fun provideHttpClient(@Named(HILT_APP_VERSION_NAME) versionName: String): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(provideHttpInterceptor())
-            .addInterceptor(MovieInterceptor("HILT_APP_VERSION_NAME"))
+            .addInterceptor(MovieInterceptor(versionName))
             .build()
 }

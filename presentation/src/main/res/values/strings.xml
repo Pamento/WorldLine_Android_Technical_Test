@@ -19,4 +19,6 @@
     <string name="unauthorized_error_code_title">Un accès limité.</string>
     <string name="unauthorized_error_code_message">Vous n\'avez pas accès à cette application.</string>
     <string name="no_data_to_display_message">Aucune donnée à afficher</string>
+    <string name="no_data_error_code_title">@string/generic_code_error_title</string>
+    <string name="no_data_error_code_message">The resource you requested could not be found.</string>
 </resources>

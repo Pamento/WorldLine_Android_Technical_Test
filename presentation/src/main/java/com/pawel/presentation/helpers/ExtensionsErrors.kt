@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import com.pawel.common.networkErrorHandling.*
 import com.pawel.worldline_android_technical_test.presentation.R
 
+@Suppress("unused")
 object ExtensionsErrors {
 
 
@@ -76,6 +77,7 @@ object ExtensionsErrors {
         return when (this.movieErrorCode.code) {
             UNAUTHENTICATED_ERROR_CODE -> R.string.unauthenticated_error_code_title
             UNAUTHORIZED_ERROR_CODE -> R.string.unauthorized_error_code_title
+            NO_RESOURCES -> R.string.no_data_error_code_title
             else -> R.string.generic_code_error_title
         }
     }
@@ -85,6 +87,7 @@ object ExtensionsErrors {
             FUNCTIONNAL_ERROR_CODE -> R.string.functionnal_error_code_message
             UNAUTHENTICATED_ERROR_CODE -> R.string.unauthenticated_error_code_message
             UNAUTHORIZED_ERROR_CODE -> R.string.unauthorized_error_code_message
+            NO_RESOURCES -> R.string.no_data_error_code_message
             else -> R.string.generic_code_error_message
         }
     }
