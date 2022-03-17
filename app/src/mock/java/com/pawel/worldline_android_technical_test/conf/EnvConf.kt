@@ -17,7 +17,7 @@ class EnvConf {
     @DelicateCoroutinesApi
     @Provides
     @Named(URL)
-    fun provideUrl(dispatcher: MockWebServerDispatcher) : String {
+    fun provideUrl(dispatcher: MockWebServerDispatcher): String {
         val async: Deferred<String> = GlobalScope.async(
             context = Dispatchers.IO,
             block = {

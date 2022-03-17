@@ -32,7 +32,6 @@ class MainActivityTest {
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
 
-
     @get:Rule(order = 1)
     val scenario = ActivityScenarioRule(MainActivity::class.java)
 
@@ -90,7 +89,6 @@ class MainActivityTest {
             )
         )
         textView2.check(matches(withText("Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.")))
-
     }
 
     @Test
@@ -101,5 +99,4 @@ class MainActivityTest {
         pressBack()
         onView(allOf(withId(R.id.listMoviesRV), withParent(withId(R.id.frg_listMovies_container)))).check(matches(isDisplayed()))
     }
-
 }

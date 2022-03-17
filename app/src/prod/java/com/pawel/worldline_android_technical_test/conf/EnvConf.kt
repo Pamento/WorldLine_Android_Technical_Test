@@ -13,5 +13,5 @@ class EnvConf {
 
     @Provides
     @Named(URL)
-    fun provideUrl() : String = "https://api.themoviedb.org/3/"
+    fun provideUrl(): String = "https://api.themoviedb.org/3/"
 }

@@ -33,10 +33,8 @@ class DetailMovieFragmentTest {
     private val itemBudget = "200,000,000 $"
     private val itemCompanies = "Marvel Studios\nPascal Pictures\nColumbia Pictures\n"
 
-
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
-
 
     @get:Rule(order = 1)
     val scenario = ActivityScenarioRule(MainActivity::class.java)
@@ -57,7 +55,7 @@ class DetailMovieFragmentTest {
         // on MainActivity
         onView(withId(R.id.listMoviesRV)).check(matches(isDisplayed()))
         // .. click on first item of recyclerView
-        onView(allOf(withIndex(withId(R.id.item_movie_container),0))).perform(click())
+        onView(allOf(withIndex(withId(R.id.item_movie_container), 0))).perform(click())
         onView(withId(R.id.detailMovie_container)).check(matches(isDisplayed()))
         // .. check content
         onView(withId(R.id.detailMovie_title)).check(matches(withText(itemTitle)))
@@ -72,5 +70,4 @@ class DetailMovieFragmentTest {
         onView(withId(R.id.detailMovie_backdrop)).check(matches(isDisplayed()))
         onView(withId(R.id.detailMovie_poster)).check(matches(isDisplayed()))
     }
-
 }
