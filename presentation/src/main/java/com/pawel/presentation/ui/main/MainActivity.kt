@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun replaceFragment(fragment: Fragment) {
+        /**
+         * EspressoIdlingResource...() utility for AndroidTest
+         */
         EspressoIdlingResource.increment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment).commitNow()

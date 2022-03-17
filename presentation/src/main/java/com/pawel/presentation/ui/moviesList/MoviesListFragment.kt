@@ -1,7 +1,6 @@
 package com.pawel.presentation.ui.moviesList
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +14,7 @@ import com.pawel.presentation.helpers.MoviesError
 import com.pawel.presentation.helpers.MoviesList
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
+import com.pawel.worldline_android_technical_test.presentation.R
 import com.pawel.worldline_android_technical_test.presentation.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +47,6 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private fun setRecyclerView() {
-        Log.i("rvvvv", "setRecyclerView: run")
         recyclerView = binding.listMoviesRV
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
@@ -62,7 +61,10 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
             event.getContentIfNotHandled()?.let { result ->
                 when(result) {
                     is MoviesList -> adapter.setItems(result.movies)
-                    is MoviesError -> context?.showAlertDialog(result.error)
+                    is MoviesError -> {
+                        displayNoDataMessage()
+                        context?.showAlertDialog(result.error)
+                    }
                     else -> {}
                 }
                 EspressoIdlingResource.decrement()
@@ -70,8 +72,12 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
         }
     }
 
+    private fun displayNoDataMessage() {
+        val noDataToDisplay = LayoutInflater.from(requireContext()).inflate(R.layout.view_no_data_to_display, binding.frgListMoviesContainer, false)
+        binding.frgListMoviesContainer.addView(noDataToDisplay)
+    }
+
     override fun onMovieItemClick(position: Int) {
-        Log.i("TAG", "onMovieItemClick: $position")
         val movieID = viewModel.movieId(position)
         movieID.let {
             val mainActivity = requireActivity() as MainActivity

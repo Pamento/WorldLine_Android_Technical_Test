@@ -18,4 +18,5 @@
     <string name="unauthenticated_error_code_message">Veuillez vous connecter pour accéder à l\'application</string>
     <string name="unauthorized_error_code_title">Un accès limité.</string>
     <string name="unauthorized_error_code_message">Vous n\'avez pas accès à cette application.</string>
+    <string name="no_data_to_display_message">Aucune donnée à afficher</string>
 </resources>

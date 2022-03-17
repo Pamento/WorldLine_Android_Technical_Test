@@ -11,6 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/detailMovie_content"
         android:padding="@dimen/space_normal"
         android:paddingBottom="@dimen/space_normal_x2">
 

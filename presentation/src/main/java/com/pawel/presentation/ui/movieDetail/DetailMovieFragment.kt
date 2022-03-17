@@ -66,6 +66,9 @@ class DetailMovieFragment : Fragment() {
     }
 
     private fun setOnMovieResponseObserver() {
+        /**
+         * EspressoIdlingResource...() utility for AndroidTest
+         */
         EspressoIdlingResource.increment()
         viewModel.networkResponse.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let { result ->
@@ -84,11 +87,20 @@ class DetailMovieFragment : Fragment() {
                             binding.detailMoviePoster
                         )
                     }
-                    is MoviesError -> context?.showAlertDialog(result.error)
+                    is MoviesError -> {
+                        displayNoDataMessage()
+                        context?.showAlertDialog(result.error)
+                    }
                     else -> {}
                 }
             }
         }
+    }
+
+    private fun displayNoDataMessage() {
+        binding.detailMovieContainer.removeAllViews()
+        val noDataToDisplay = LayoutInflater.from(requireContext()).inflate(R.layout.view_no_data_to_display, binding.detailMovieContainer, false)
+        binding.detailMovieContainer.addView(noDataToDisplay)
     }
 
     private fun updateUIImageView(context: Context, url: String, into: AppCompatImageView) {
