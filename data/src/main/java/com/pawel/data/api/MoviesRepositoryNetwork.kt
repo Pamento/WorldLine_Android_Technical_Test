@@ -14,6 +14,6 @@ interface MoviesRepositoryNetwork {
 
     @GET("movie/{movie_id}?api_key=" + BuildConfig.API_KEY + "&language=fr=&page=1")
     suspend fun getMovieDetail(
-        @Path("movie_Id") movieID: String,
+        @Path("movie_id") movieID: String,
     ): Movie
 }
