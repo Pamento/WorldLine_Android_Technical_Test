@@ -23,6 +23,7 @@ class MovieInterceptor @Inject constructor(private val versionName: String) : In
             if (response.isSuccessful) {
                 return response
             } else {
+                Log.i("network_monitoring", "intercept of response:code:: $response")
                 throw MovieException(
                     MovieErrorCode(response.code),
                     response.message,

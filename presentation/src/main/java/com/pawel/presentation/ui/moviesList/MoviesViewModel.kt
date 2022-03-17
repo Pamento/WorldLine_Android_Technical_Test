@@ -3,26 +3,26 @@ package com.pawel.presentation.ui.moviesList
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pawel.common.networkErrorHandling.MovieException
+import com.pawel.domain.model.movies.Result
 import com.pawel.domain.service.MoviesService
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
-import com.pawel.domain.model.movies.Result
 import com.pawel.presentation.base.BaseViewModel
+import com.pawel.presentation.helpers.Event
+import com.pawel.presentation.helpers.MoviesError
+import com.pawel.presentation.helpers.MoviesList
+import com.pawel.presentation.helpers.NetworkResponse
+import kotlinx.coroutines.supervisorScope
 
 @HiltViewModel
 class MoviesViewModel @Inject constructor(private val moviesService: MoviesService) : BaseViewModel() {
 
-    private val moviesList = MutableLiveData<List<Result>>()
-    val movies: LiveData<List<Result>>
-        get() = moviesList
+    private val _networkResponse = MutableLiveData<Event<NetworkResponse>>()
+    val networkResponse: LiveData<Event<NetworkResponse>>
+        get() = _networkResponse
 
-    private val _error = MutableLiveData<MovieException>()
-    val error: LiveData<MovieException>
-        get() = _error
+    private var _movies : List<Result> = mutableListOf()
 
     init {
         fetchMovies()
@@ -31,14 +31,22 @@ class MoviesViewModel @Inject constructor(private val moviesService: MoviesServi
     private fun fetchMovies() {
         viewModelScope.launchBy(
             block = {
-                moviesList.value = moviesService.getMovies()
-                Log.i("TAG", "MViewM_fetchMovies: movies.size:: ${moviesList.value?.size}")
+                supervisorScope {
+                    val movies = moviesService.getMovies()
+                    movies?.let {
+                        _movies = movies
+                        _networkResponse.postValue(Event(MoviesList(movies)))
+                    }
+                    Log.i("TAG", "MViewM_fetchMovies: movies.size:: ${movies?.size}")
+                }
             },
-            error = {
-                _error.value = it
+            error = { e ->
+                _networkResponse.postValue(Event(MoviesError(e)))
             }
         )
     }
 
-    fun movieId(position: Int) = moviesList.value?.get(position)?.id
+    fun movieId(position: Int) = _movies.isNotEmpty().let {
+        _movies[position].id
+    }
 }

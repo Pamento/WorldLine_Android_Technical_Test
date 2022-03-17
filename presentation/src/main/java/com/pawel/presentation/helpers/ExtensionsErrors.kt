@@ -9,6 +9,7 @@ import com.pawel.worldline_android_technical_test.presentation.R
 
 object ExtensionsErrors {
 
+
     fun Context.showAlertDialog(
         exception: MovieException,
         positiveButtonAction: AlertDialogButtonConfiguration? = null,
@@ -22,14 +23,32 @@ object ExtensionsErrors {
         )
     }
 
-    private fun Context.showAlertDialog(
+    fun Context.showAlertDialog(
         @StringRes dialogTitle: Int? = null,
         @StringRes dialogMessage: Int? = null,
         positiveButtonAction: AlertDialogButtonConfiguration? = null,
         negativeButtonAction: AlertDialogButtonConfiguration? = null
     ) {
+        this.showAlertDialog(
+            if (dialogTitle != null) this.getString(dialogTitle) else null,
+            if (dialogMessage != null) this.getString(dialogMessage) else null,
+            positiveButtonAction,
+            negativeButtonAction
+        )
+    }
+
+    fun Context.showAlertDialog(
+        dialogTitle: String? = null,
+        dialogMessage: String? = null,
+        positiveButtonAction: AlertDialogButtonConfiguration? = null,
+        negativeButtonAction: AlertDialogButtonConfiguration? = null
+    ) {
         // TODO apply custom style to AlertDialog, other than ThemeOverlay_AppCompat
         val builder = AlertDialog.Builder(this, R.style.ThemeOverlay_AppCompat)
+        if (dialogTitle != null) {
+            builder.setTitle(dialogTitle)
+        }
+        builder.setMessage(if (dialogMessage.isNullOrEmpty()) getString(R.string.generic_code_error_message) else dialogMessage)
         if (positiveButtonAction != null) {
             builder.setPositiveButton(
                 positiveButtonAction.buttonLabel,

@@ -14,7 +14,7 @@
     <string name="generic_code_error_message">Veuillez renouveler votre opération.</string>
     <string name="functionnal_error_code_title">@string/generic_code_error_title</string>
     <string name="functionnal_error_code_message">Veuillez renouveler votre opération.</string>
-    <string name="unauthenticated_error_code_title">Une erreur du connexion</string>
+    <string name="unauthenticated_error_code_title">Une erreur de connexion</string>
     <string name="unauthenticated_error_code_message">Veuillez vous connecter pour accéder à l\'application</string>
     <string name="unauthorized_error_code_title">Un accès limité.</string>
     <string name="unauthorized_error_code_message">Vous n\'avez pas accès à cette application.</string>

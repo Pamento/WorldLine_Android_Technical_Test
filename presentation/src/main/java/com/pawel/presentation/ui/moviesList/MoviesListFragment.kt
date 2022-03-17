@@ -10,6 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pawel.presentation.EspressoIdlingResource
+import com.pawel.presentation.helpers.ExtensionsErrors.showAlertDialog
+import com.pawel.presentation.helpers.MoviesError
+import com.pawel.presentation.helpers.MoviesList
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
 import com.pawel.worldline_android_technical_test.presentation.databinding.MainFragmentBinding
@@ -51,10 +54,16 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private fun setMovieObserver() {
+        /**
+         * EspressoIdlingResource...() utility for AndroidTest
+          */
         EspressoIdlingResource.increment()
-        viewModel.movies.observe(viewLifecycleOwner) {
-            it?.let {
-                adapter.setItems(it)
+        viewModel.networkResponse.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { result ->
+                when(result) {
+                    is MoviesList -> adapter.setItems(result.movies)
+                    is MoviesError -> context?.showAlertDialog(result.error)
+                }
                 EspressoIdlingResource.decrement()
             }
         }
@@ -63,7 +72,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     override fun onMovieItemClick(position: Int) {
         Log.i("TAG", "onMovieItemClick: $position")
         val movieID = viewModel.movieId(position)
-        movieID?.let {
+        movieID.let {
             val mainActivity = requireActivity() as MainActivity
             mainActivity.replaceFragment(DetailMovieFragment.newInstance(it))
         }
