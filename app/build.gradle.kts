@@ -43,7 +43,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    namespace = "com.pawel.worldline_android_technical_test"
+    namespace = "com.pawel.movieapp"
 
     buildTypes {
         getByName("release") {

@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pawel.presentation.util.Consts.POSTER_URL
-import com.pawel.worldline_android_technical_test.presentation.R
-import com.pawel.worldline_android_technical_test.presentation.databinding.ItemMovieBinding
+import com.pawel.movieapp.presentation.R
+import com.pawel.movieapp.presentation.databinding.ItemMovieBinding
 import com.pawel.domain.model.movies.Result
 
 class MovieAdapter(

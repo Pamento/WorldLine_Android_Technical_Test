@@ -4,8 +4,12 @@ import android.content.Context
 import android.content.DialogInterface
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
-import com.pawel.common.networkErrorHandling.*
-import com.pawel.worldline_android_technical_test.presentation.R
+import com.pawel.common.networkErrorHandling.MovieException
+import com.pawel.common.networkErrorHandling.UNAUTHENTICATED_ERROR_CODE
+import com.pawel.common.networkErrorHandling.UNAUTHORIZED_ERROR_CODE
+import com.pawel.common.networkErrorHandling.NO_RESOURCES
+import com.pawel.common.networkErrorHandling.FUNCTIONNAL_ERROR_CODE
+import com.pawel.movieapp.presentation.R
 
 @Suppress("unused")
 object ExtensionsErrors {

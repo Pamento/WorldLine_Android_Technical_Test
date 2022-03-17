@@ -20,8 +20,8 @@ import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.helpers.ExtensionsErrors.showAlertDialog
 import com.pawel.presentation.helpers.MoviesError
 import com.pawel.presentation.helpers.SingleMovie
-import com.pawel.worldline_android_technical_test.presentation.R
-import com.pawel.worldline_android_technical_test.presentation.databinding.DetailMovieFragmentBinding
+import com.pawel.movieapp.presentation.R
+import com.pawel.movieapp.presentation.databinding.DetailMovieFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
 import com.pawel.presentation.ui.moviesList.MoviesListFragment
-import com.pawel.worldline_android_technical_test.presentation.R
+import com.pawel.movieapp.presentation.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

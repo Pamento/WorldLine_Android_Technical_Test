@@ -14,8 +14,8 @@ import com.pawel.presentation.helpers.MoviesError
 import com.pawel.presentation.helpers.MoviesList
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
-import com.pawel.worldline_android_technical_test.presentation.R
-import com.pawel.worldline_android_technical_test.presentation.databinding.MainFragmentBinding
+import com.pawel.movieapp.presentation.R
+import com.pawel.movieapp.presentation.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
