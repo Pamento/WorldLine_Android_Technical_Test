@@ -63,6 +63,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
                 when(result) {
                     is MoviesList -> adapter.setItems(result.movies)
                     is MoviesError -> context?.showAlertDialog(result.error)
+                    else -> {}
                 }
                 EspressoIdlingResource.decrement()
             }

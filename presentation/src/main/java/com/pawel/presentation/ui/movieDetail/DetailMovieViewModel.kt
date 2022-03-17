@@ -8,6 +8,10 @@ import com.pawel.common.networkErrorHandling.MovieException
 import com.pawel.domain.model.movie.Movie
 import com.pawel.domain.service.MoviesService
 import com.pawel.presentation.base.BaseViewModel
+import com.pawel.presentation.helpers.Event
+import com.pawel.presentation.helpers.MoviesError
+import com.pawel.presentation.helpers.NetworkResponse
+import com.pawel.presentation.helpers.SingleMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,21 +20,17 @@ import javax.inject.Inject
 class DetailMovieViewModel @Inject constructor(private val moviesService: MoviesService) :
     BaseViewModel() {
 
-    private val _movie = MutableLiveData<Movie>()
-    val movie: LiveData<Movie>
-        get() = _movie
-
-    private val _error = MutableLiveData<MovieException>()
-    val error: LiveData<MovieException>
-    get() = _error
+    private val _networkResponse = MutableLiveData<Event<NetworkResponse>>()
+    val networkResponse: LiveData<Event<NetworkResponse>>
+        get() = _networkResponse
 
     fun getMovie(movieID: String) {
         viewModelScope.launchBy(
             block = {
-                _movie.value = moviesService.getMovie(movieID)
+                _networkResponse.postValue(Event(SingleMovie(moviesService.getMovie(movieID))))
             },
             error = {
-                _error.value = it
+                _networkResponse.postValue(Event(MoviesError(it)))
             }
         )
     }

@@ -17,6 +17,9 @@ import com.pawel.domain.util.helpers.buildStringForCompanies
 import com.pawel.domain.util.helpers.frenchFormatOfDate
 import com.pawel.domain.util.helpers.getListSize
 import com.pawel.presentation.EspressoIdlingResource
+import com.pawel.presentation.helpers.ExtensionsErrors.showAlertDialog
+import com.pawel.presentation.helpers.MoviesError
+import com.pawel.presentation.helpers.SingleMovie
 import com.pawel.worldline_android_technical_test.presentation.R
 import com.pawel.worldline_android_technical_test.presentation.databinding.DetailMovieFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,21 +67,26 @@ class DetailMovieFragment : Fragment() {
 
     private fun setOnMovieResponseObserver() {
         EspressoIdlingResource.increment()
-        viewModel.movie.observe(viewLifecycleOwner) {
-            it?.let {
-                movie = it
-                updateUITexts()
-                updateUIImageView(
-                    binding.detailMovieBackdrop.context,
-                    "${POSTER_URL}w500/${movie.backdrop_path}",
-                    binding.detailMovieBackdrop
-                )
-                updateUIImageView(
-                    binding.detailMoviePoster.context,
-                    "${POSTER_URL}w300/${movie.poster_path}",
-                    binding.detailMoviePoster
-                )
-
+        viewModel.networkResponse.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { result ->
+                when (result) {
+                    is SingleMovie -> {
+                        movie = result.movie
+                        updateUITexts()
+                        updateUIImageView(
+                            binding.detailMovieBackdrop.context,
+                            "${POSTER_URL}w500/${movie.backdrop_path}",
+                            binding.detailMovieBackdrop
+                        )
+                        updateUIImageView(
+                            binding.detailMoviePoster.context,
+                            "${POSTER_URL}w300/${movie.poster_path}",
+                            binding.detailMoviePoster
+                        )
+                    }
+                    is MoviesError -> context?.showAlertDialog(result.error)
+                    else -> {}
+                }
             }
         }
     }
