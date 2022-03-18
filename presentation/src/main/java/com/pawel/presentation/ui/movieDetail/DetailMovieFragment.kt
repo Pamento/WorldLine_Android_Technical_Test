@@ -98,9 +98,8 @@ class DetailMovieFragment : Fragment() {
     }
 
     private fun displayNoDataMessage() {
-        binding.detailMovieContainer.removeAllViews()
-        val noDataToDisplay = LayoutInflater.from(requireContext()).inflate(R.layout.view_no_data_to_display, binding.detailMovieContainer, false)
-        binding.detailMovieContainer.addView(noDataToDisplay)
+        binding.detailMovieContent.visibility = View.GONE
+        binding.detailMovieNoDataMessage.viewNoDataToDisplay.visibility = View.VISIBLE
     }
 
     private fun updateUIImageView(context: Context, url: String, into: AppCompatImageView) {

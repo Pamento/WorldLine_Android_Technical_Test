@@ -73,8 +73,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private fun displayNoDataMessage() {
-        val noDataToDisplay = LayoutInflater.from(requireContext()).inflate(R.layout.view_no_data_to_display, binding.frgListMoviesContainer, false)
-        binding.frgListMoviesContainer.addView(noDataToDisplay)
+        binding.listMovieNoDataMessage.viewNoDataToDisplay.visibility = View.VISIBLE
     }
 
     override fun onMovieItemClick(position: Int) {
