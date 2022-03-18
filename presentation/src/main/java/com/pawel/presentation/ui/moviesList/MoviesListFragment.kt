@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.pawel.common.networkErrorHandling.MovieException
 import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.helpers.ExtensionsErrors.showAlertDialog
 import com.pawel.presentation.helpers.MoviesError
 import com.pawel.presentation.helpers.MoviesList
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
-import com.pawel.movieapp.presentation.R
 import com.pawel.movieapp.presentation.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,10 +26,10 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private val viewModel: MoviesViewModel by viewModels()
-    private var _binding : MainFragmentBinding? = null
+    private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter : MovieAdapter
+    private lateinit var adapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +41,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = MovieAdapter(requireContext(),this)
+        adapter = MovieAdapter(requireContext(), this)
         setRecyclerView()
         setMovieObserver()
     }
@@ -55,21 +55,25 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     private fun setMovieObserver() {
         /**
          * EspressoIdlingResource...() utility for AndroidTest
-          */
+         */
         EspressoIdlingResource.increment()
-        viewModel.networkResponse.observe(viewLifecycleOwner) { event ->
-            event.getContentIfNotHandled()?.let { result ->
-                when(result) {
-                    is MoviesList -> adapter.setItems(result.movies)
-                    is MoviesError -> {
-                        displayNoDataMessage()
-                        context?.showAlertDialog(result.error)
+        viewModel.networkResponse.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is MoviesList -> adapter.setItems(result.movies)
+                is MoviesError -> {
+                    displayNoDataMessage()
+                    viewModel.error.getContentIfNotHandled()?.let {
+                        showAlertDialog(it)
                     }
-                    else -> {}
                 }
-                EspressoIdlingResource.decrement()
+                else -> {}
             }
+            EspressoIdlingResource.decrement()
         }
+    }
+
+    private fun showAlertDialog(error: MovieException) {
+        context?.showAlertDialog(error)
     }
 
     private fun displayNoDataMessage() {

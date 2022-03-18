@@ -2,8 +2,8 @@ package com.pawel.presentation.helpers
 
 open class Event<out T>(private val content: T) {
 
-    var hasBeenHandled = false
-        private set // Allow external read but not write
+    private var hasBeenHandled = false
+        //private set // Allow external read but not write
 
     fun getContentIfNotHandled(): T? {
         return if (hasBeenHandled) {

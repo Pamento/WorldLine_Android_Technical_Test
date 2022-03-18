@@ -70,29 +70,29 @@ class DetailMovieFragment : Fragment() {
          * EspressoIdlingResource...() utility for AndroidTest
          */
         EspressoIdlingResource.increment()
-        viewModel.networkResponse.observe(viewLifecycleOwner) { event ->
-            event.getContentIfNotHandled()?.let { result ->
-                when (result) {
-                    is SingleMovie -> {
-                        movie = result.movie
-                        updateUITexts()
-                        updateUIImageView(
-                            binding.detailMovieBackdrop.context,
-                            "${POSTER_URL}w500/${movie.backdrop_path}",
-                            binding.detailMovieBackdrop
-                        )
-                        updateUIImageView(
-                            binding.detailMoviePoster.context,
-                            "${POSTER_URL}w300/${movie.poster_path}",
-                            binding.detailMoviePoster
-                        )
-                    }
-                    is MoviesError -> {
-                        displayNoDataMessage()
-                        context?.showAlertDialog(result.error)
-                    }
-                    else -> {}
+        viewModel.networkResponse.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is SingleMovie -> {
+                    movie = result.movie
+                    updateUITexts()
+                    updateUIImageView(
+                        binding.detailMovieBackdrop.context,
+                        "${POSTER_URL}w500/${movie.backdrop_path}",
+                        binding.detailMovieBackdrop
+                    )
+                    updateUIImageView(
+                        binding.detailMoviePoster.context,
+                        "${POSTER_URL}w300/${movie.poster_path}",
+                        binding.detailMoviePoster
+                    )
                 }
+                is MoviesError -> {
+                    displayNoDataMessage()
+                    viewModel.error.getContentIfNotHandled()?.let {
+                        context?.showAlertDialog(it)
+                    }
+                }
+                else -> {}
             }
         }
     }

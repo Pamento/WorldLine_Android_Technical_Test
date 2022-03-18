@@ -3,6 +3,7 @@ package com.pawel.presentation.ui.movieDetail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.pawel.common.networkErrorHandling.MovieException
 import com.pawel.domain.service.MoviesService
 import com.pawel.presentation.base.BaseViewModel
 import com.pawel.presentation.helpers.Event
@@ -16,18 +17,25 @@ import javax.inject.Inject
 class DetailMovieViewModel @Inject constructor(private val moviesService: MoviesService) :
     BaseViewModel() {
 
-    private val _networkResponse = MutableLiveData<Event<NetworkResponse>>()
-    val networkResponse: LiveData<Event<NetworkResponse>>
+    private val _networkResponse = MutableLiveData<NetworkResponse>()
+    val networkResponse: LiveData<NetworkResponse>
         get() = _networkResponse
+    private var _movieId : String = ""
+    lateinit var error : Event<MovieException>
 
     fun getMovie(movieID: String) {
-        viewModelScope.launchBy(
-            block = {
-                _networkResponse.postValue(Event(SingleMovie(moviesService.getMovie(movieID))))
-            },
-            error = {
-                _networkResponse.postValue(Event(MoviesError(it)))
-            }
-        )
+        if (_networkResponse.value == null || _movieId != movieID) {
+            _movieId = movieID
+            viewModelScope.launchBy(
+                block = {
+                    val movie = moviesService.getMovie(movieID)
+                    _networkResponse.postValue(SingleMovie(movie))
+                },
+                error = { e ->
+                    _networkResponse.postValue(MoviesError(e))
+                    error = Event(e)
+                }
+            )
+        }
     }
 }
