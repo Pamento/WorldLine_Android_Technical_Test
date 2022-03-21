@@ -1,11 +1,14 @@
 package com.pawel.presentation.ui.moviesList
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.pawel.domain.extentions.loadSimpleImg
 import com.pawel.presentation.util.Consts.POSTER_URL
 import com.pawel.movieapp.presentation.R
 import com.pawel.movieapp.presentation.databinding.ItemMovieBinding
@@ -37,7 +40,7 @@ class MovieAdapter(
 
 
 class MovieViewHolder(
-    context: Context,
+    private val context: Context,
     private val view: ItemMovieBinding,
     private val onMovieItemClickListener: OnMovieItemClickListener
 ) :
@@ -45,6 +48,8 @@ class MovieViewHolder(
 
     private val adultStr: String = context.getString(R.string.concerned_public_adult)
     private val allPublic: String = context.getString(R.string.concerned_public_all)
+    val drawable: Drawable =
+        AppCompatResources.getDrawable(context, R.drawable.img_not_found_square)!!
 
     init {
         view.root.setOnClickListener(this)
@@ -60,11 +65,12 @@ class MovieViewHolder(
         view.itemTitle.text = movie.title
         view.itemConcernedPublic.text = publicFor(movie.adult)
         view.itemDescription.text = movie.overview
-        Glide.with(view.itemMoviePoster.context)
-            .load(url)
-            .placeholder(R.drawable.img_not_found_square)
-            .error(R.drawable.img_not_found_square)
-            .into(view.itemMoviePoster)
+        view.itemMoviePoster.loadSimpleImg(url, drawable, Glide.with(view.itemMoviePoster.context))
+//        Glide.with(view.itemMoviePoster.context)
+//            .load(url)
+//            .placeholder(R.drawable.img_not_found_square)
+//            .error(R.drawable.img_not_found_square)
+//            .into(view.itemMoviePoster)
     }
 
     override fun onClick(v: View?) {

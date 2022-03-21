@@ -5,6 +5,8 @@ plugins {
 dependencies {
     implementation(project(":common"))
 
+    implementation(Dependencies.GLIDE)
+    implementation(Dependencies.GLIDE_KAPT)
 }
 
 kapt {
