@@ -66,11 +66,6 @@ class MovieViewHolder(
         view.itemConcernedPublic.text = publicFor(movie.adult)
         view.itemDescription.text = movie.overview
         view.itemMoviePoster.loadSimpleImg(url, drawable, Glide.with(view.itemMoviePoster.context))
-//        Glide.with(view.itemMoviePoster.context)
-//            .load(url)
-//            .placeholder(R.drawable.img_not_found_square)
-//            .error(R.drawable.img_not_found_square)
-//            .into(view.itemMoviePoster)
     }
 
     override fun onClick(v: View?) {

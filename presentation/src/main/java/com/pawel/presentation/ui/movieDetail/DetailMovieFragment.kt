@@ -14,7 +14,7 @@ import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.pawel.domain.extentions.loadSimpleImg
 import com.pawel.domain.model.movie.Movie
-import com.pawel.presentation.util.Consts.POSTER_URL
+import com.pawel.domain.util.helpers.PosterSize
 import com.pawel.domain.util.helpers.addComaInPrice
 import com.pawel.domain.util.helpers.buildStringForCompanies
 import com.pawel.domain.util.helpers.frenchFormatOfDate
@@ -82,12 +82,14 @@ class DetailMovieFragment : Fragment() {
                     updateUITexts()
                     updateUIImageView(
                         binding.detailMovieBackdrop.context,
-                        "${POSTER_URL}w500/${movie.backdrop_path}",
+                        PosterSize.POSTER_FIFE_HUNDRED,
+                        movie.backdrop_path,
                         binding.detailMovieBackdrop
                     )
                     updateUIImageView(
                         binding.detailMoviePoster.context,
-                        "${POSTER_URL}w300/${movie.poster_path}",
+                        PosterSize.POSTER_FOUR_HUNDRED,
+                        movie.poster_path,
                         binding.detailMoviePoster
                     )
                 }
@@ -107,13 +109,8 @@ class DetailMovieFragment : Fragment() {
         binding.detailMovieNoDataMessage.viewNoDataToDisplay.visibility = View.VISIBLE
     }
 
-    private fun updateUIImageView(context: Context, url: String, into: AppCompatImageView) {
-        into.loadSimpleImg(url, drawableError, Glide.with(context))
-//        Glide.with(context)
-//            .load(url)
-//            .placeholder(R.drawable.img_not_found_square)
-//            .error(R.drawable.img_not_found_square)
-//            .into(into)
+    private fun updateUIImageView(context: Context, size: PosterSize, endpoint: String, into: AppCompatImageView) {
+        into.loadSimpleImg(viewModel.getPosterUrl(endpoint,size), drawableError, Glide.with(context))
     }
 
     private fun updateUITexts() {
