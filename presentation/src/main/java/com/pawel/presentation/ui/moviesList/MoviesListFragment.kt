@@ -41,9 +41,13 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = MovieAdapter(requireContext(), this)
+        adapter = MovieAdapter(requireContext(), this, this::getImageUrl)
         setRecyclerView()
         setMovieObserver()
+    }
+
+    fun getImageUrl(endpoint: String) : String {
+        return viewModel.getImageUrl(endpoint)
     }
 
     private fun setRecyclerView() {

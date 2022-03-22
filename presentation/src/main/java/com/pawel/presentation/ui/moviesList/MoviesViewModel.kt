@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.pawel.common.networkErrorHandling.MovieException
 import com.pawel.domain.model.movies.Result
 import com.pawel.domain.service.MoviesService
+import com.pawel.domain.util.helpers.PosterSize
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import com.pawel.presentation.base.BaseViewModel
@@ -26,6 +27,10 @@ class MoviesViewModel @Inject constructor(private val moviesService: MoviesServi
 
     init {
         fetchMovies()
+    }
+
+    fun getImageUrl(endpoint: String) : String {
+        return moviesService.getPosterUrl(endpoint, PosterSize.POSTER_FOUR_HUNDRED)
     }
 
     private fun fetchMovies() {

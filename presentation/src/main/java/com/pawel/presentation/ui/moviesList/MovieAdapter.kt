@@ -9,21 +9,21 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pawel.domain.extentions.loadSimpleImg
-import com.pawel.presentation.util.Consts.POSTER_URL
 import com.pawel.movieapp.presentation.R
 import com.pawel.movieapp.presentation.databinding.ItemMovieBinding
 import com.pawel.domain.model.movies.Result
 
 class MovieAdapter(
     private val context: Context,
-    private val onClickItem: OnMovieItemClickListener
+    private val onClickItem: OnMovieItemClickListener,
+    private val getImageUrl : (endpoint: String) -> String
 ) : RecyclerView.Adapter<MovieViewHolder>() {
 
     private var movies = mutableListOf<Result>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MovieViewHolder(context, binding, onClickItem)
+        return MovieViewHolder(context, binding, onClickItem, this.getImageUrl)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
@@ -42,7 +42,8 @@ class MovieAdapter(
 class MovieViewHolder(
     context: Context,
     private val view: ItemMovieBinding,
-    private val onMovieItemClickListener: OnMovieItemClickListener
+    private val onMovieItemClickListener: OnMovieItemClickListener,
+    val getImageUrl : (endpoint: String) -> String
 ) :
     RecyclerView.ViewHolder(view.root), View.OnClickListener {
 
@@ -58,10 +59,9 @@ class MovieViewHolder(
     private fun publicFor(bool: Boolean) = if (bool) adultStr else allPublic
 
     // url example: https://image.tmdb.org/t/p/w200//rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg
-    private fun setUrl(endpoint: String?) = "${POSTER_URL}w400/$endpoint"
 
     fun bind(movie: Result) {
-        val url = setUrl(movie.poster_path)
+        val url = getImageUrl(movie.poster_path)
         view.itemTitle.text = movie.title
         view.itemConcernedPublic.text = publicFor(movie.adult)
         view.itemDescription.text = movie.overview
