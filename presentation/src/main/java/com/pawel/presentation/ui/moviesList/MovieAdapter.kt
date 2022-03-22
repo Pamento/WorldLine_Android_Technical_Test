@@ -40,7 +40,7 @@ class MovieAdapter(
 
 
 class MovieViewHolder(
-    private val context: Context,
+    context: Context,
     private val view: ItemMovieBinding,
     private val onMovieItemClickListener: OnMovieItemClickListener
 ) :
