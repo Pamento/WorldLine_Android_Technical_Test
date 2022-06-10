@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.pawel.common.networkErrorHandling.MovieException
 import com.pawel.domain.service.MoviesService
 import com.pawel.domain.util.helpers.PosterSize
-import com.pawel.domain.util.helpers.PosterUrlBuilder
 import com.pawel.presentation.base.BaseViewModel
 import com.pawel.presentation.helpers.Event
 import com.pawel.presentation.helpers.MoviesError
@@ -27,7 +26,6 @@ class DetailMovieViewModel @Inject constructor(private val moviesService: Movies
 
     fun getPosterUrl(endpoint: String, size: PosterSize) =
         moviesService.getPosterUrl(endpoint, size)
-
 
     fun getMovie(movieID: String) {
         if (_networkResponse.value == null || _movieId != movieID) {

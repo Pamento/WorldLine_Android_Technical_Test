@@ -16,7 +16,7 @@ import com.pawel.domain.model.movies.Result
 class MovieAdapter(
     private val context: Context,
     private val onClickItem: OnMovieItemClickListener,
-    private val getImageUrl : (endpoint: String) -> String
+    private val getImageUrl: (endpoint: String) -> String
 ) : RecyclerView.Adapter<MovieViewHolder>() {
 
     private var movies = mutableListOf<Result>()
@@ -38,12 +38,11 @@ class MovieAdapter(
     }
 }
 
-
 class MovieViewHolder(
     context: Context,
     private val view: ItemMovieBinding,
     private val onMovieItemClickListener: OnMovieItemClickListener,
-    val getImageUrl : (endpoint: String) -> String
+    val getImageUrl: (endpoint: String) -> String
 ) :
     RecyclerView.ViewHolder(view.root), View.OnClickListener {
 

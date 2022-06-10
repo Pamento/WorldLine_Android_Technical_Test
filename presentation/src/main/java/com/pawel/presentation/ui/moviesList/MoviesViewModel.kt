@@ -22,14 +22,14 @@ class MoviesViewModel @Inject constructor(private val moviesService: MoviesServi
     val networkResponse: LiveData<NetworkResponse>
         get() = _networkResponse
 
-    private var _movies : List<Result> = mutableListOf()
+    private var _movies: List<Result> = mutableListOf()
     lateinit var error: Event<MovieException>
 
     init {
         fetchMovies()
     }
 
-    fun getImageUrl(endpoint: String) : String {
+    fun getImageUrl(endpoint: String): String {
         return moviesService.getPosterUrl(endpoint, PosterSize.POSTER_FOUR_HUNDRED)
     }
 

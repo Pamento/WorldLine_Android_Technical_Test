@@ -14,7 +14,6 @@ import com.pawel.movieapp.presentation.R
 @Suppress("unused")
 object ExtensionsErrors {
 
-
     fun Context.showAlertDialog(
         exception: MovieException,
         positiveButtonAction: AlertDialogButtonConfiguration? = null,
@@ -53,7 +52,11 @@ object ExtensionsErrors {
         if (dialogTitle != null) {
             builder.setTitle(dialogTitle)
         }
-        builder.setMessage(if (dialogMessage.isNullOrEmpty()) getString(R.string.generic_code_error_message) else dialogMessage)
+        builder.setMessage(
+            if (dialogMessage.isNullOrEmpty()) {
+                getString(R.string.generic_code_error_message)
+            } else dialogMessage
+        )
         if (positiveButtonAction != null) {
             builder.setPositiveButton(
                 positiveButtonAction.buttonLabel,
@@ -96,6 +99,7 @@ object ExtensionsErrors {
         }
     }
 
+    @SuppressWarnings("ForbiddenPublicDataClass")
     data class AlertDialogButtonConfiguration(
         @StringRes val buttonLabel: Int,
         val buttonAction: DialogInterface.OnClickListener

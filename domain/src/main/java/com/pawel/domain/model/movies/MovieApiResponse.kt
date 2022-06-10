@@ -1,5 +1,6 @@
 package com.pawel.domain.model.movies
 
+@SuppressWarnings("ForbiddenPublicDataClass")
 data class MovieApiResponse(
     val page: Int,
     val results: List<Result>,

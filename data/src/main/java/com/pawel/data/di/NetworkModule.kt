@@ -15,8 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
 
-
-//const val URL = "https://api.themoviedb.org/3/"
+// const val URL = "https://api.themoviedb.org/3/"
 const val URL = "URL"
 
 @Module

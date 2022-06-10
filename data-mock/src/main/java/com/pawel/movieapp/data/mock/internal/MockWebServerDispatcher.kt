@@ -9,7 +9,7 @@ class MockWebServerDispatcher @Inject constructor(private val assets: AssetProvi
     override fun dispatch(request: RecordedRequest): MockResponse {
         return when (val symbol = request.path?.substringAfter("/movie/")?.substringBefore("?")) {
             "popular" -> assets.createResponseFromAssets("movies.json")
-            "646385","634649","476669" -> assets.createResponseFromAssets("movie_id_$symbol.json")
+            "646385", "634649", "476669" -> assets.createResponseFromAssets("movie_id_$symbol.json")
             else -> throw IllegalArgumentException("Mocked URL not handled")
         }
     }

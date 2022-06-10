@@ -44,7 +44,7 @@ class DetailMovieFragment : Fragment() {
     private val binding get() = _binding!! as DetailMovieFragmentBinding
     private var idOfMovie = -1
     private lateinit var movie: Movie
-    private lateinit var drawableError : Drawable
+    private lateinit var drawableError: Drawable
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -66,7 +66,7 @@ class DetailMovieFragment : Fragment() {
         if (idOfMovie > -1) {
             viewModel.getMovie(idOfMovie.toString())
             setOnMovieResponseObserver()
-            drawableError = AppCompatResources.getDrawable(requireContext(),R.drawable.img_not_found_square)!!
+            drawableError = AppCompatResources.getDrawable(requireContext(), R.drawable.img_not_found_square)!!
         }
     }
 
@@ -110,7 +110,7 @@ class DetailMovieFragment : Fragment() {
     }
 
     private fun updateUIImageView(context: Context, size: PosterSize, endpoint: String, into: AppCompatImageView) {
-        into.loadSimpleImg(viewModel.getPosterUrl(endpoint,size), drawableError, Glide.with(context))
+        into.loadSimpleImg(viewModel.getPosterUrl(endpoint, size), drawableError, Glide.with(context))
     }
 
     private fun updateUITexts() {
@@ -133,8 +133,11 @@ class DetailMovieFragment : Fragment() {
         binding.detailMovieOriginalTitleBody.text = movie.original_title
         if (companiesNumber > 0) {
             val companies =
-                if (companiesNumber == 1) movie.production_companies[0].name
-                else buildStringForCompanies(movie.production_companies)
+                if (companiesNumber == 1) {
+                    movie.production_companies[0].name
+                } else {
+                    buildStringForCompanies(movie.production_companies)
+                }
 
             binding.detailMovieCompanyBody.text = companies.toString()
         } else {

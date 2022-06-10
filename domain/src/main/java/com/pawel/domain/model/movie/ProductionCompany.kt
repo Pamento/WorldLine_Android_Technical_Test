@@ -1,5 +1,6 @@
 package com.pawel.domain.model.movie
 
+@SuppressWarnings("ForbiddenPublicDataClass")
 data class ProductionCompany(
     val id: Int,
     val logo_path: String,

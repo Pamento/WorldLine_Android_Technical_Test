@@ -5,8 +5,6 @@ import javax.inject.Inject
 import com.pawel.domain.model.movies.Result
 import com.pawel.domain.repository.ImageRepository
 import com.pawel.domain.util.helpers.PosterSize
-import com.pawel.domain.util.helpers.PosterUrlBuilder
-
 
 class MoviesServiceImpl @Inject constructor(
     private val moviesRepository: MoviesRepository,

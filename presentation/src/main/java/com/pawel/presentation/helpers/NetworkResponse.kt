@@ -6,6 +6,9 @@ import com.pawel.domain.model.movies.Result
 
 sealed class NetworkResponse
 
-data class MoviesList(val movies: List<Result>) : NetworkResponse()
+@SuppressWarnings("ForbiddenPublicDataClass")
 data class SingleMovie(val movie: Movie) : NetworkResponse()
+@SuppressWarnings("ForbiddenPublicDataClass")
+data class MoviesList(val movies: List<Result>) : NetworkResponse()
+@SuppressWarnings("ForbiddenPublicDataClass")
 data class MoviesError(val error: MovieException) : NetworkResponse()

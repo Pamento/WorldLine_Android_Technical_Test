@@ -2,7 +2,10 @@ package com.pawel.presentation.ui.main
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.hasChildCount
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.filters.LargeTest
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.pawel.movieapp.presentation.R
@@ -28,7 +31,6 @@ class MainActivityTestRecyclerView {
     fun init() {
         mActivityTestRule.inject()
     }
-
 
     @Test
     fun mainActivityTest_RecyclerView() {

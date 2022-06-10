@@ -47,5 +47,4 @@ class MovieInterceptor @Inject constructor(
         this.addHeader("Version_MobileApp", versionName)
         return this
     }
-
 }

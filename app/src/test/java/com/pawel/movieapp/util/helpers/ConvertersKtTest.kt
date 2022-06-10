@@ -3,7 +3,7 @@ package com.pawel.movieapp.util.helpers
 import com.pawel.domain.util.helpers.addComaInPrice
 import com.pawel.domain.util.helpers.frenchFormatOfDate
 import com.pawel.domain.util.helpers.getListSize
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 
 import org.junit.Test
 

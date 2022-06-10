@@ -11,7 +11,7 @@ open class BaseViewModel : ViewModel() {
 
     fun CoroutineScope.launchBy(error: (MovieException) -> Unit, block: suspend CoroutineScope.() -> Unit) {
         val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
-            error.invoke(if (throwable is MovieException) throwable else MovieException.genericError() )
+            error.invoke(if (throwable is MovieException) throwable else MovieException.genericError())
         }
 
         this.launch(

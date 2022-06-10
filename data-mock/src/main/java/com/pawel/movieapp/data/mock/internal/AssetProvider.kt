@@ -13,7 +13,7 @@ class AssetProvider @Inject constructor(@ApplicationContext private val context:
         fileName: String,
         responseCode: Int = DEFAULT_HTTP_CODE,
         delayInSeconds: Long = DEFAULT_DELAY
-    ) : MockResponse {
+    ): MockResponse {
         var inputStream = ""
         try {
             inputStream = context.assets.open(fileName).bufferedReader(Charsets.UTF_8).use { it.readText() }

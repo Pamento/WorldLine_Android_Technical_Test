@@ -46,7 +46,7 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
         setMovieObserver()
     }
 
-    fun getImageUrl(endpoint: String) : String {
+    fun getImageUrl(endpoint: String): String {
         return viewModel.getImageUrl(endpoint)
     }
 
