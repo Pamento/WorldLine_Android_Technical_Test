@@ -2,10 +2,13 @@ package com.pawel.presentation.ui.main
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.hasChildCount
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.filters.LargeTest
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.pawel.worldline_android_technical_test.presentation.R
+import com.pawel.movieapp.presentation.R
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.Matchers.allOf
@@ -28,7 +31,6 @@ class MainActivityTestRecyclerView {
     fun init() {
         mActivityTestRule.inject()
     }
-
 
     @Test
     fun mainActivityTest_RecyclerView() {

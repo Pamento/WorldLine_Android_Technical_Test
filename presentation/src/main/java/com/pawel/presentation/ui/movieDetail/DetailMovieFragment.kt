@@ -1,24 +1,30 @@
 package com.pawel.presentation.ui.movieDetail
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
+import com.pawel.domain.extentions.loadSimpleImg
 import com.pawel.domain.model.movie.Movie
-import com.pawel.presentation.util.Consts.POSTER_URL
+import com.pawel.domain.util.helpers.PosterSize
 import com.pawel.domain.util.helpers.addComaInPrice
 import com.pawel.domain.util.helpers.buildStringForCompanies
 import com.pawel.domain.util.helpers.frenchFormatOfDate
 import com.pawel.domain.util.helpers.getListSize
 import com.pawel.presentation.EspressoIdlingResource
-import com.pawel.worldline_android_technical_test.presentation.R
-import com.pawel.worldline_android_technical_test.presentation.databinding.DetailMovieFragmentBinding
+import com.pawel.presentation.helpers.ExtensionsErrors.showAlertDialog
+import com.pawel.presentation.helpers.MoviesError
+import com.pawel.presentation.helpers.SingleMovie
+import com.pawel.movieapp.presentation.R
+import com.pawel.movieapp.presentation.databinding.DetailMovieFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,6 +44,7 @@ class DetailMovieFragment : Fragment() {
     private val binding get() = _binding!! as DetailMovieFragmentBinding
     private var idOfMovie = -1
     private lateinit var movie: Movie
+    private lateinit var drawableError: Drawable
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -59,36 +66,51 @@ class DetailMovieFragment : Fragment() {
         if (idOfMovie > -1) {
             viewModel.getMovie(idOfMovie.toString())
             setOnMovieResponseObserver()
+            drawableError = AppCompatResources.getDrawable(requireContext(), R.drawable.img_not_found_square)!!
         }
     }
 
     private fun setOnMovieResponseObserver() {
+        /**
+         * EspressoIdlingResource...() utility for AndroidTest
+         */
         EspressoIdlingResource.increment()
-        viewModel.movie.observe(viewLifecycleOwner) {
-            it?.let {
-                movie = it
-                updateUITexts()
-                updateUIImageView(
-                    binding.detailMovieBackdrop.context,
-                    "${POSTER_URL}w500/${movie.backdrop_path}",
-                    binding.detailMovieBackdrop
-                )
-                updateUIImageView(
-                    binding.detailMoviePoster.context,
-                    "${POSTER_URL}w300/${movie.poster_path}",
-                    binding.detailMoviePoster
-                )
-
+        viewModel.networkResponse.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is SingleMovie -> {
+                    movie = result.movie
+                    updateUITexts()
+                    updateUIImageView(
+                        binding.detailMovieBackdrop.context,
+                        PosterSize.POSTER_FIFE_HUNDRED,
+                        movie.backdrop_path,
+                        binding.detailMovieBackdrop
+                    )
+                    updateUIImageView(
+                        binding.detailMoviePoster.context,
+                        PosterSize.POSTER_FOUR_HUNDRED,
+                        movie.poster_path,
+                        binding.detailMoviePoster
+                    )
+                }
+                is MoviesError -> {
+                    displayNoDataMessage()
+                    viewModel.error.getContentIfNotHandled()?.let {
+                        context?.showAlertDialog(it)
+                    }
+                }
+                else -> {}
             }
         }
     }
 
-    private fun updateUIImageView(context: Context, url: String, into: AppCompatImageView) {
-        Glide.with(context)
-            .load(url)
-            .placeholder(R.drawable.img_not_found_square)
-            .error(R.drawable.img_not_found_square)
-            .into(into)
+    private fun displayNoDataMessage() {
+        binding.detailMovieContent.visibility = View.GONE
+        binding.detailMovieNoDataMessage.viewNoDataToDisplay.visibility = View.VISIBLE
+    }
+
+    private fun updateUIImageView(context: Context, size: PosterSize, endpoint: String, into: AppCompatImageView) {
+        into.loadSimpleImg(viewModel.getPosterUrl(endpoint, size), drawableError, Glide.with(context))
     }
 
     private fun updateUITexts() {
@@ -111,8 +133,11 @@ class DetailMovieFragment : Fragment() {
         binding.detailMovieOriginalTitleBody.text = movie.original_title
         if (companiesNumber > 0) {
             val companies =
-                if (companiesNumber == 1) movie.production_companies[0].name
-                else buildStringForCompanies(movie.production_companies)
+                if (companiesNumber == 1) {
+                    movie.production_companies[0].name
+                } else {
+                    buildStringForCompanies(movie.production_companies)
+                }
 
             binding.detailMovieCompanyBody.text = companies.toString()
         } else {

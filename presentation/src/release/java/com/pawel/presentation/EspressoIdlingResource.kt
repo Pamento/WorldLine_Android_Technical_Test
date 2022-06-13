@@ -1,9 +1,7 @@
 package com.pawel.presentation
 
 object EspressoIdlingResource {
-    fun increment() {
-    }
+    fun increment()
 
-    fun decrement() {
-    }
+    fun decrement()
 }

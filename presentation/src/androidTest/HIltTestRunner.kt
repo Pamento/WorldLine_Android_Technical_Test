@@ -1,4 +1,3 @@
-package com.pawel.presentation
 
 import android.app.Application
 import android.content.Context

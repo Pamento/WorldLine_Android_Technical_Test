@@ -1,0 +1,107 @@
+package com.pawel.presentation.helpers
+
+import android.content.Context
+import android.content.DialogInterface
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
+import com.pawel.common.networkErrorHandling.MovieException
+import com.pawel.common.networkErrorHandling.UNAUTHENTICATED_ERROR_CODE
+import com.pawel.common.networkErrorHandling.UNAUTHORIZED_ERROR_CODE
+import com.pawel.common.networkErrorHandling.NO_RESOURCES
+import com.pawel.common.networkErrorHandling.FUNCTIONAL_ERROR_CODE
+import com.pawel.movieapp.presentation.R
+
+@Suppress("unused")
+object ExtensionsErrors {
+
+    fun Context.showAlertDialog(
+        exception: MovieException,
+        positiveButtonAction: AlertDialogButtonConfiguration? = null,
+        negativeButtonAction: AlertDialogButtonConfiguration? = null
+    ) {
+        this.showAlertDialog(
+            dialogTitle = exception.titleRes(),
+            dialogMessage = exception.messageRes(),
+            positiveButtonAction = positiveButtonAction,
+            negativeButtonAction = negativeButtonAction
+        )
+    }
+
+    fun Context.showAlertDialog(
+        @StringRes dialogTitle: Int? = null,
+        @StringRes dialogMessage: Int? = null,
+        positiveButtonAction: AlertDialogButtonConfiguration? = null,
+        negativeButtonAction: AlertDialogButtonConfiguration? = null
+    ) {
+        this.showAlertDialog(
+            if (dialogTitle != null) this.getString(dialogTitle) else null,
+            if (dialogMessage != null) this.getString(dialogMessage) else null,
+            positiveButtonAction,
+            negativeButtonAction
+        )
+    }
+
+    fun Context.showAlertDialog(
+        dialogTitle: String? = null,
+        dialogMessage: String? = null,
+        positiveButtonAction: AlertDialogButtonConfiguration? = null,
+        negativeButtonAction: AlertDialogButtonConfiguration? = null
+    ) {
+        // TODO apply custom style to AlertDialog, other than ThemeOverlay_AppCompat
+        val builder = AlertDialog.Builder(this, R.style.ThemeOverlay_AppCompat)
+        if (dialogTitle != null) {
+            builder.setTitle(dialogTitle)
+        }
+        builder.setMessage(
+            if (dialogMessage.isNullOrEmpty()) {
+                getString(R.string.generic_code_error_message)
+            } else dialogMessage
+        )
+        if (positiveButtonAction != null) {
+            builder.setPositiveButton(
+                positiveButtonAction.buttonLabel,
+                positiveButtonAction.buttonAction
+            )
+        }
+        if (negativeButtonAction != null) {
+            builder.setNegativeButton(
+                negativeButtonAction.buttonLabel,
+                negativeButtonAction.buttonAction
+            )
+        }
+        if (positiveButtonAction == null && negativeButtonAction == null) {
+            builder.setPositiveButton(
+                getString(R.string.ok),
+                null
+            )
+        }
+        val dialog = builder.create()
+        dialog.setCancelable(false)
+        dialog.show()
+    }
+
+    private fun MovieException.titleRes(): Int {
+        return when (this.movieErrorCode.code) {
+            UNAUTHENTICATED_ERROR_CODE -> R.string.unauthenticated_error_code_title
+            UNAUTHORIZED_ERROR_CODE -> R.string.unauthorized_error_code_title
+            NO_RESOURCES -> R.string.no_data_error_code_title
+            else -> R.string.generic_code_error_title
+        }
+    }
+
+    private fun MovieException.messageRes(): Int {
+        return when (this.movieErrorCode.code) {
+            FUNCTIONAL_ERROR_CODE -> R.string.functionnal_error_code_message
+            UNAUTHENTICATED_ERROR_CODE -> R.string.unauthenticated_error_code_message
+            UNAUTHORIZED_ERROR_CODE -> R.string.unauthorized_error_code_message
+            NO_RESOURCES -> R.string.no_data_error_code_message
+            else -> R.string.generic_code_error_message
+        }
+    }
+
+    @SuppressWarnings("ForbiddenPublicDataClass")
+    data class AlertDialogButtonConfiguration(
+        @StringRes val buttonLabel: Int,
+        val buttonAction: DialogInterface.OnClickListener
+    )
+}

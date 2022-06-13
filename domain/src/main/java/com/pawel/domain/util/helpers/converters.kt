@@ -2,7 +2,7 @@ package com.pawel.domain.util.helpers
 
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 fun frenchFormatOfDate(date: String): String {
     val fromDateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
@@ -11,6 +11,7 @@ fun frenchFormatOfDate(date: String): String {
     return temp?.let { toDateFormat.format(temp) } ?: date
 }
 
+@SuppressWarnings("MagicNumber")
 fun addComaInPrice(price: String): String {
     val s = price.split("").toMutableList()
     val sT = ArrayList(s)
@@ -21,7 +22,7 @@ fun addComaInPrice(price: String): String {
     var r = l % 3
     val comaPrice = StringBuilder()
     for (irs in s) {
-        if (r == 0 && (comaPrice.isEmpty())) {
+        if (r == 0 && comaPrice.isEmpty()) {
             comaPrice.append(irs)
             r = 2
         } else if (r == 0 && comaPrice.length != l) {

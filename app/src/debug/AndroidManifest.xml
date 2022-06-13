@@ -2,7 +2,7 @@
 
     <application>
         <activity
-            android:name="com.pawel.worldline_android_technical_test.HiltTestActivity"
+            android:name="com.pawel.movieapp.HiltTestActivity"
             android:exported="false"
 
             />
