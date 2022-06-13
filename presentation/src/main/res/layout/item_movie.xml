@@ -5,9 +5,7 @@
     android:id="@+id/item_movie_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/space_normal"
-    android:layout_marginHorizontal="@dimen/space_normal"
-    android:layout_marginVertical="@dimen/space_small">
+    app:cardCornerRadius="@dimen/space_normal">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

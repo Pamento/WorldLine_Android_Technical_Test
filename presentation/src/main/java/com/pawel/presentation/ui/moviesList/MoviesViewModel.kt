@@ -25,7 +25,6 @@ class MoviesViewModel @Inject constructor(private val moviesService: MoviesServi
     private fun fetchMovies() {
         viewModelScope.launch {
             moviesList.value = moviesService.getMovies()
-            Log.i("TAG", "MViewM_fetchMovies: movies.size:: ${moviesList.value?.size}")
         }
     }
 

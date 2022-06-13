@@ -17,7 +17,7 @@ class MoviesInMemoryCache @Inject constructor() {
         try {
             lru.put(key, data)
         } catch (e: Exception) {
-            Log.i("ERROR", "on saveInCacheMemory: ${e.localizedMessage}")
+            Log.e("ERROR", "on saveInCacheMemory: ${e.localizedMessage}")
         }
     }
 
@@ -25,7 +25,7 @@ class MoviesInMemoryCache @Inject constructor() {
         return try {
             lru.get(key)
         } catch (e: Exception) {
-            Log.i("ERROR", "on fetchFromCacheMemory: ${e.localizedMessage}")
+            Log.e("ERROR", "on fetchFromCacheMemory: ${e.localizedMessage}")
             null
         }
     }

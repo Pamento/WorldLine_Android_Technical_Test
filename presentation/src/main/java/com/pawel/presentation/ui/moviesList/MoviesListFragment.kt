@@ -1,7 +1,6 @@
 package com.pawel.presentation.ui.moviesList
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pawel.presentation.EspressoIdlingResource
 import com.pawel.presentation.ui.main.MainActivity
 import com.pawel.presentation.ui.movieDetail.DetailMovieFragment
+import com.pawel.worldline_android_technical_test.presentation.R
 import com.pawel.worldline_android_technical_test.presentation.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,9 +44,11 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     private fun setRecyclerView() {
-        Log.i("rvvvv", "setRecyclerView: run")
         recyclerView = binding.listMoviesRV
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.addItemDecoration(
+            MarginItemDecoration(resources.getDimensionPixelSize(R.dimen.space_normal))
+        )
         recyclerView.adapter = adapter
     }
 
@@ -61,7 +63,6 @@ class MoviesListFragment : Fragment(), OnMovieItemClickListener {
     }
 
     override fun onMovieItemClick(position: Int) {
-        Log.i("TAG", "onMovieItemClick: $position")
         val movieID = viewModel.movieId(position)
         movieID?.let {
             val mainActivity = requireActivity() as MainActivity
