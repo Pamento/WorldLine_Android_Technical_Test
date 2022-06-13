@@ -1,6 +1,7 @@
 package com.pawel.movieapp.data.mock.internal
 
 import android.content.Context
+import android.util.Log
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.mockwebserver.MockResponse
 import java.io.IOException
@@ -18,7 +19,7 @@ class AssetProvider @Inject constructor(@ApplicationContext private val context:
         try {
             inputStream = context.assets.open(fileName).bufferedReader(Charsets.UTF_8).use { it.readText() }
         } catch (ioException: IOException) {
-            ioException.printStackTrace()
+            Log.e("Exception", " in opening file from assets.", ioException.cause)
         }
 
         return MockResponse()

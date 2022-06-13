@@ -12,6 +12,7 @@ import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Named
 
+@SuppressWarnings("SwallowedException", "RethrowCaughtException")
 class MovieInterceptor @Inject constructor(
     @Named(HILT_APP_VERSION_NAME) private val versionName: String
 ) : Interceptor {
@@ -35,9 +36,9 @@ class MovieInterceptor @Inject constructor(
                 )
             }
         } catch (e: HttpException) {
-            throw MovieException(MovieErrorCode(e.code()), isHttpError = false)
+            throw MovieException(MovieErrorCode(e.code()), isHttpError = false, root = e)
         } catch (e: MovieException) {
-            throw e
+          throw e
         } catch (e: IOException) {
             throw MovieException.genericError()
         }

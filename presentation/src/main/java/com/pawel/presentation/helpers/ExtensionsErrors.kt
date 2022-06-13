@@ -8,7 +8,7 @@ import com.pawel.common.networkErrorHandling.MovieException
 import com.pawel.common.networkErrorHandling.UNAUTHENTICATED_ERROR_CODE
 import com.pawel.common.networkErrorHandling.UNAUTHORIZED_ERROR_CODE
 import com.pawel.common.networkErrorHandling.NO_RESOURCES
-import com.pawel.common.networkErrorHandling.FUNCTIONNAL_ERROR_CODE
+import com.pawel.common.networkErrorHandling.FUNCTIONAL_ERROR_CODE
 import com.pawel.movieapp.presentation.R
 
 @Suppress("unused")
@@ -91,7 +91,7 @@ object ExtensionsErrors {
 
     private fun MovieException.messageRes(): Int {
         return when (this.movieErrorCode.code) {
-            FUNCTIONNAL_ERROR_CODE -> R.string.functionnal_error_code_message
+            FUNCTIONAL_ERROR_CODE -> R.string.functionnal_error_code_message
             UNAUTHENTICATED_ERROR_CODE -> R.string.unauthenticated_error_code_message
             UNAUTHORIZED_ERROR_CODE -> R.string.unauthorized_error_code_message
             NO_RESOURCES -> R.string.no_data_error_code_message

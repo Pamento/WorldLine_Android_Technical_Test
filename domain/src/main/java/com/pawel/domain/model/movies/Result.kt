@@ -1,6 +1,6 @@
 package com.pawel.domain.model.movies
 
-@SuppressWarnings("ForbiddenPublicDataClass")
+@SuppressWarnings("ForbiddenPublicDataClass", "ConstructorParameterNaming")
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,

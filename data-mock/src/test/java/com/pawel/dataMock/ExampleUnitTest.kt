@@ -1,4 +1,4 @@
-package com.example.data_mock
+package com.pawel.dataMock
 
 import org.junit.Test
 
