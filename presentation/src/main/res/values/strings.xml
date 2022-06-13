@@ -9,4 +9,16 @@
     <string name="budget">Budget</string>
     <string name="budget_in_dolar">%s $</string>
 <!--    <string name="budget_in_dolar">%1$s%2$s.</string>-->
+    <string name="ok">OK</string>
+    <string name="generic_code_error_title">Une erreur s\'est produite.</string>
+    <string name="generic_code_error_message">Veuillez renouveler votre opération.</string>
+    <string name="functionnal_error_code_title">@string/generic_code_error_title</string>
+    <string name="functionnal_error_code_message">Veuillez renouveler votre opération.</string>
+    <string name="unauthenticated_error_code_title">Une erreur de connexion</string>
+    <string name="unauthenticated_error_code_message">Veuillez vous connecter pour accéder à l\'application</string>
+    <string name="unauthorized_error_code_title">Un accès limité.</string>
+    <string name="unauthorized_error_code_message">Vous n\'avez pas accès à cette application.</string>
+    <string name="no_data_to_display_message">Aucune donnée à afficher</string>
+    <string name="no_data_error_code_title">@string/generic_code_error_title</string>
+    <string name="no_data_error_code_message">The resource you requested could not be found.</string>
 </resources>

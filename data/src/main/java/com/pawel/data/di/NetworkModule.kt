@@ -2,6 +2,8 @@ package com.pawel.data.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.pawel.common.HILT_APP_VERSION_NAME
+import com.pawel.data.interceptors.MovieInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,8 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
 
-
-//const val URL = "https://api.themoviedb.org/3/"
+// const val URL = "https://api.themoviedb.org/3/"
 const val URL = "URL"
 
 @Module
@@ -40,8 +41,9 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(): OkHttpClient =
+    fun provideHttpClient(@Named(HILT_APP_VERSION_NAME) versionName: String): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(provideHttpInterceptor())
+            .addInterceptor(MovieInterceptor(versionName))
             .build()
 }

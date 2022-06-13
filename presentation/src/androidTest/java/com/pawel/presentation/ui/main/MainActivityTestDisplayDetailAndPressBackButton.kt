@@ -1,6 +1,5 @@
 package com.pawel.presentation.ui.main
 
-
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -8,10 +7,14 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withParent
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.filters.LargeTest
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.pawel.worldline_android_technical_test.presentation.R
+import com.pawel.movieapp.presentation.R
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.Description
@@ -37,10 +40,9 @@ class MainActivityTestDisplayDetailAndPressBackButton {
         mActivityTestRule.inject()
     }
 
-
     @Test
-    fun mainActivityTestDisplayDetailAndPressBackButton() {
-        val recyclerView = onView(
+    fun displayDetailAndPressBackButton() {
+        val mainRecyclerView = onView(
             allOf(
                 withId(R.id.listMoviesRV),
                 childAtPosition(
@@ -49,7 +51,7 @@ class MainActivityTestDisplayDetailAndPressBackButton {
                 )
             )
         )
-        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(2, click()))
+        mainRecyclerView.perform(actionOnItemAtPosition<ViewHolder>(2, click()))
 
         val textView = onView(
             allOf(
@@ -104,8 +106,8 @@ class MainActivityTestDisplayDetailAndPressBackButton {
 
             public override fun matchesSafely(view: View): Boolean {
                 val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position)
+                return parent is ViewGroup && parentMatcher.matches(parent) &&
+                        view == parent.getChildAt(position)
             }
         }
     }

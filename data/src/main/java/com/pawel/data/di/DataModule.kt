@@ -23,7 +23,6 @@ class DataModule {
     }
 
     @Provides
-    fun provideMoviesRepositoryNetwork(retrofit: Retrofit) : MoviesRepositoryNetwork =
+    fun provideMoviesRepositoryNetwork(retrofit: Retrofit): MoviesRepositoryNetwork =
         retrofit.create(MoviesRepositoryNetwork::class.java)
-
 }

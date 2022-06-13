@@ -205,7 +205,7 @@ formatting:
     active: true
     autoCorrect: true
   Filename:
-    active: true
+    active: false
   FinalNewline:
     active: true
     autoCorrect: true
@@ -412,7 +412,7 @@ potential-bugs:
   LateinitUsage:
     active: false
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
-    ignoreAnnotated: ""
+    excludeAnnotatedProperties: ""
     ignoreOnClassesPattern: ""
   MapGetWithNotNullAssertionOperator:
     active: true
@@ -470,7 +470,7 @@ style:
     active: true
     ignoreOverridableFunction: true
     excludedFunctions: 'describeContents'
-    ignoreAnnotated: "dagger.Provides"
+    excludeAnnotatedFunction: "dagger.Provides"
   LibraryCodeMustSpecifyReturnType:
     active: true
   LoopWithTooManyJumpStatements:
@@ -541,10 +541,10 @@ style:
     active: true
   UnderscoresInNumericLiterals:
     active: true
-    acceptableLength: 5
+    acceptableDecimalLength: 5
   UnnecessaryAbstractClass:
     active: true
-    ignoreAnnotated: "dagger.Module"
+    excludeAnnotatedClasses: "dagger.Module"
   UnnecessaryAnnotationUseSiteTarget:
     active: true
   UnnecessaryApply:
@@ -570,7 +570,7 @@ style:
     active: true
   UseDataClass:
     active: true
-    ignoreAnnotated: ""
+    excludeAnnotatedClasses: ""
     allowVars: false
   UseIfInsteadOfWhen:
     active: false

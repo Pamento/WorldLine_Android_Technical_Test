@@ -11,6 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/purple_700"
-        tools:listitem="@layout/item_movie"/>
+        tools:listitem="@layout/item_movie" />
 
+    <include
+        android:id="@+id/listMovieNoDataMessage"
+        layout="@layout/view_no_data_to_display" />
 </FrameLayout>
